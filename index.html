@@ -127,7 +127,7 @@
 		footer {
 			display: none !important;
 		}
-
+/*
 		#bg-overlay {
 			position: fixed;
 			left: 0;
@@ -138,8 +138,9 @@
 			backface-visibility: hidden;
 			transform: translate3d(0, 0, 0);
 			background: hsla(285, 89%, 13%, 0.41960784313725);
+			background: hsla(285, 89%, 13%, 0);
 		}
-
+*/ 
 		#bg {
 			position: fixed;
 			left: 0;
@@ -198,8 +199,10 @@
 
 <body class="demo-3 app-started is-thegrid.io-">
 
+	<!--  
+	<div id="bg-overlay"></div>
+	-->
 
-		<div id="bg-overlay"></div>
 		<div id="bg">
 			<div class="content">
 				<canvas id="landscape" class="landscape" width="1280" height="639" style="width: 1280px; height: 639px;"></canvas>
