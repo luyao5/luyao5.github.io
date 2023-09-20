@@ -1,18 +1,18 @@
 createLandscape({
-  palleteImage:'img/pallete.png'
+  palleteImage:'img/pallete5.png'
 })
 
 function createLandscape(params){
 
-  const container = document.getElementById("landscape")
+  var container = document.querySelector(".landscape")
   var width = window.innerWidth;
   var height = window.innerHeight;
 
   var scene, renderer, camera;
   var terrain;
 
-  const mouse = { x:0, y:0, xDamped:0, yDamped:0 };
-  const isMobile = typeof window.orientation !== 'undefined'
+  var mouse = { x:0, y:0, xDamped:0, yDamped:0 };
+  var isMobile = typeof window.orientation !== 'undefined'
 
   init();
 
@@ -24,9 +24,9 @@ function createLandscape(params){
     render();
 
     if(isMobile)
-      window.addEventListener("touchmove", onInputMove, {passive:true})
+      window.addEventListener("touchmove", onInputMove, {passive:false})
     else
-      window.addEventListener("mousemove", onInputMove,{passive:true})
+      window.addEventListener("mousemove", onInputMove)
     
     window.addEventListener("resize", resize)
     resize()
@@ -34,9 +34,9 @@ function createLandscape(params){
 
   function sceneSetup(){
     scene = new THREE.Scene();
-    var fogColor = new THREE.Color( 0x333333 )
+    var fogColor = new THREE.Color( 0xffffff )
     scene.background = fogColor;
-    scene.fog = new THREE.Fog(fogColor, 0, 400);
+    scene.fog = new THREE.Fog(fogColor, 10, 400);
 
     
     sky()
@@ -61,20 +61,19 @@ function createLandscape(params){
 
   function sceneElements(){
 
-    const geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
+    var geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
 
-    const uniforms = {
+    var uniforms = {
       time: { type: "f", value: 0.0 },
-      scroll: { type: "f", value: 0.0 },
       distortCenter: { type: "f", value: 0.1 },
       roadWidth: { type: "f", value: 0.5 },
       pallete:{ type: "t", value: null},
-      speed: { type: "f", value: 3 },
+      speed: { type: "f", value: 0.5 },
       maxHeight: { type: "f", value: 10.0 },
       color:new THREE.Color(1, 1, 1)
     }
-
-    const material = new THREE.ShaderMaterial({
+    
+    var material = new THREE.ShaderMaterial({
       uniforms: THREE.UniformsUtils.merge([ THREE.ShaderLib.basic.uniforms, uniforms ]),
       vertexShader: document.getElementById( 'custom-vertex' ).textContent,
       fragmentShader: document.getElementById( 'custom-fragment' ).textContent,
@@ -91,23 +90,21 @@ function createLandscape(params){
   }
 
   function sceneTextures(){
-
     // pallete
-    new THREE.TextureLoader();
-    // new THREE.TextureLoader().load( params.palleteImage, function(texture){
-    //   terrain.material.uniforms.pallete.value = texture;
-    //   terrain.material.needsUpdate = true;
-    // });
+    new THREE.TextureLoader().load( params.palleteImage, function(texture){
+      terrain.material.uniforms.pallete.value = texture;
+      terrain.material.needsUpdate = true;
+    });
   }
 
   function sky(){
     sky = new THREE.Sky();
     sky.scale.setScalar( 450000 );
-    sky.material.uniforms.turbidity.value = 13;
-    sky.material.uniforms.rayleigh.value = 1.2;
+    sky.material.uniforms.turbidity.value = 20;
+    sky.material.uniforms.rayleigh.value = 0;
     sky.material.uniforms.luminance.value = 1;
-    sky.material.uniforms.mieCoefficient.value = 0.1;
-    sky.material.uniforms.mieDirectionalG.value = 0.58;
+    sky.material.uniforms.mieCoefficient.value = 0.01;
+    sky.material.uniforms.mieDirectionalG.value = 0.8;
     
     scene.add( sky );
 
@@ -117,9 +114,9 @@ function createLandscape(params){
     );
     sunSphere.visible = false;
     scene.add( sunSphere );
-
-    const theta = Math.PI * ( -0.002 );
-    const phi = 2 * Math.PI * ( -.25 );
+    
+    var theta = Math.PI * ( -0.02 );
+    var phi = 2 * Math.PI * ( -.25 );
 
     sunSphere.position.x = 400000 * Math.cos( phi );
     sunSphere.position.y = 400000 * Math.sin( phi ) * Math.sin( theta );
@@ -138,7 +135,7 @@ function createLandscape(params){
   }
 
   function onInputMove(e){
-    // e.preventDefault();
+    e.preventDefault();
     
     var x, y
     if(e.type == "mousemove"){
@@ -157,19 +154,15 @@ function createLandscape(params){
   function render(){
     requestAnimationFrame(render)
 
-
     // damping mouse for smoother interaction
     mouse.xDamped = lerp(mouse.xDamped, mouse.x, 0.1);
-    mouse.yDamped = lerp(mouse.yDamped, mouse.y, 0.05);
+    mouse.yDamped = lerp(mouse.yDamped, mouse.y, 0.1);
 
-    
-    const time = performance.now() * 0.0005
-    terrain.material.uniforms.time.value = time
-    terrain.material.uniforms.scroll.value = time + map(mouse.yDamped, 0, height, 0, 4);
-    terrain.material.uniforms.distortCenter.value = Math.sin(time) * 0.1;
-    terrain.material.uniforms.roadWidth.value = map(mouse.xDamped, 0, width, 1, 4.5);
+    var time = performance.now() * 0.001
+    terrain.material.uniforms.time.value = time;
+    terrain.material.uniforms.distortCenter.value = map(mouse.xDamped, 0, width, -0.1, 0.1);
+    terrain.material.uniforms.roadWidth.value = map(mouse.yDamped, 0, height, -0.5, 2.5);
 
-    camera.position.y = map(mouse.yDamped, 0, height, 4, 11);
 
     renderer.render(scene, camera)
 
@@ -189,7 +182,7 @@ const getRandomNumber = (min, max) => (Math.random() * (max - min) + min);
 animateTitles();
 
 function animateTitles() {
-  const overlay = document.querySelector('.overlay');
+  const overlay = document.querySelector('.overlay'); 
   const title = document.querySelector('.content__title');
   charming(title);
   const titleLetters = Array.from(title.querySelectorAll('span'));
@@ -200,61 +193,45 @@ function animateTitles() {
   });
 
   TweenMax.set(titleLetters, {opacity: 0});
-  TweenMax.staggerTo(titleLetters, .8, {
+  TweenMax.staggerTo(titleLetters, 1.5, {
     ease: Expo.easeOut,
     startAt: {rotationX: -100, z: -1000},
     opacity: 1,
     rotationX: 0,
     z: 0
-  }, .05);
+  }, 0.1);
 
-  // const subtitle = document.querySelector('.content__subtitle');
-  // TweenMax.set(subtitle, {opacity: 0});
-  // TweenMax.to(subtitle, .8, {
-  //   ease: Expo.easeOut,
-  //   startAt: {y: 30},
-  //   opacity: 1,
-  //   y: 0
-  // });
+  const subtitle = document.querySelector('.content__subtitle');
+  TweenMax.set(subtitle, {opacity: 0});
+  TweenMax.to(subtitle, 1.5, {
+    ease: Expo.easeOut,
+    startAt: {y: 30},
+    opacity: 1,
+    y: 0
+  });
 
-  // let char_base_color;
-  // const glitch_colors = ['hsla(349, 77%, 55%, 1)','hsla(349, 77%, 55%, .8)','hsla(349, 77%, 55%, .9)']
-  // const glitch = (el,cycles) => {
-  //   if ( cycles === 0 || cycles > 3 ) return;
-  //   TweenMax.to(el, .2, {
-  //     x: getRandomNumber(-20,20),
-  //     y: getRandomNumber(-20,20),
-  //     color: glitch_colors[cycles-1]
-  //   });
-  //   setTimeout(() => {
-  //     TweenMax.to(el, 2, {x: 0, y: 0, color: char_base_color});
-  //     glitch(el, cycles-1);
-  //   }, getRandomNumber(300,1000));
-  // };
+  const glitch = (el,cycles) => {
+    if ( cycles === 0 || cycles > 3 ) return;
+    TweenMax.set(el, {
+      x: getRandomNumber(-20,20), 
+      y: getRandomNumber(-20,20),
+      color: ['#95dc77','#f3eb8a','#f9b97f'][cycles-1]
+    });
+    setTimeout(() => {
+      TweenMax.set(el, {x: 0, y: 0, color: '#fff'});
+      glitch(el, cycles-1);
+    }, getRandomNumber(20,100));
+  };
 
-  // const loop = (startAt) => {
-  //   this.timeout = setTimeout(
-  //     loopTimeout,
-  //     startAt || getRandomNumber(500, 10000)
-  //   );
-  // }
-  // function loopTimeout() {
-  //   const
-  //   titleLettersShuffled = titleLetters.sort(titleLetterShuffleSort);
-  //   const
-  //   lettersSet = titleLettersShuffled.slice(0,
-  //     getRandomNumber(1,titleLetters.length+1)
-  //   );
-  //   for (let i = 0, len = lettersSet.length; i < len-1; ++i) {
-  //     glitch(lettersSet[i], 3);
-  //   }
-  //   loop();
-  // }
-  // function titleLetterShuffleSort(a,b) {
-  //   return 0.5 - Math.random();
-  // }
-  // requestAnimationFrame(function(){
-  //   char_base_color = window.getComputedStyle(title).getPropertyValue('color');
-  //   loop(1500);
-  // })
+  const loop = (startAt) => {
+    this.timeout = setTimeout(() => {
+        const titleLettersShuffled = titleLetters.sort((a,b) => 0.5 - Math.random());
+        const lettersSet = titleLettersShuffled.slice(0, getRandomNumber(1,titleLetters.length+1));
+        for (let i = 0, len = lettersSet.length; i < len-1; ++i) {
+          glitch(lettersSet[i], 3);
+        }
+        loop();
+    }, startAt || getRandomNumber(500, 3000));
+  }
+  loop(1500);
 }
