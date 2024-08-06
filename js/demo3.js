@@ -1,5 +1,5 @@
 createLandscape({
-  palleteImage:'img/pallete6.png'
+  palleteImage:'img/pallete6.png' //theme color stripe pallete selection
 })
 
 function createLandscape(params){
@@ -221,7 +221,7 @@ function animateTitles() {
     TweenMax.set(el, {
       x: getRandomNumber(-20,20), 
       y: getRandomNumber(-20,20),
-      color: ['#f4d339','#df003f','#111111'][cycles-1]
+      color: ['#f4d339','#df003f','#111111'][cycles-1] //title color shuffle
     });
     setTimeout(() => {
       TweenMax.set(el, {x: 0, y: 0, color: '#fff'});
