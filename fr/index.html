@@ -101,7 +101,13 @@
 <div class="text-2xl font-black text-[#894c2d] dark:text-[#a66443] tracking-tighter headline-anchor">
             Stonedrum
         </div>
-<div class="hidden md:flex space-x-8 items-center font-['Manrope'] font-bold tracking-tight text-sm"><a class="text-[#894c2d] border-b-2 border-[#894c2d] pb-1 hover:text-[#C27B58] transition-colors" href="#home">Accueil</a><a class="text-stone-600 dark:text-stone-400 hover:text-[#C27B58] transition-colors" href="#technology">Technologie</a><a class="text-stone-600 dark:text-stone-400 hover:text-[#C27B58] transition-colors" href="#solutions">Solutions</a><a class="text-stone-600 dark:text-stone-400 hover:text-[#C27B58] transition-colors" href="#footer">À Propos</a><a class="text-stone-400 dark:text-stone-500 hover:text-[#894c2d] transition-colors border-l border-stone-300 pl-4 ml-4" href="../">EN</a></div>
+<div class="hidden md:flex space-x-8 items-center font-['Manrope'] font-bold tracking-tight text-sm nav-links">
+                    <a class="nav-link-item active text-[#894c2d] border-b-2 border-[#894c2d] pb-1 transition-colors" href="#home">Accueil</a>
+                    <a class="nav-link-item text-stone-600 dark:text-stone-400 border-b-2 border-transparent pb-1 hover:text-[#894c2d] transition-colors" href="#technology">Technologie</a>
+                    <a class="nav-link-item text-stone-600 dark:text-stone-400 border-b-2 border-transparent pb-1 hover:text-[#894c2d] transition-colors" href="#solutions">Solutions</a>
+                    <a class="nav-link-item text-stone-600 dark:text-stone-400 border-b-2 border-transparent pb-1 hover:text-[#894c2d] transition-colors" href="#footer">À Propos</a>
+                    <a class="text-stone-400 dark:text-stone-500 hover:text-[#894c2d] transition-colors border-l border-stone-300 pl-4 ml-4" href="../">EN</a>
+                </div>
                     <div class="flex items-center space-x-4">
                         <button id="menu-toggle" class="md:hidden text-primary p-2 hover:bg-primary/5 rounded-full transition-colors">
                             <span class="material-symbols-outlined">menu</span>
@@ -122,11 +128,11 @@
                 </button>
             </div>
             
-            <nav class="flex flex-col space-y-8 font-['Manrope'] font-bold text-3xl tracking-tight">
-                <a class="text-[#894c2d] border-b-4 border-[#894c2d] pb-1 self-start" href="#home" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Accueil</a>
-                <a class="text-stone-700 dark:text-stone-300 hover:text-[#894c2d] transition-colors" href="#technology">Technologie</a>
-                <a class="text-stone-700 dark:text-stone-300 hover:text-[#894c2d] transition-colors" href="#solutions">Solutions</a>
-                <a class="text-stone-700 dark:text-stone-300 hover:text-[#894c2d] transition-colors" href="#footer">À Propos</a>
+            <nav class="flex flex-col space-y-8 font-['Manrope'] font-bold text-3xl tracking-tight mobile-nav-links">
+                <a class="mobile-nav-link active text-[#894c2d] border-b-4 border-[#894c2d] pb-1 self-start" href="#home">Accueil</a>
+                <a class="mobile-nav-link text-stone-700 dark:text-stone-300 border-b-4 border-transparent pb-1 self-start transition-colors" href="#technology">Technologie</a>
+                <a class="mobile-nav-link text-stone-700 dark:text-stone-300 border-b-4 border-transparent pb-1 self-start transition-colors" href="#solutions">Solutions</a>
+                <a class="mobile-nav-link text-stone-700 dark:text-stone-300 border-b-4 border-transparent pb-1 self-start transition-colors" href="#footer">À Propos</a>
                 <div class="pt-8 mt-8 border-t border-stone-200">
                     <a class="text-stone-400 hover:text-[#894c2d] transition-colors text-xl" href="../">EN / English</a>
                 </div>
@@ -274,7 +280,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
 <div class="flex flex-col gap-4">
 <div class="text-xl font-bold text-[#894c2d] font-headline headline-anchor">Stonedrum <span class="text-sm uppercase tracking-wider">SAS</span></div>
-<p class="font-body text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-xs">
+<p class="font-body text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-sm">
     Façonner le futur des expériences culturelles grâce à une IA éthique et une narration immersive.
 </p>
 <div class="flex flex-col gap-1">
@@ -294,7 +300,9 @@
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuLinks = mobileMenu.querySelectorAll('nav a');
+        const desktopLinks = document.querySelectorAll('.nav-link-item');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        const sections = document.querySelectorAll('header[id], section[id], footer[id]');
 
         const openMenu = () => {
             mobileMenu.classList.remove('translate-x-full');
@@ -309,9 +317,53 @@
         menuToggle.addEventListener('click', openMenu);
         menuClose.addEventListener('click', closeMenu);
 
-        // Close menu when a link is clicked
-        menuLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
+        // Update link styles
+        const updateLinks = (id) => {
+            desktopLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active', 'text-[#894c2d]', 'border-[#894c2d]');
+                    link.classList.remove('text-stone-600', 'dark:text-stone-400', 'border-transparent');
+                } else {
+                    link.classList.remove('active', 'text-[#894c2d]', 'border-[#894c2d]');
+                    link.classList.add('text-stone-600', 'dark:text-stone-400', 'border-transparent');
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active', 'text-[#894c2d]', 'border-[#894c2d]');
+                    link.classList.remove('text-stone-700', 'dark:text-stone-300', 'border-transparent');
+                } else {
+                    link.classList.remove('active', 'text-[#894c2d]', 'border-[#894c2d]');
+                    link.classList.add('text-stone-700', 'dark:text-stone-300', 'border-transparent');
+                }
+            });
+        };
+
+        // Scroll Spy Logic
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateLinks(entry.target.id);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Close menu & handle click scroll
+        [...desktopLinks, ...mobileLinks].forEach(link => {
+            link.addEventListener('click', (e) => {
+                closeMenu();
+                const id = link.getAttribute('href').replace('#', '');
+                updateLinks(id);
+            });
         });
 
         // Close menu when clicking backdrop area
