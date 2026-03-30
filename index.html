@@ -1,260 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- SEO Meta Tags -->
-    <title>Stonedrum | Reinventing Cultural Interaction with AI & Augmented Reality</title>
-    <meta name="description"
-        content="Stonedrum merges proprietary Agentic AI, immersive Augmented Reality, and cutting-edge Haptics to revolutionize how the world experiences museums, opera, and theater.">
-    <meta name="keywords"
-        content="AI, AR, Augmented Reality, Museum Guide, Opera, Theater, Cultural Technology, Agentic AI, Haptics, Tech Startup">
-    <meta name="author" content="Stonedrum">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://stonedrum.co/">
-    <meta property="og:title" content="Stonedrum | Reinventing Cultural Interaction with AI & Augmented Reality">
-    <meta property="og:description"
-        content="Stonedrum merges proprietary Agentic AI, immersive Augmented Reality, and cutting-edge Haptics to revolutionize cultural experiences.">
-    <meta property="og:image" content="https://stonedrum.co/assets/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Stonedrum | AI & Augmented Reality for Culture">
-    <meta name="twitter:description"
-        content="Revolutionizing museums, opera, and theater with Agentic AI and Augmented Reality.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Analytics placeholder -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script> -->
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stonedrum.co | The Modern Curator</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Work+Sans:wght@300;400;500;600&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fbf9f4",
+              "outline": "#85736c",
+              "surface-dim": "#dbdad5",
+              "on-tertiary-fixed-variant": "#5d4037",
+              "on-surface-variant": "#53433d",
+              "primary-fixed-dim": "#ffb693",
+              "on-secondary-container": "#745c00",
+              "surface-container-high": "#eae8e3",
+              "surface-bright": "#fbf9f4",
+              "surface-variant": "#e4e2dd",
+              "on-primary-fixed-variant": "#6f381a",
+              "secondary-fixed-dim": "#e9c349",
+              "surface": "#fbf9f4",
+              "on-primary-fixed": "#351000",
+              "secondary": "#735c00",
+              "tertiary": "#74554b",
+              "inverse-surface": "#30312e",
+              "inverse-primary": "#ffb693",
+              "on-primary-container": "#fffbff",
+              "on-secondary-fixed": "#241a00",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eee9",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e4e2dd",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#f5f3ee",
+              "tertiary-fixed-dim": "#e7bdb1",
+              "secondary-fixed": "#ffe088",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#574500",
+              "on-background": "#1b1c19",
+              "outline-variant": "#d8c2b9",
+              "on-error": "#ffffff",
+              "primary-container": "#a66443",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#fed65b",
+              "on-surface": "#1b1c19",
+              "on-tertiary-container": "#fffbff",
+              "surface-tint": "#8c4e2f",
+              "surface-container-low": "#f5f3ee",
+              "tertiary-fixed-dim": "#e7bdb1",
+              "secondary-fixed": "#ffe088",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#574500",
+              "on-background": "#1b1c19",
+              "outline-variant": "#d8c2b9",
+              "on-error": "#ffffff",
+              "primary-container": "#a66443",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#fed65b",
+              "on-surface": "#1b1c19",
+              "on-tertiary-container": "#fffbff",
+              "surface-tint": "#8c4e2f",
+              "tertiary-container": "#8f6d62",
+              "inverse-on-surface": "#f2f1ec",
+              "primary": "#894c2d",
+              "tertiary-fixed": "#ffdbd0",
+              "primary-fixed": "#ffdbcc",
+              "on-tertiary-fixed": "#2c160e",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Work Sans"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; background-color: #fbf9f4; color: #1b1c19; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .headline-anchor { font-family: 'Manrope', sans-serif; }
+    </style>
 </head>
-
-<body>
-    <!-- Three.js Background Container -->
-    <div id="canvas-container"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">Stonedrum</a>
-
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="/fr/" class="lang-toggle">FR</a></li>
-            </ul>
-
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<body class="bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (shared component COMPONENTS_9) -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-md shadow-[0px_20px_40px_rgba(137,76,45,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-black text-[#894c2d] dark:text-[#a66443] tracking-tighter headline-anchor">
+            Stonedrum
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>
-                    Reinventing <span class="serif-accent">Cultural</span> Interaction<br>
-                    with <span class="gradient-text">Agentic AI & Augmented Reality</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Stonedrum merges proprietary Agentic AI, immersive Augmented Reality, and cutting-edge Haptics to
-                    revolutionize how the world experiences museums, opera, and theater.
+<div class="hidden md:flex space-x-8 items-center font-['Manrope'] font-bold tracking-tight text-sm"><a class="text-[#894c2d] border-b-2 border-[#894c2d] pb-1 hover:text-[#894c2d] transition-colors" href="#">Home</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#894c2d] transition-colors" href="#technology">Technology</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#894c2d] transition-colors" href="#solutions">Solutions</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#894c2d] transition-colors" href="#footer">About</a><a class="text-stone-400 dark:text-stone-500 hover:text-[#894c2d] transition-colors border-l border-stone-300 pl-4 ml-4" href="fr/">FR</a></div>
+<div class="flex items-center space-x-4">
+<a class="bg-[#894c2d] text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:scale-95 active:scale-90 transition-transform shadow-lg shadow-primary/20 inline-block" href="#">Inquire</a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-surface" id="home">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-[#ffdbcc] text-[#6f381a] font-label text-xs font-semibold tracking-widest uppercase">
+                Culture &amp; Innovation
+            </span>
+<h1 class="font-headline font-extrabold text-5xl md:text-7xl leading-[1.1] tracking-tight text-on-surface mb-8">
+                Elevating the <span class="text-[#894c2d]">Human</span> Experience.
+            </h1>
+<p class="font-body text-xl text-on-surface-variant leading-relaxed mb-10 max-w-lg">
+                Stonedrum blends heritage with cutting-edge Agentic AI and Immersive AR to transform how we perceive art, stage, and museum spaces.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-[#894c2d] text-white px-8 py-4 rounded-full font-headline font-bold flex items-center justify-center gap-2 hover:bg-primary-container transition-colors duration-300" href="#">Explore Solutions <span class="material-symbols-outlined">arrow_forward</span></a>
+<a class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-headline font-bold hover:bg-surface-container-highest transition-colors duration-300 inline-block text-center" href="#">Watch Showcase</a>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/10 bg-surface-container-low border-[12px] border-surface-container-lowest">
+<img alt="Modern museum interior with dramatic shadows and lighting" class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF9-tGSSdCo_BPbjshNmtX9Su_4gLksCCzSKKweQ0d7ibY7TRxv3qm5a18i6cKeZw81khdU2nHFTjDJhow0poEAjsaBtOXpLz0o3ePjH-gIzllDbvY_-x8jN5RphYm-SEHbWdvYG-vYMSI_-dK5oeOSHqwzF1RZ7Bw0QztbN42uKw40cKEwkF8J5b77yQQt34-4Zp_qjwFdeoujPUsObPWcituXQsLiWL4zs5YvVm3EHjIGTEIcXxY3ZsxTfdZW-v98ZZ2zaaEomA"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-3xl shadow-xl flex items-center gap-4 border border-outline-variant/10">
+<div class="w-12 h-12 rounded-full bg-[#ffe088] flex items-center justify-center text-[#241a00]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<div class="font-headline font-bold text-sm text-on-surface">Agentic AI Powered</div>
+<div class="font-body text-xs text-on-surface-variant">Real-time cultural insights</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Ambient Light -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+</header>
+<!-- Core Technology Section -->
+<section class="py-24 bg-surface-container-low" id="technology">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-20 text-center max-w-3xl mx-auto">
+<h2 class="font-headline font-bold text-4xl mb-6 text-on-surface">The Technological Foundation</h2>
+<div class="h-1.5 w-24 bg-[#735c00] mx-auto rounded-full mb-8"></div>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                Our platform integrates multiple dimensions of interaction to create a seamless bridge between the digital and the tactile.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Tech Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-2xl bg-[#ffdbcc] mb-8 flex items-center justify-center text-[#894c2d] transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="font-headline font-bold text-2xl mb-4 text-on-surface">Proprietary Agentic AI</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">Autonomous intelligence that adapts to user context, providing deep narrative layers and historical context in real-time.</p>
+</div>
+<!-- Tech Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-2xl bg-[#ffe088] mb-8 flex items-center justify-center text-[#735c00] transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">visibility</span>
+</div>
+<h3 class="font-headline font-bold text-2xl mb-4 text-on-surface">Immersive Visual AR</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">High-fidelity spatial computing using lightweight AR glasses that overlay digital storytelling onto physical spaces with pixel-perfect accuracy.</p>
+</div>
+<!-- Tech Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 hover:bg-surface-container-low group">
+<div class="w-16 h-16 rounded-2xl bg-[#ffdbd0] mb-8 flex items-center justify-center text-[#74554b] transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">touch_app</span>
+</div>
+<h3 class="font-headline font-bold text-2xl mb-4 text-on-surface">Haptic Interaction</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">Bridging the sensory gap with tactile feedback systems that allow users to feel the texture of digital history and cultural artifacts.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions Section - Bento Grid -->
+<section class="py-24 bg-surface" id="solutions">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline font-bold text-4xl mb-6 text-on-surface">Our Curated Solutions</h2>
+<p class="font-body text-lg text-on-surface-variant">
+                    Applying "The Modern Curator" ethos across diverse industries to foster deeper connections and digital inclusion.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#solutions" class="btn btn-primary">Explore Solutions</a>
-                    <a href="#contact" class="btn btn-outline">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section id="technology">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Our Core <span class="gradient-text">Technologies</span></h2>
-                <p>Cutting-edge innovation at the intersection of AI, Augmented Reality, and human sensory experience.
-                </p>
-            </div>
-
-            <div class="tech-grid">
-                <!-- Agentic AI -->
-                <div class="tech-card animate-on-scroll">
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5z" />
-                        </svg>
-                    </div>
-                    <h3>Proprietary Agentic AI</h3>
-                    <p>Unlike generic models, our AI agents are trained on private cultural archives and proprietary
-                        datasets. They provide accurate, context-aware, and spontaneous conversational guidance, acting
-                        as expert curators for every visitor.</p>
-                </div>
-
-                <!-- Augmented Reality -->
-                <div class="tech-card animate-on-scroll">
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M3 5v14h18V5H3zm16 12H5V7h14v10zm-7-9c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
-                            <circle cx="12" cy="12" r="1" />
-                        </svg>
-                    </div>
-                    <h3>Immersive Visual Augmented Reality</h3>
-                    <p>We deploy advanced Augmented Reality visualization on lightweight glasses. Featuring 6DoF spatial
-                        tracking and edge-streaming, our software overlays seamless, high-fidelity digital content onto
-                        the physical world without disrupting the viewing experience.</p>
-                </div>
-
-                <!-- Haptics -->
-                <div class="tech-card animate-on-scroll">
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6.5 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1c-1.5 0-4.5.75-4.5 2.25V17h9v-1.75c0-1.5-3-2.25-4.5-2.25zm11-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1c-1.5 0-4.5.75-4.5 2.25V17h9v-1.75c0-1.5-3-2.25-4.5-2.25z" />
-                            <path
-                                d="M12 3v2M12 19v2M5.64 5.64l1.41 1.41M16.95 16.95l1.41 1.41M3 12h2M19 12h2M5.64 18.36l1.41-1.41M16.95 7.05l1.41-1.41" />
-                        </svg>
-                    </div>
-                    <h3>Haptic Interaction</h3>
-                    <p>Beyond sight and sound, we engage the sense of touch. Our innovative piezoelectric sensor
-                        technology enables "Haptic Augmented Reality," allowing users to feel textures, movements, and
-                        semantic cues, creating a truly multi-sensory connection.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solutions Section -->
-    <section id="solutions">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Solutions for <span class="serif-accent">Culture</span> & <span class="serif-accent">Tourism</span>
-                </h2>
-                <p>Transforming how people connect with art, history, and live performance.</p>
-            </div>
-
-            <div class="solutions-grid">
-                <!-- Museum Experience -->
-                <div class="solution-item animate-on-scroll">
-                    <div class="solution-content">
-                        <h3>Enriched <span class="gradient-text">Museum</span> Experience</h3>
-                        <p>Forget crowded labels and rigid audio guides. Our AI-powered Augmented Reality guide
-                            recognizes exhibits instantly, offering multilingual storytelling and answering customized
-                            questions in real-time. Each visitor receives a personalized journey through history and
-                            art.</p>
-                    </div>
-                    <div class="solution-visual">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 3L2 8l10 5 10-5-10-5z" />
-                            <path d="M2 17l10 5 10-5" />
-                            <path d="M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Live Performance -->
-                <div class="solution-item animate-on-scroll">
-                    <div class="solution-content">
-                        <h3>Immersive <span class="gradient-text">Stage</span> Companion</h3>
-                        <p>For opera, theater, and concerts. We provide discrete, in-view Augmented Reality subtitles
-                            and contextual information, breaking down language barriers and enhancing comprehension
-                            without distracting from the stage. Experience every nuance, in any language.</p>
-                    </div>
-                    <div class="solution-visual">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="3" />
-                            <path d="M12 5a7 7 0 0 0-7 7" />
-                            <path d="M12 5a7 7 0 0 1 7 7" />
-                            <path d="M12 1a11 11 0 0 0-11 11" />
-                            <path d="M12 1a11 11 0 0 1 11 11" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Accessibility -->
-                <div class="solution-item animate-on-scroll">
-                    <div class="solution-content">
-                        <h3>Digital <span class="gradient-text">Inclusion</span> & Accessibility</h3>
-                        <p>Technology for humanity. We utilize visual transcripts, descriptive audio, and haptic
-                            feedback to make cultural institutions accessible to visitors with visual or hearing
-                            impairments. Art belongs to everyone.</p>
-                    </div>
-                    <div class="solution-visual">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                            <path d="M12 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
-                            <path d="M12 12c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Footer Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Connect with <span class="gradient-text">Stonedrum</span></h3>
-                    <p>Based in Paris, we bridge art and technology. Contact us for partnerships and demos.</p>
-                    <a href="mailto:info@stonedrum.co" class="btn btn-primary">info@stonedrum.co</a>
-                </div>
-
-                <div class="contact-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#technology">Technology</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="mailto:info@stonedrum.co">Email</a></li>
-                    </ul>
-                </div>
-
-                <div class="contact-locations">
-                    <h4>Location</h4>
-                    <ul>
-                        <li>📍 Paris, France</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 Stonedrum. All rights reserved.</p>
-                <p>Reinventing Cultural Interaction</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scripts -->
-    <script src="js/background.js"></script>
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+</div>
+<a class="font-headline font-bold text-[#735c00] flex items-center gap-2 group underline decoration-[#735c00]/30 underline-offset-8 hover:decoration-[#735c00] transition-all" href="#">
+                View Portfolio
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- Enriched Museum Experience -->
+<div class="md:col-span-7 bg-surface-container p-10 rounded-[2.5rem] relative overflow-hidden group shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<span class="text-[#74554b] font-label text-xs font-bold tracking-widest uppercase mb-4 block">Institutional</span>
+<h3 class="font-headline font-extrabold text-3xl mb-4 text-on-surface">Enriched Museum Experience</h3>
+<p class="font-body text-on-surface-variant max-w-md">Reimagining the walk-through with a personalized journey through history, powered by intelligent storytelling that speaks to every visitor.</p>
+</div>
+<div class="mt-12">
+<div class="flex gap-4">
+<span class="bg-surface-container-lowest px-4 py-2 rounded-full text-xs font-bold font-headline">Interactive Guides</span>
+<span class="bg-surface-container-lowest px-4 py-2 rounded-full text-xs font-bold font-headline">Spatial Audio</span>
+</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 w-2/3 h-2/3 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+<img alt="Person interacting with a historical exhibit using a digital device" class="w-full h-full object-cover rounded-tl-[4rem]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIYJvYg-cVRiQn2aTh7ISUXGEl0GwFI3daMkUNKcVU06DhxPLOM7MIfehkO7rnJZ1kivoKqXNvEwtfG-IsmWQs-8p_9N8_oSFSlisXGWu06thFWK-r-0Kcx0OkyIL15MrdKk4Gk8Lw-_NvNgKd1HuP83HOcWDquZhX2BkLMmEZ8uWiJI5pLGqBbH4o-DCOKpLDW5O4KNHC1UNLsnfnRzpZ_CBJU-AM9nf7FQK7hGVzLe1Tv3fFemnfvsWYDQyMgT-j6OYqEBtSwfc"/>
+</div>
+</div>
+<!-- Immersive Stage Companion -->
+<div class="md:col-span-5 bg-[#ffdbcc] p-10 rounded-[2.5rem] relative overflow-hidden group">
+<div class="relative z-10">
+<span class="text-[#6f381a] font-label text-xs font-bold tracking-widest uppercase mb-4 block">Performance</span>
+<h3 class="font-headline font-extrabold text-3xl mb-4 text-[#351000]">Immersive Stage Companion</h3>
+<p class="font-body text-[#6f381a]">Discrete, in-view AR subtitles and contextual information, breaking down language barriers and enhancing comprehension without distracting from the stage.</p>
+</div>
+<div class="absolute bottom-[-10%] right-[-10%] w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Digital Inclusion -->
+<div class="md:col-span-12 bg-surface-container-highest p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center gap-12 group">
+<div class="flex-1 order-2 md:order-1">
+<span class="text-[#735c00] font-label text-xs font-bold tracking-widest uppercase mb-4 block">Social Impact</span>
+<h3 class="font-headline font-extrabold text-4xl mb-6 text-on-surface">Digital Inclusion and Accessibility</h3>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed mb-8">Utilizing visual transcripts and haptic feedback to ensure technology is accessible to everyone, regardless of physical ability or socio-economic background.</p>
+</div>
+<div class="flex-1 order-1 md:order-2 w-full aspect-video rounded-3xl overflow-hidden shadow-lg">
+<img alt="A diverse group of people engaged in collaborative technological learning" class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3iqfJNcYphhlurYjJG8ctbZh-CQ8_8ORuVc0c4ESzZshhAxb5rN5NHZm37-jLr4K-pONlvxaTOG8uyVsFJsE4nHjw6bGhENGGm-5PAR8Xz_drBUsZirqokh39jt38ld9E9bVNic4NiGjA3Uua6lsDDHUijwqWlbQUxRjaFxNA4JrI-Hs6Zbc_WW3I20Mtsjixj1hvdSrXtbe5LWUKsGLpdNQFnSTuOG2TSlYQJ_845mr534NmXw5SYfXkoJCor0bYccGIJTsfANg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (shared component COMPONENTS_9) -->
+<footer class="w-full py-12 px-8 bg-[#f0eee9] dark:bg-stone-950" id="footer">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto items-start">
+<div class="flex flex-col gap-4">
+<div class="text-xl font-bold text-[#894c2d] font-['Manrope'] headline-anchor">Stonedrum <small class="text-xs font-normal opacity-70">SAS</small></div>
+<p class="font-['Work_Sans'] text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-xs">
+                Curating the future of cultural experiences through ethical AI and immersive storytelling.
+            </p>
+<div class="font-['Work_Sans'] text-sm text-stone-500 mt-2">
+<p>Paris, France</p>
+<p>info@stonedrum.co</p>
+<p>© 2026 Stonedrum.co — Art meets Tech.</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="text-stone-500 hover:text-[#894c2d] font-['Work_Sans'] text-sm tracking-wide opacity-80 hover:opacity-100 transition-opacity underline decoration-[#735c00] underline-offset-4" href="#">Instagram</a>
+<a class="text-stone-500 hover:text-[#894c2d] font-['Work_Sans'] text-sm tracking-wide opacity-80 hover:opacity-100 transition-opacity underline decoration-[#735c00] underline-offset-4" href="#">LinkedIn</a>
+<a class="text-stone-500 hover:text-[#894c2d] font-['Work_Sans'] text-sm tracking-wide opacity-80 hover:opacity-100 transition-opacity underline decoration-[#735c00] underline-offset-4" href="#">Twitter</a>
+<a class="text-stone-500 hover:text-[#894c2d] font-['Work_Sans'] text-sm tracking-wide opacity-80 hover:opacity-100 transition-opacity underline decoration-[#735c00] underline-offset-4" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>
