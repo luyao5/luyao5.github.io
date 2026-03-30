@@ -107,12 +107,42 @@
 <a class="text-stone-600 dark:text-stone-400 hover:text-[#894c2d] transition-colors" href="#footer">About</a><a class="text-stone-400 dark:text-stone-500 hover:text-[#894c2d] transition-colors border-l border-stone-300 pl-4 ml-4" href="fr/">FR</a></div>
 <div class="flex items-center space-x-4">
 <a class="bg-[#894c2d] text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:scale-95 active:scale-90 transition-transform shadow-lg shadow-primary/20 inline-block" href="#">Inquire</a>
-<button class="md:hidden text-primary">
-<span class="material-symbols-outlined">menu</span>
-</button>
+                <button id="menu-toggle" class="md:hidden text-primary p-2 hover:bg-primary/5 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
 </div>
 </div>
 </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-background/98 backdrop-blur-xl z-[100] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:hidden">
+        <div class="flex flex-col h-full p-8 max-w-full">
+            <div class="flex justify-between items-center mb-16">
+                <div class="text-2xl font-black text-[#894c2d] tracking-tighter headline-anchor">
+                    Stonedrum
+                </div>
+                <button id="menu-close" class="text-primary w-12 h-12 flex items-center justify-center rounded-full bg-primary/5">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+            
+            <nav class="flex flex-col space-y-8 font-['Manrope'] font-bold text-3xl tracking-tight">
+                <a class="text-[#894c2d] border-b-4 border-[#894c2d] pb-1 self-start" href="#home" onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')">Home</a>
+                <a class="text-stone-700 dark:text-stone-300 hover:text-[#894c2d] transition-colors" href="#technology">Technology</a>
+                <a class="text-stone-700 dark:text-stone-300 hover:text-[#894c2d] transition-colors" href="#solutions">Solutions</a>
+                <a class="text-stone-700 dark:text-stone-300 hover:text-[#894c2d] transition-colors" href="#footer">About</a>
+                <div class="pt-8 mt-8 border-t border-stone-200">
+                    <a class="text-stone-400 hover:text-[#894c2d] transition-colors text-xl" href="fr/">FR / Français</a>
+                </div>
+            </nav>
+            
+            <div class="mt-auto pb-12">
+                <a class="w-full bg-[#894c2d] text-white py-5 rounded-full font-headline font-bold text-center inline-block shadow-xl shadow-primary/20 text-lg" href="#">
+                    Start an Inquiry
+                </a>
+            </div>
+        </div>
+    </div>
 <!-- Hero Section -->
 <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-surface" id="home">
 <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -267,4 +297,35 @@
 </div>
 </div>
 </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = mobileMenu.querySelectorAll('nav a');
+
+        const openMenu = () => {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        };
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+
+        // Close menu when a link is clicked
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu when clicking backdrop area (if any, though here it's full screen)
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMenu();
+            }
+        });
+    </script>
 </body></html>
