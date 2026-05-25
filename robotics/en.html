@@ -1,0 +1,316 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Stonedrum | Dexterous Robotics Platform</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bec8cf",
+                    "secondary-container": "#dce2f3",
+                    "primary-container": "#4eaad4",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#151c27",
+                    "on-surface": "#1c1b1b",
+                    "on-primary-container": "#003c51",
+                    "on-surface-variant": "#3f484e",
+                    "tertiary-fixed-dim": "#ffb86c",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#79d1fd",
+                    "on-tertiary-container": "#522f00",
+                    "primary": "#006687",
+                    "background": "#f5f3f2", /* Darker background for depth */
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-tint": "#006687",
+                    "on-secondary-container": "#5e6572",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdcbc",
+                    "on-primary-fixed-variant": "#004d67",
+                    "tertiary-container": "#d8913f",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container-high": "#ebe7e7",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary": "#895100",
+                    "on-background": "#1c1b1b",
+                    "surface-container": "#f0edec",
+                    "inverse-surface": "#313030",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#c1e8ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#c0c7d6",
+                    "on-primary-fixed": "#001e2b",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#683d00",
+                    "on-error": "#ffffff",
+                    "secondary": "#585f6c",
+                    "on-secondary-fixed-variant": "#404754",
+                    "inverse-primary": "#79d1fd",
+                    "outline": "#6f787f",
+                    "surface-dim": "#dcd9d9",
+                    "surface-variant": "#e5e2e1",
+                    "inverse-on-surface": "#f3f0ef",
+                    "secondary-fixed": "#dce2f3",
+                    "on-tertiary-fixed": "#2c1700",
+                    "primary-vibrant": "#007ea8" /* added vibrant primary */
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "margin-desktop": "48px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "code-label": [
+                            "JetBrains Mono"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-xl": [
+                            "Inter"
+                    ],
+                    "button-text": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "code-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "code-label": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "button-text": [
+                            "14px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "code-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            },
+            "boxShadow": {
+                "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)"
+            }
+        },
+        },
+      }
+    </script>
+</head>
+<body class="text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col min-h-screen bg-background">
+<!-- TopNavBar -->
+<nav class="w-full top-0 border-b border-outline-variant dark:border-outline-variant bg-surface-container-lowest z-50 sticky shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-full mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-on-surface uppercase tracking-tighter font-bold">
+                Stonedrum
+            </div>
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-primary-vibrant font-bold border-b-[2px] border-primary-vibrant pb-1 cursor-pointer active:opacity-70" href="#">HOME</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">ROBOTICS</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">ABOUT</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-bold border border-outline-variant text-[12px]" href="#">FR</a></div>
+<!-- Mobile Menu Placeholder -->
+<div class="md:hidden flex items-center">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col w-full">
+<!-- Hero Section -->
+<section class="border-b border-outline-variant flex flex-col items-start relative px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pt-40 pb-24 md:pt-56 md:pb-40">
+<!-- Grid Lines Background Overlay for technical feel -->
+<div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(to right, #bec8cf 1px, transparent 1px); background-size: 8.333% 100%; opacity: 0.1;"></div>
+<span class="font-code-label text-code-label text-primary-vibrant mb-6 relative z-10 uppercase tracking-widest border border-primary-vibrant px-3 py-1 bg-surface-container-lowest font-bold">Dexterous Robotics Platform</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface max-w-4xl mb-8 relative z-10 leading-tight">Intelligent hands for research and industry</h1>
+<p class="font-body-lg text-body-lg text-on-surface max-w-2xl relative z-10">We are building France's reference platform for dexterous robotic manipulation — open middleware, training datasets, VR teleoperation tools, and applied research for labs and industrial teams across Europe.</p>
+</section>
+<!-- Platform Section (Bento Grid) -->
+<section class="py-24 border-b border-outline-variant bg-surface-container-high px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 pb-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Four pillars. One platform.</h2><p class="font-body-md text-body-md text-on-surface mt-4 max-w-2xl">Several capable dexterous hands are commercially available today. The bottleneck is the infrastructure around them — teleoperation tools, trained skills, curated datasets, and the expertise to connect them to a real use case. That is what we build.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Pillar 1 -->
+<div class="border border-outline-variant p-8 flex flex-col bg-surface-container-lowest shadow-card hover:shadow-md transition-shadow">
+<div class="font-code-label text-code-label text-primary-vibrant mb-12 font-bold">01 // TELEOPERATION</div>
+<h3 class="font-button-text text-button-text text-on-surface uppercase mb-4 font-bold">VR control interface</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">An operator wears a VR headset, sees through the robot's first-person camera, and controls the hand using natural hand movements in real time. Every session is automatically recorded as a clean, timestamped manipulation trajectory — ready to use as training data.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Real-time</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">ROS2</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">6DoF</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Training-ready output</span></div>
+</div>
+<!-- Pillar 2 -->
+<div class="border border-outline-variant p-8 flex flex-col bg-surface-container-lowest shadow-card hover:shadow-md transition-shadow">
+<div class="font-code-label text-code-label text-primary-vibrant mb-12 font-bold">02 // DATA</div>
+<h3 class="font-button-text text-button-text text-on-surface uppercase mb-4 font-bold">Manipulation datasets</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">We collect and curate grasp and manipulation sequences on reference hardware — covering a wide range of objects, tasks, and difficulty levels. Published with full documentation, labeled by task type and object class, and available under open access for research and commercial licence for industry.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Grasp sequences</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Task labels</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">HuggingFace</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">CC-BY-NC research</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Commercial licence</span></div>
+</div>
+<!-- Pillar 3 -->
+<div class="border border-outline-variant p-8 flex flex-col bg-surface-container-lowest shadow-card hover:shadow-md transition-shadow">
+<div class="font-code-label text-code-label text-primary-vibrant mb-12 font-bold">03 // MIDDLEWARE</div>
+<h3 class="font-button-text text-button-text text-on-surface uppercase mb-4 font-bold">Open skills library</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">A hardware-agnostic ROS2 abstraction layer with a unified interface across supported dexterous hand models, alongside a growing library of packaged motion primitives — pinch grasp, power grasp, lateral pinch, in-hand rotation, and more. Each skill ships with documentation, a demo launch file, and simulation model support. Dual-licensed: open for research, commercial for industry.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">ROS2 HAL</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Skills library</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">URDF / MuJoCo</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Dual licence</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Hardware-agnostic</span></div>
+</div>
+<!-- Pillar 4 -->
+<div class="border border-outline-variant p-8 flex flex-col bg-surface-container-lowest shadow-card hover:shadow-md transition-shadow">
+<div class="font-code-label text-code-label text-primary-vibrant mb-12 font-bold">04 // RESEARCH</div>
+<h3 class="font-button-text text-button-text text-on-surface uppercase mb-4 font-bold">Applied use-case projects</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Focused contracts — typically three to six months — from problem definition through to a trained policy running on physical hardware. For labs that want to move fast and industrial teams that need a proof of concept before committing to full deployment. Eligible projects can be co-funded through BPI France and European research programmes.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">3–6 month projects</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Co-funded eligible</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Physical deliverable</span><span class="bg-surface-container-high border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 uppercase font-medium">Case study published</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audience Section (Tabular Structure) -->
+<section class="py-24 border-b border-outline-variant px-margin-mobile md:px-margin-desktop bg-background">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-12 w-full md:w-2/3 font-bold">Built for researchers, engineers, and innovators.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column 1 -->
+<div class="flex flex-col bg-surface-container-lowest border border-outline-variant p-6 shadow-card">
+<h3 class="font-code-label text-code-label text-primary-vibrant uppercase mb-6 pb-2 border-b border-outline-variant font-bold">TARGET: LABS</h3>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface"><li class="flex items-start gap-3">Access to hardware, open datasets, and production-ready middleware — so your team can focus on research questions rather than infrastructure. We welcome collaboration proposals, early-access requests, and PhD-level partnerships.</li></ul>
+</div>
+<!-- Column 2 -->
+<div class="flex flex-col bg-surface-container-lowest border border-outline-variant p-6 shadow-card">
+<h3 class="font-code-label text-code-label text-primary-vibrant uppercase mb-6 pb-2 border-b border-outline-variant font-bold">TARGET: INDUSTRIAL</h3>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface"><li class="flex items-start gap-3">If your process involves assembly, handling, insertion, or any manipulation task currently done by hand, we can run a focused pilot and deliver a working proof of concept. Structured to move at the pace of innovation teams.</li></ul>
+</div>
+<!-- Column 3 -->
+<div class="flex flex-col bg-surface-container-lowest border border-outline-variant p-6 shadow-card">
+<h3 class="font-code-label text-code-label text-primary-vibrant uppercase mb-6 pb-2 border-b border-outline-variant font-bold">TARGET: ECOSYSTEM</h3>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface"><li class="flex items-start gap-3">Hardware vendors, system integrators, and research institutions who want to build on a shared, open, maintained platform. We are open to co-development, distribution, and consortium arrangements.</li></ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section (Asymmetric Spec Sheet) -->
+<section class="py-24 border-b border-outline-variant px-margin-mobile md:px-margin-desktop bg-surface-container-high">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Title -->
+<div class="lg:col-span-5 flex flex-col">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 font-bold">Building the dexterous robotics layer for Europe.</h2>
+<p class="font-body-lg text-body-lg text-on-surface max-w-md">
+                        We engineer the critical intersection between advanced AI models and physical world manipulation. Founded in Paris, operating globally.
+                    </p>
+</div>
+<!-- Right Spec Sheet -->
+<div class="lg:col-span-7 flex flex-col gap-8 pt-8 lg:pt-0 bg-surface-container-lowest p-8 border border-outline-variant shadow-card"><div class="font-code-label text-code-label text-primary-vibrant uppercase font-bold mt-6">About</div><p class="font-body-md text-body-md text-on-surface">Stonedrum Robotics is a Paris-based platform dedicated to dexterous robotic manipulation. We provide the infrastructure that the field is missing — teleoperation tools, open middleware, curated datasets, and applied expertise — built openly, hardware-agnostic, and designed to become more useful the more people build on it. We work with research institutions, engineering schools, and industrial partners across France and Europe.</p><div><a class="inline-block bg-primary-vibrant text-on-primary font-button-text text-button-text px-8 py-4 uppercase hover:bg-primary transition-colors font-bold shadow-sm" href="mailto:info@stonedrum.co">Get in touch</a></div></div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-32 flex flex-col items-center justify-center text-center bg-background px-margin-mobile md:px-margin-desktop">
+<div class="bg-surface-container-lowest p-12 border border-outline-variant shadow-card w-full max-w-4xl flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4 font-bold">Follow the build.</h2>
+<p class="font-body-md text-body-md text-on-surface mb-8 max-w-lg">We publish dataset releases, middleware updates, workshop dates, and technical notes. One email when something ships — no noise.</p>
+<form class="flex flex-col md:flex-row w-full max-w-xl gap-0 border border-outline-variant shadow-sm">
+<input class="flex-grow bg-surface-container-lowest border-none p-4 font-code-label text-code-label text-on-surface focus:ring-2 focus:ring-primary-vibrant focus:outline-none placeholder:text-outline font-medium" placeholder="your@email.com" required="" type="email">
+<button class="bg-primary-vibrant text-on-primary font-button-text text-button-text px-8 py-4 uppercase hover:bg-primary transition-colors border-l border-outline-variant md:w-auto w-full font-bold" type="submit">Stay informed</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 border-t border-outline-variant dark:border-outline-variant bg-surface-container-lowest z-10 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-desktop py-12 w-full gap-gutter max-w-full mx-auto">
+<div class="flex flex-col gap-2">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-on-surface uppercase font-bold">
+                    Stonedrum
+                </div>
+<div class="font-label-mono text-label-mono text-on-surface dark:text-on-surface font-medium">
+                    2026 Stonedrum
+                </div>
+</div>
+<div class="flex flex-col md:flex-row gap-8 md:gap-12 font-label-mono text-label-mono text-on-surface dark:text-on-surface-variant font-medium"><a class="hover:text-primary-vibrant transition-colors duration-200" href="#">Robotics</a><a class="hover:text-primary-vibrant transition-colors duration-200" href="#">GitHub</a><a class="hover:text-primary-vibrant transition-colors duration-200" href="#">LinkedIn</a><a class="hover:text-primary-vibrant transition-colors duration-200" href="mailto:info@stonedrum.co">info@stonedrum.co</a></div>
+</div>
+</footer>
+
+
+
+
+</body></html>
