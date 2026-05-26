@@ -12,6 +12,15 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        .nav-scroll-link {
+            text-underline-offset: 0.35rem;
+            text-decoration-thickness: 2px;
+        }
+        .nav-scroll-link.is-active {
+            color: #00C8E8;
+            font-weight: 700;
+            text-decoration-line: underline;
+        }
     </style>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -64,9 +73,9 @@
                 Stonedrum
             </div>
 <div class="hidden md:flex items-center gap-8 font-body text-[16px]">
-<a class="text-primary font-bold border-b-[2px] border-primary pb-1 cursor-pointer active:opacity-70" href="#">ACCUEIL</a>
-<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">ROBOTIQUE</a>
-<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">À PROPOS</a>
+<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">ACCUEIL</a>
+<a class="nav-scroll-link is-active text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" data-scroll-nav="robotics" href="#robotics">ROBOTIQUE</a>
+<a class="nav-scroll-link text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" data-scroll-nav="about" href="#about">À PROPOS</a>
 <a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-bold border border-border-subtle text-[12px]" href="#">EN</a>
 <a class="bg-primary text-[#080D18] font-semibold uppercase tracking-[0.08em] px-6 py-2 hover:bg-opacity-90 transition-colors" href="#">NOUS CONTACTER →</a>
 </div>
@@ -79,7 +88,7 @@
 <!-- Main Content Canvas -->
 <main class="flex-grow flex flex-col w-full">
 <!-- Hero Section -->
-<section class="border-b border-border-subtle flex flex-col items-start relative px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pt-40 pb-24 md:pt-56 md:pb-40">
+<section class="border-b border-border-subtle flex flex-col items-start relative px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pt-40 pb-24 md:pt-56 md:pb-40 scroll-mt-24" id="robotics">
 <!-- Grid Lines Background Overlay for technical feel -->
 <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 8.333% 100%; opacity: 0.18;"></div>
 <span class="font-mono text-[14px] text-primary mb-6 relative z-10 uppercase tracking-widest border border-primary px-3 py-1 bg-surface-glass font-bold">PLATEFORME DE ROBOTIQUE DEXTÈRE</span>
@@ -148,7 +157,7 @@
 </div>
 </section>
 <!-- About Section (Asymmetric Spec Sheet) -->
-<section class="py-24 border-b border-border-subtle px-margin-mobile md:px-margin-desktop">
+<section class="py-24 border-b border-border-subtle px-margin-mobile md:px-margin-desktop scroll-mt-24" id="about">
 <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 <!-- Left Title -->
 <div class="lg:col-span-5 flex flex-col">
@@ -186,5 +195,40 @@
 </div>
 </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = Array.from(document.querySelectorAll("[data-scroll-nav]"));
+    const sections = navLinks
+        .map((link) => document.getElementById(link.dataset.scrollNav))
+        .filter(Boolean);
+
+    const setActiveNav = (sectionId) => {
+        navLinks.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.scrollNav === sectionId);
+        });
+    };
+
+    const updateActiveNav = () => {
+        const navHeight = document.querySelector("nav")?.offsetHeight || 0;
+        const viewportHeight = document.documentElement.clientHeight || window.innerHeight || 0;
+        const activationLine = navHeight + viewportHeight * 0.25;
+        let activeSection = sections[0]?.id;
+
+        sections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= activationLine) {
+                activeSection = section.id;
+            }
+        });
+
+        if (activeSection) {
+            setActiveNav(activeSection);
+        }
+    };
+
+    updateActiveNav();
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    window.addEventListener("resize", updateActiveNav);
+});
+</script>
 
 </body></html>

@@ -1,382 +1,238 @@
-<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>STONEDRUM - Landing</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<title>Stonedrum | Dexterous Robotics Platform</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container-high": "#ebe7e7",
-                        "on-tertiary-fixed-variant": "#683d00",
-                        "error": "#ba1a1a",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary": "#895100",
-                        "on-tertiary": "#ffffff",
-                        "tertiary-fixed": "#ffdcbc",
-                        "tertiary-container": "#d8913f",
-                        "surface-dim": "#dcd9d9",
-                        "secondary": "#585f6c",
-                        "surface-variant": "#e5e2e1",
-                        "outline-variant": "#bec8cf",
-                        "on-tertiary-container": "#522f00",
-                        "surface": "#fcf9f8",
-                        "outline": "#6f787f",
-                        "on-secondary-fixed": "#151c27",
-                        "error-container": "#ffdad6",
-                        "inverse-on-surface": "#f3f0ef",
-                        "on-primary-container": "#003c51",
-                        "on-error-container": "#93000a",
-                        "on-secondary-container": "#5e6572",
-                        "primary-fixed": "#c1e8ff",
-                        "surface-container-low": "#f6f3f2",
-                        "on-background": "#1c1b1b",
-                        "inverse-primary": "#79d1fd",
-                        "primary-fixed-dim": "#79d1fd",
-                        "on-secondary-fixed-variant": "#404754",
-                        "surface-container-highest": "#e5e2e1",
-                        "secondary-fixed-dim": "#c0c7d6",
-                        "background": "#fcf9f8",
-                        "on-surface": "#1c1b1b",
-                        "surface-tint": "#006687",
-                        "surface-bright": "#fcf9f8",
-                        "inverse-surface": "#313030",
-                        "on-tertiary-fixed": "#2c1700",
-                        "surface-container": "#f0edec",
-                        "primary": "#006687",
-                        "on-error": "#ffffff",
-                        "primary-container": "#4eaad4",
-                        "on-primary-fixed-variant": "#004d67",
-                        "secondary-fixed": "#dce2f3",
-                        "tertiary-fixed-dim": "#ffb86c",
-                        "on-primary-fixed": "#001e2b",
-                        "on-surface-variant": "#3f484e",
-                        "on-primary": "#ffffff",
-                        "secondary-container": "#dce2f3",
-                        "on-secondary": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "container-max": "1280px",
-                        "gutter": "24px",
-                        "unit": "4px",
-                        "margin-mobile": "16px",
-                        "margin-desktop": "48px"
-                    },
-                    "fontFamily": {
-                        "headline-xl": ["Inter"],
-                        "button-text": ["Inter"],
-                        "code-label": ["JetBrains Mono"],
-                        "headline-lg": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "code-sm": ["JetBrains Mono"],
-                        "body-md": ["Inter"],
-                        "headline-lg-mobile": ["Inter"]
-                    },
-                    "fontSize": {
-                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "button-text": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
-                        "code-label": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "code-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
 <style>
-        body {
-            background-color: #fcf9f8; /* Light surface background */
-            color: #1c1b1b; /* Dark text */
-            margin: 0;
-            overflow: hidden; 
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        #particle-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+        .nav-scroll-link {
+            text-underline-offset: 0.35rem;
+            text-decoration-thickness: 2px;
         }
-        .content-layer {
-            position: relative;
-            z-index: 10;
-        }
-        
-        /* Subtle glassmorphism and thin borders for tech feel - adapted for light mode */
-        .btn-block {
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 12px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        }
-        .btn-block:hover {
-            border-color: rgba(0, 102, 135, 0.3); /* #006687 tech blue */
-            background: rgba(255, 255, 255, 0.95);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0, 102, 135, 0.15);
-        }
-        .text-accent {
-            color: #006687;
+        .nav-scroll-link.is-active {
+            color: #00C8E8;
+            font-weight: 700;
+            text-decoration-line: underline;
         }
     </style>
-</head>
-<body class="min-h-screen flex flex-col font-sans antialiased">
-<!-- Interactive Background Canvas -->
-<canvas height="1024" id="particle-canvas" width="1280"></canvas>
-<div class="content-layer flex flex-col min-h-screen w-full">
-<!-- Minimal TopAppBar mapped from TopNavBar JSON, styled for light landing -->
-<nav class="w-full top-0 sticky bg-transparent flex justify-between items-center h-16 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop border-b border-transparent">
-<div class="font-headline-sm text-headline-sm tracking-tighter text-on-background font-bold">
-                STONEDRUM
-            </div>
-</nav>
-<!-- Main Landing Content -->
-<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop w-full max-w-[1280px] mx-auto">
-<div class="text-center max-w-4xl mb-12 md:mb-16">
-<h1 class="font-code-label text-on-surface-variant uppercase tracking-[0.2em] text-body-md md:text-body-lg">
-                    From spatial experience to dexterous intelligence
-                </h1>
-</div>
-<div class="flex flex-col md:flex-row gap-6 w-full max-w-5xl">
-<!-- Immersive Experiences Button Block -->
-<a class="btn-block flex-1 p-8 md:p-16 flex flex-col items-start justify-between group h-64 md:h-[420px] cursor-pointer" href="#">
-<div class="mb-4">
-<span class="material-symbols-outlined text-primary/70 group-hover:text-primary transition-colors duration-300 text-4xl" style="font-variation-settings: 'FILL' 0;">
-                            view_in_ar
-                        </span>
-</div>
-<div class="w-full">
-<h2 class="text-on-background mb-3 group-hover:text-primary transition-colors duration-300 text-4xl md:text-6xl font-bold">
-                            Immersive Experiences
-                        </h2>
-<p class="font-code-sm text-code-sm text-on-surface-variant/70 group-hover:text-on-surface-variant transition-colors duration-300">
-                            Initialize spatial engine
-                        </p>
-</div>
-</a>
-<!-- Dexterous Robotics Button Block -->
-<a class="btn-block flex-1 p-8 md:p-16 flex flex-col items-start justify-between group h-64 md:h-[420px] cursor-pointer" href="#">
-<div class="mb-4">
-<span class="material-symbols-outlined text-tertiary/70 group-hover:text-tertiary transition-colors duration-300 text-4xl" style="font-variation-settings: 'FILL' 0;">
-                            precision_manufacturing
-                        </span>
-</div>
-<div class="w-full">
-<h2 class="text-on-background mb-3 group-hover:text-tertiary transition-colors duration-300 text-4xl md:text-6xl font-bold">
-                            Dexterous Robotics
-                        </h2>
-<p class="font-code-sm text-code-sm text-on-surface-variant/70 group-hover:text-on-surface-variant transition-colors duration-300">
-                            Access control systems
-                        </p>
-</div>
-</a>
-</div>
-</main>
-</div>
-<!-- JS for Nebular Particle Background -->
-<script>
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        let width, height;
-        let particles = [];
-        let mouse = { x: null, y: null };
-        
-        // Colors for light theme: tech-blues (#006687), soft golds (#d8913f), light grays
-        const colors = [
-            'rgba(0, 102, 135, 0.4)',   // tech blue
-            'rgba(216, 145, 63, 0.4)',  // gold
-            'rgba(111, 120, 127, 0.3)'  // subtle gray
-        ];
-
-        function init() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            particles = [];
-            
-            // Create dust particles (denser for light mode to be visible)
-            const particleCount = Math.floor((width * height) / 3500); 
-            
-            for (let i = 0; i < particleCount; i++) {
-                const radius = Math.random() * 2 + 0.5; // Slightly larger sizes
-                const x = Math.random() * width;
-                const y = Math.random() * height;
-                const dx = (Math.random() - 0.5) * 0.4; // Slightly faster
-                const dy = (Math.random() - 0.5) * 0.4;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                
-                particles.push(new Particle(x, y, dx, dy, radius, color));
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "background": "#080D18",
+                "primary": "#00C8E8",
+                "text-primary": "#F0F4F8",
+                "text-secondary": "#8A9BB0",
+                "surface-glass": "rgba(255, 255, 255, 0.04)",
+                "border-subtle": "rgba(255, 255, 255, 0.08)",
+                "border-card": "rgba(255, 255, 255, 0.10)",
+                "border-hover": "rgba(0, 200, 232, 0.35)",
+                "chip-bg": "rgba(0, 200, 232, 0.08)",
+                "chip-border": "rgba(0, 200, 232, 0.25)",
+                "input-border": "rgba(255, 255, 255, 0.12)"
+            },
+            "borderRadius": {
+                "none": "0px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body": ["Inter", "sans-serif"],
+                    "display": ["Space Grotesk", "sans-serif"],
+                    "mono": ["JetBrains Mono", "monospace"]
+            },
+            "boxShadow": {
+                "hover-glow": "0 0 24px rgba(0, 200, 232, 0.08)"
             }
-            
-            // Add a few 'gas' glows
-            for(let i=0; i < 6; i++) {
-                 const radius = Math.random() * 150 + 80; 
-                 const x = Math.random() * width;
-                 const y = Math.random() * height;
-                 const dx = (Math.random() - 0.5) * 0.15; 
-                 const dy = (Math.random() - 0.5) * 0.15;
-                 const color = i % 2 === 0 ? 'rgba(0, 102, 135, 0.04)' : 'rgba(216, 145, 63, 0.03)';
-                 
-                 particles.push(new GasParticle(x, y, dx, dy, radius, color));
-            }
-        }
-
-        class Particle {
-            constructor(x, y, dx, dy, radius, color) {
-                this.x = x;
-                this.y = y;
-                this.baseX = x;
-                this.baseY = y;
-                this.dx = dx;
-                this.dy = dy;
-                this.radius = radius;
-                this.color = color;
-                this.density = (Math.random() * 20) + 1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-
-            update() {
-                // Natural slow movement
-                this.x += this.dx;
-                this.y += this.dy;
-
-                // Screen wrapping
-                if (this.x > width) this.x = 0;
-                if (this.x < 0) this.x = width;
-                if (this.y > height) this.y = 0;
-                if (this.y < 0) this.y = height;
-
-                // Mouse interaction (gentle repulsion)
-                if (mouse.x != null && mouse.y != null) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let maxDistance = 150;
-
-                    if (distance < maxDistance) {
-                        let forceDirectionX = dx / distance;
-                        let forceDirectionY = dy / distance;
-                        let force = (maxDistance - distance) / maxDistance;
-                        let directionX = forceDirectionX * force * this.density * 0.5;
-                        let directionY = forceDirectionY * force * this.density * 0.5;
-
-                        this.x -= directionX;
-                        this.y -= directionY;
-                    }
-                }
-
-                this.draw();
-            }
-        }
-        
-        class GasParticle extends Particle {
-            draw() {
-                ctx.beginPath();
-                
-                // Create radial gradient for soft glow effect
-                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-                gradient.addColorStop(0, this.color);
-                gradient.addColorStop(1, 'rgba(255,255,255,0)');
-                
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-                ctx.fillStyle = gradient;
-                ctx.fill();
-            }
-            
-            update() {
-                 this.x += this.dx;
-                 this.y += this.dy;
-
-                 if (this.x > width + this.radius) this.x = -this.radius;
-                 if (this.x < -this.radius) this.x = width + this.radius;
-                 if (this.y > height + this.radius) this.y = -this.radius;
-                 if (this.y < -this.radius) this.y = height + this.radius;
-                 
-                 this.draw();
-            }
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            // Light background clear to leave trails
-            ctx.fillStyle = 'rgba(252, 249, 248, 0.4)'; // matches surface background
-            ctx.fillRect(0, 0, width, height);
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-            }
-            
-            connectParticles();
-        }
-        
-        function connectParticles() {
-            let opacityValue = 1;
-            for(let a = 0; a < particles.length; a++) {
-                // Skip gas particles
-                if(particles[a] instanceof GasParticle) continue;
-                
-                for(let b = a; b < particles.length; b++) {
-                    if(particles[b] instanceof GasParticle) continue;
-                    
-                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
-                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                                 
-                    if(distance < (width/12) * (height/12)) {
-                        // Very subtle dark lines for light mode
-                        opacityValue = 1 - (distance / 20000);
-                        ctx.strokeStyle = `rgba(0, 102, 135, ${opacityValue * 0.08})`; // subtle blue line
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        // Event Listeners
-        window.addEventListener('resize', () => {
-            init();
-        });
-
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-
-        window.addEventListener('mouseout', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
-        // Start
-        init();
-        animate();
+        },
+        },
+      }
     </script>
+</head>
+<body class="text-text-primary font-body antialiased selection:bg-primary selection:text-[#080D18] flex flex-col min-h-screen bg-background">
+<!-- TopNavBar -->
+<nav class="w-full top-0 border-b border-border-subtle bg-background/80 backdrop-blur z-50 sticky">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-full mx-auto">
+<div class="font-display text-[24px] text-text-primary uppercase tracking-tighter font-bold">
+                Stonedrum
+            </div>
+<div class="hidden md:flex items-center gap-8 font-body text-[16px]">
+<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">HOME</a>
+<a class="nav-scroll-link is-active text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" data-scroll-nav="robotics" href="#robotics">ROBOTICS</a>
+<a class="nav-scroll-link text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" data-scroll-nav="about" href="#about">ABOUT</a>
+<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-bold border border-border-subtle text-[12px]" href="#">FR</a>
+<a class="bg-primary text-[#080D18] font-semibold uppercase tracking-[0.08em] px-6 py-2 hover:bg-opacity-90 transition-colors" href="#">Get in touch →</a>
+</div>
+<!-- Mobile Menu Placeholder -->
+<div class="md:hidden flex items-center">
+<span class="material-symbols-outlined text-text-primary">menu</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col w-full">
+<!-- Hero Section -->
+<section class="border-b border-border-subtle flex flex-col items-start relative px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pt-40 pb-24 md:pt-56 md:pb-40 scroll-mt-24" id="robotics">
+<!-- Grid Lines Background Overlay for technical feel -->
+<div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 8.333% 100%; opacity: 0.18;"></div>
+<span class="font-mono text-[14px] text-primary mb-6 relative z-10 uppercase tracking-widest border border-primary px-3 py-1 bg-surface-glass font-bold">Dexterous Robotics Platform</span>
+<h1 class="font-display text-[48px] text-text-primary font-bold max-w-4xl mb-8 relative z-10 leading-tight">Intelligent hands for research and industry</h1>
+<p class="font-body text-[18px] text-text-secondary max-w-2xl relative z-10 leading-relaxed">France's reference platform for dexterous robotic manipulation — open middleware, datasets, teleoperation tools, and applied research for labs and industry across Europe.</p>
+</section>
+<!-- Platform Section (Bento Grid) -->
+<section class="py-24 border-b border-border-subtle px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 pb-4">
+<h2 class="font-display text-[32px] text-text-primary font-semibold">Four pillars. One platform.</h2><p class="font-body text-[16px] text-text-secondary mt-4 max-w-2xl leading-relaxed">Several capable dexterous hands are commercially available today. The bottleneck is the infrastructure around them — teleoperation tools, trained skills, curated datasets, and the expertise to connect them to a real use case. That is what we build.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Pillar 1 -->
+<div class="border border-border-card p-8 flex flex-col bg-surface-glass hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<div class="font-mono text-[14px] text-primary mb-12 font-bold">01 // TELEOPERATION</div>
+<h3 class="font-body text-[14px] text-text-primary uppercase mb-4 font-semibold tracking-[0.08em]">VR control interface</h3>
+<p class="font-body text-[16px] text-text-secondary mb-8 flex-grow leading-relaxed">An operator wears a VR headset, sees through the robot's first-person camera, and controls the hand using natural hand movements in real time. Every session is recorded as a timestamped manipulation trajectory, ready to use as training data.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Real-time</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">ROS2</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">6DoF</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Training-ready output</span></div>
+</div>
+<!-- Pillar 2 -->
+<div class="border border-border-card p-8 flex flex-col bg-surface-glass hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<div class="font-mono text-[14px] text-primary mb-12 font-bold">02 // DATA</div>
+<h3 class="font-body text-[14px] text-text-primary uppercase mb-4 font-semibold tracking-[0.08em]">Manipulation datasets</h3>
+<p class="font-body text-[16px] text-text-secondary mb-8 flex-grow leading-relaxed">We collect and curate grasp and manipulation sequences on reference hardware — covering a wide range of objects, tasks, and difficulty levels. Fully documented, labeled by task type and object class, available under open access for research and commercial licence for industry.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Grasp sequences</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Task labels</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">HuggingFace</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">CC-BY-NC research</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Commercial licence</span></div>
+</div>
+<!-- Pillar 3 -->
+<div class="border border-border-card p-8 flex flex-col bg-surface-glass hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<div class="font-mono text-[14px] text-primary mb-12 font-bold">03 // MIDDLEWARE</div>
+<h3 class="font-body text-[14px] text-text-primary uppercase mb-4 font-semibold tracking-[0.08em]">Open skills library</h3>
+<p class="font-body text-[16px] text-text-secondary mb-8 flex-grow leading-relaxed">A hardware-agnostic ROS2 abstraction layer with a unified interface across supported hand models, and a growing library of packaged motion primitives. Each skill ships with documentation, a demo launch file, and simulation model support. Dual-licensed: open for research, commercial for industry.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">ROS2 HAL</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Skills library</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">URDF / MuJoCo</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Dual licence</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Hardware-agnostic</span></div>
+</div>
+<!-- Pillar 4 -->
+<div class="border border-border-card p-8 flex flex-col bg-surface-glass hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<div class="font-mono text-[14px] text-primary mb-12 font-bold">04 // RESEARCH</div>
+<h3 class="font-body text-[14px] text-text-primary uppercase mb-4 font-semibold tracking-[0.08em]">Applied use-case projects</h3>
+<p class="font-body text-[16px] text-text-secondary mb-8 flex-grow leading-relaxed">Focused contracts — three to six months — from problem definition through to a trained policy running on physical hardware. For labs that want to move fast and industrial teams that need a proof of concept before full deployment.</p>
+<div class="flex gap-2 flex-wrap mt-auto"><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">3–6 month projects</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Co-funded eligible</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Physical deliverable</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">Case study published</span><span class="bg-chip-bg border border-chip-border text-primary font-mono text-[12px] px-2 py-1 uppercase font-bold">BPI France eligible</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audience Section (Tabular Structure) -->
+<section class="py-24 border-b border-border-subtle px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-display text-[32px] text-text-primary mb-12 w-full md:w-2/3 font-semibold">Built for researchers, engineers, and innovators.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column 1 -->
+<div class="flex flex-col bg-surface-glass border border-border-card p-6 hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<h3 class="font-mono text-[14px] text-primary uppercase mb-6 pb-2 border-b border-border-subtle font-bold">TARGET: LABS</h3>
+<ul class="flex flex-col gap-4 font-body text-[16px] text-text-secondary"><li class="flex items-start gap-3">Access to hardware, open datasets, and production-ready middleware — so your team focuses on research, not infrastructure. We welcome collaboration proposals, early-access requests, and PhD-level partnerships.</li></ul>
+</div>
+<!-- Column 2 -->
+<div class="flex flex-col bg-surface-glass border border-border-card p-6 hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<h3 class="font-mono text-[14px] text-primary uppercase mb-6 pb-2 border-b border-border-subtle font-bold">TARGET: INDUSTRIAL</h3>
+<ul class="flex flex-col gap-4 font-body text-[16px] text-text-secondary"><li class="flex items-start gap-3">If your process involves assembly, handling, or any manipulation task currently done by hand — we run a focused pilot and deliver a working proof of concept, structured for innovation teams.</li></ul>
+</div>
+<!-- Column 3 -->
+<div class="flex flex-col bg-surface-glass border border-border-card p-6 hover:border-border-hover hover:shadow-hover-glow transition-all duration-300">
+<h3 class="font-mono text-[14px] text-primary uppercase mb-6 pb-2 border-b border-border-subtle font-bold">TARGET: ECOSYSTEM</h3>
+<ul class="flex flex-col gap-4 font-body text-[16px] text-text-secondary"><li class="flex items-start gap-3">Hardware vendors, system integrators, and research institutions building on a shared open platform. Open to co-development, distribution, and consortium arrangements.</li></ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section (Asymmetric Spec Sheet) -->
+<section class="py-24 border-b border-border-subtle px-margin-mobile md:px-margin-desktop scroll-mt-24" id="about">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Title -->
+<div class="lg:col-span-5 flex flex-col">
+<h2 class="font-display text-[32px] text-text-primary mb-6 font-semibold">Building the dexterous robotics layer for Europe.</h2>
+<p class="font-body text-[18px] text-text-secondary max-w-md leading-relaxed">
+                        We engineer the critical intersection between advanced AI models and physical world manipulation. Founded in Paris, operating globally.
+                    </p>
+</div>
+<!-- Right Spec Sheet -->
+<div class="lg:col-span-7 flex flex-col gap-8 pt-8 lg:pt-0 bg-surface-glass p-8 border border-border-card hover:border-border-hover hover:shadow-hover-glow transition-all duration-300"><div class="font-mono text-[14px] text-primary uppercase font-bold mt-6">About</div><p class="font-body text-[16px] text-text-secondary leading-relaxed">Stonedrum Robotics is a Paris-based platform dedicated to dexterous robotic manipulation. We provide the infrastructure the field is missing — teleoperation tools, open middleware, curated datasets, and applied expertise — built openly, hardware-agnostic, and designed to scale with the community.</p><div></div></div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-32 flex flex-col items-center justify-center text-center px-margin-mobile md:px-margin-desktop">
+<div class="bg-surface-glass p-12 border border-border-card hover:border-border-hover hover:shadow-hover-glow transition-all duration-300 w-full max-w-4xl flex flex-col items-center">
+<h2 class="font-display text-[32px] text-text-primary mb-4 font-semibold">Follow the build.</h2>
+<p class="font-body text-[16px] text-text-secondary mb-8 max-w-lg leading-relaxed">Dataset releases, middleware updates, workshop dates, and technical notes. One email when something ships — no noise.</p>
+<form class="flex flex-col md:flex-row w-full max-w-xl gap-0">
+<input class="flex-grow bg-background border border-input-border p-4 font-mono text-[14px] text-text-primary focus:ring-1 focus:ring-primary focus:border-primary focus:shadow-[0_0_8px_rgba(0,200,232,0.5)] focus:outline-none placeholder:text-text-secondary transition-all rounded-none" placeholder="your@email.com" required="" type="email">
+<button class="bg-primary text-[#080D18] font-body text-[14px] font-semibold tracking-[0.08em] px-8 py-4 uppercase hover:bg-opacity-90 transition-colors md:w-auto w-full rounded-none" type="submit">Stay informed</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 border-t border-border-subtle bg-background z-10 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-margin-desktop py-12 w-full gap-gutter max-w-full mx-auto">
+<div class="flex flex-col gap-2">
+<div class="font-display text-[24px] text-text-primary uppercase font-bold">
+                    Stonedrum
+                </div>
+<div class="font-mono text-[14px] text-text-secondary font-medium">
+                    2026 Stonedrum
+                </div>
+</div>
+<div class="flex flex-col md:flex-row gap-8 md:gap-12 font-mono text-[14px] text-text-secondary font-medium"><a class="hover:text-primary transition-colors duration-200" href="#">Robotics</a><a class="hover:text-primary transition-colors duration-200" href="#">GitHub</a><a class="hover:text-primary transition-colors duration-200" href="#">LinkedIn</a><a class="hover:text-primary transition-colors duration-200" href="mailto:info@stonedrum.co">info@stonedrum.co</a></div>
+</div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = Array.from(document.querySelectorAll("[data-scroll-nav]"));
+    const sections = navLinks
+        .map((link) => document.getElementById(link.dataset.scrollNav))
+        .filter(Boolean);
+
+    const setActiveNav = (sectionId) => {
+        navLinks.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.scrollNav === sectionId);
+        });
+    };
+
+    const updateActiveNav = () => {
+        const navHeight = document.querySelector("nav")?.offsetHeight || 0;
+        const viewportHeight = document.documentElement.clientHeight || window.innerHeight || 0;
+        const activationLine = navHeight + viewportHeight * 0.25;
+        let activeSection = sections[0]?.id;
+
+        sections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= activationLine) {
+                activeSection = section.id;
+            }
+        });
+
+        if (activeSection) {
+            setActiveNav(activeSection);
+        }
+    };
+
+    updateActiveNav();
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    window.addEventListener("resize", updateActiveNav);
+});
+</script>
+
 
 
 </body></html>
