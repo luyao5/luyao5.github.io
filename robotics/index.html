@@ -79,9 +79,17 @@
 <a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-bold border border-border-subtle text-[12px]" href="fr/">FR</a>
 <a class="bg-primary text-[#080D18] font-semibold uppercase tracking-[0.08em] px-6 py-2 hover:bg-opacity-90 transition-colors" href="#">Get in touch →</a>
 </div>
-<!-- Mobile Menu Placeholder -->
-<div class="md:hidden flex items-center">
-<span class="material-symbols-outlined text-text-primary">menu</span>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu" class="md:hidden flex items-center justify-center border border-border-subtle p-2 text-text-primary active:opacity-70" id="mobile-menu-toggle" type="button">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-border-subtle bg-background/95 px-margin-desktop py-4" id="mobile-menu">
+<div class="flex flex-col gap-4 font-body text-[16px]">
+<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" href="#">HOME</a>
+<a class="nav-scroll-link is-active text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" data-scroll-nav="robotics" href="#robotics">ROBOTICS</a>
+<a class="nav-scroll-link text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-medium" data-scroll-nav="about" href="#about">ABOUT</a>
+<a class="text-text-secondary hover:text-text-primary transition-colors duration-200 px-2 py-1 cursor-pointer active:opacity-70 font-bold border border-border-subtle text-[12px] w-fit" href="fr/">FR</a>
+<a class="bg-primary text-[#080D18] font-semibold uppercase tracking-[0.08em] px-6 py-2 hover:bg-opacity-90 transition-colors w-fit" href="#">Get in touch →</a>
 </div>
 </div>
 </nav>
@@ -199,10 +207,30 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenuIcon = document.getElementById("mobile-menu-icon");
     const navLinks = Array.from(document.querySelectorAll("[data-scroll-nav]"));
     const sections = navLinks
         .map((link) => document.getElementById(link.dataset.scrollNav))
         .filter(Boolean);
+
+    const setMobileMenuOpen = (isOpen) => {
+        if (!mobileMenu || !mobileMenuToggle || !mobileMenuIcon) return;
+        mobileMenu.classList.toggle("hidden", !isOpen);
+        mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+        mobileMenuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        mobileMenuIcon.textContent = isOpen ? "close" : "menu";
+    };
+
+    mobileMenuToggle?.addEventListener("click", () => {
+        const isOpen = mobileMenuToggle.getAttribute("aria-expanded") === "true";
+        setMobileMenuOpen(!isOpen);
+    });
+
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMobileMenuOpen(false));
+    });
 
     const setActiveNav = (sectionId) => {
         navLinks.forEach((link) => {
@@ -229,7 +257,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateActiveNav();
     window.addEventListener("scroll", updateActiveNav, { passive: true });
-    window.addEventListener("resize", updateActiveNav);
+    window.addEventListener("resize", () => {
+        updateActiveNav();
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            setMobileMenuOpen(false);
+        }
+    });
 });
 </script>
 
