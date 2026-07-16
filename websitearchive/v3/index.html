@@ -1,0 +1,382 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>STONEDRUM - Landing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#ebe7e7",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#895100",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdcbc",
+                        "tertiary-container": "#d8913f",
+                        "surface-dim": "#dcd9d9",
+                        "secondary": "#585f6c",
+                        "surface-variant": "#e5e2e1",
+                        "outline-variant": "#bec8cf",
+                        "on-tertiary-container": "#522f00",
+                        "surface": "#fcf9f8",
+                        "outline": "#6f787f",
+                        "on-secondary-fixed": "#151c27",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-primary-container": "#003c51",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#5e6572",
+                        "primary-fixed": "#c1e8ff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-background": "#1c1b1b",
+                        "inverse-primary": "#79d1fd",
+                        "primary-fixed-dim": "#79d1fd",
+                        "on-secondary-fixed-variant": "#404754",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed-dim": "#c0c7d6",
+                        "background": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "surface-tint": "#006687",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-container": "#f0edec",
+                        "primary": "#006687",
+                        "on-error": "#ffffff",
+                        "primary-container": "#4eaad4",
+                        "on-primary-fixed-variant": "#004d67",
+                        "secondary-fixed": "#dce2f3",
+                        "tertiary-fixed-dim": "#ffb86c",
+                        "on-primary-fixed": "#001e2b",
+                        "on-surface-variant": "#3f484e",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#dce2f3",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "button-text": ["Inter"],
+                        "code-label": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "button-text": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "code-label": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "code-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fcf9f8; /* Light surface background */
+            color: #1c1b1b; /* Dark text */
+            margin: 0;
+            overflow: hidden; 
+        }
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Subtle glassmorphism and thin borders for tech feel - adapted for light mode */
+        .btn-block {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .btn-block:hover {
+            border-color: rgba(0, 102, 135, 0.3); /* #006687 tech blue */
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 102, 135, 0.15);
+        }
+        .text-accent {
+            color: #006687;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased">
+<!-- Interactive Background Canvas -->
+<canvas height="1024" id="particle-canvas" width="1280"></canvas>
+<div class="content-layer flex flex-col min-h-screen w-full">
+<!-- Minimal TopAppBar mapped from TopNavBar JSON, styled for light landing -->
+<nav class="w-full top-0 sticky bg-transparent flex justify-between items-center h-16 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop border-b border-transparent">
+<div class="font-headline-sm text-headline-sm tracking-tighter text-on-background font-bold">
+                STONEDRUM
+            </div>
+</nav>
+<!-- Main Landing Content -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop w-full max-w-[1280px] mx-auto">
+<div class="text-center max-w-4xl mb-12 md:mb-16">
+<h1 class="font-code-label text-on-surface-variant uppercase tracking-[0.2em] text-body-md md:text-body-lg">
+                    From spatial experience to dexterous intelligence
+                </h1>
+</div>
+<div class="flex flex-col md:flex-row gap-6 w-full max-w-5xl">
+<!-- Immersive Experiences Button Block -->
+<a class="btn-block flex-1 p-8 md:p-16 flex flex-col items-start justify-between group h-64 md:h-[420px] cursor-pointer" href="xr/">
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary/70 group-hover:text-primary transition-colors duration-300 text-4xl" style="font-variation-settings: 'FILL' 0;">
+                            view_in_ar
+                        </span>
+</div>
+<div class="w-full">
+<h2 class="text-on-background mb-3 group-hover:text-primary transition-colors duration-300 text-4xl md:text-6xl font-bold">
+                            Immersive Experiences
+                        </h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant/70 group-hover:text-on-surface-variant transition-colors duration-300">
+                            Initialize spatial engine
+                        </p>
+</div>
+</a>
+<!-- Dexterous Robotics Button Block -->
+<a class="btn-block flex-1 p-8 md:p-16 flex flex-col items-start justify-between group h-64 md:h-[420px] cursor-pointer" href="robotics/">
+<div class="mb-4">
+<span class="material-symbols-outlined text-tertiary/70 group-hover:text-tertiary transition-colors duration-300 text-4xl" style="font-variation-settings: 'FILL' 0;">
+                            precision_manufacturing
+                        </span>
+</div>
+<div class="w-full">
+<h2 class="text-on-background mb-3 group-hover:text-tertiary transition-colors duration-300 text-4xl md:text-6xl font-bold">
+                            Dexterous Robotics
+                        </h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant/70 group-hover:text-on-surface-variant transition-colors duration-300">
+                            Access control systems
+                        </p>
+</div>
+</a>
+</div>
+</main>
+</div>
+<!-- JS for Nebular Particle Background -->
+<script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        let mouse = { x: null, y: null };
+        
+        // Colors for light theme: tech-blues (#006687), soft golds (#d8913f), light grays
+        const colors = [
+            'rgba(0, 102, 135, 0.4)',   // tech blue
+            'rgba(216, 145, 63, 0.4)',  // gold
+            'rgba(111, 120, 127, 0.3)'  // subtle gray
+        ];
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            
+            // Create dust particles (denser for light mode to be visible)
+            const particleCount = Math.floor((width * height) / 3500); 
+            
+            for (let i = 0; i < particleCount; i++) {
+                const radius = Math.random() * 2 + 0.5; // Slightly larger sizes
+                const x = Math.random() * width;
+                const y = Math.random() * height;
+                const dx = (Math.random() - 0.5) * 0.4; // Slightly faster
+                const dy = (Math.random() - 0.5) * 0.4;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particles.push(new Particle(x, y, dx, dy, radius, color));
+            }
+            
+            // Add a few 'gas' glows
+            for(let i=0; i < 6; i++) {
+                 const radius = Math.random() * 150 + 80; 
+                 const x = Math.random() * width;
+                 const y = Math.random() * height;
+                 const dx = (Math.random() - 0.5) * 0.15; 
+                 const dy = (Math.random() - 0.5) * 0.15;
+                 const color = i % 2 === 0 ? 'rgba(0, 102, 135, 0.04)' : 'rgba(216, 145, 63, 0.03)';
+                 
+                 particles.push(new GasParticle(x, y, dx, dy, radius, color));
+            }
+        }
+
+        class Particle {
+            constructor(x, y, dx, dy, radius, color) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.dx = dx;
+                this.dy = dy;
+                this.radius = radius;
+                this.color = color;
+                this.density = (Math.random() * 20) + 1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                // Natural slow movement
+                this.x += this.dx;
+                this.y += this.dy;
+
+                // Screen wrapping
+                if (this.x > width) this.x = 0;
+                if (this.x < 0) this.x = width;
+                if (this.y > height) this.y = 0;
+                if (this.y < 0) this.y = height;
+
+                // Mouse interaction (gentle repulsion)
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let maxDistance = 150;
+
+                    if (distance < maxDistance) {
+                        let forceDirectionX = dx / distance;
+                        let forceDirectionY = dy / distance;
+                        let force = (maxDistance - distance) / maxDistance;
+                        let directionX = forceDirectionX * force * this.density * 0.5;
+                        let directionY = forceDirectionY * force * this.density * 0.5;
+
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    }
+                }
+
+                this.draw();
+            }
+        }
+        
+        class GasParticle extends Particle {
+            draw() {
+                ctx.beginPath();
+                
+                // Create radial gradient for soft glow effect
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+                gradient.addColorStop(0, this.color);
+                gradient.addColorStop(1, 'rgba(255,255,255,0)');
+                
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+            }
+            
+            update() {
+                 this.x += this.dx;
+                 this.y += this.dy;
+
+                 if (this.x > width + this.radius) this.x = -this.radius;
+                 if (this.x < -this.radius) this.x = width + this.radius;
+                 if (this.y > height + this.radius) this.y = -this.radius;
+                 if (this.y < -this.radius) this.y = height + this.radius;
+                 
+                 this.draw();
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            // Light background clear to leave trails
+            ctx.fillStyle = 'rgba(252, 249, 248, 0.4)'; // matches surface background
+            ctx.fillRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            
+            connectParticles();
+        }
+        
+        function connectParticles() {
+            let opacityValue = 1;
+            for(let a = 0; a < particles.length; a++) {
+                // Skip gas particles
+                if(particles[a] instanceof GasParticle) continue;
+                
+                for(let b = a; b < particles.length; b++) {
+                    if(particles[b] instanceof GasParticle) continue;
+                    
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
+                                 + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                                 
+                    if(distance < (width/12) * (height/12)) {
+                        // Very subtle dark lines for light mode
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = `rgba(0, 102, 135, ${opacityValue * 0.08})`; // subtle blue line
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Event Listeners
+        window.addEventListener('resize', () => {
+            init();
+        });
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        // Start
+        init();
+        animate();
+    </script>
+
+
+</body></html>
