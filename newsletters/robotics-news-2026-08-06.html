@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulletin Industriel Robots &amp; IA Incarnée · FR/EN · 2026-08-06</title>
+<style>
+:root {
+  --bg: #f6f3ec;
+  --card-bg: #fffdf9;
+  --text: #221d16;
+  --text-secondary: #6f675a;
+  --border: #e5decf;
+  --accent: #0e7490;
+  --accent-light: #e4f0ec;
+  --tag-finance: #b45309;
+  --tag-product: #d97706;
+  --tag-component: #0f766e;
+  --tag-data: #1d4ed8;
+  --tag-dynamics: #6d28d9;
+  --tag-competitor: #be123c;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(60,50,20,0.05), 0 1px 1px rgba(60,50,20,0.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131210;
+    --card-bg: #1c1a17;
+    --text: #ece6da;
+    --text-secondary: #a29a8a;
+    --border: #33302a;
+    --accent-light: #1a2726;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  padding: 24px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* Lang switch bar */
+.langbar {
+  position: sticky; top: 8px; z-index: 100;
+  display: flex; justify-content: center; gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin: 0 auto 20px;
+  max-width: 230px;
+  box-shadow: var(--shadow);
+}
+.langbar a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 3px 12px;
+  border-radius: 999px;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: all .15s ease;
+  line-height: 1.4;
+}
+.langbar a:hover { color: var(--accent); }
+.langbar a.active-fr, .langbar a.active-en { background: var(--accent); color: #fff; }
+
+header {
+  text-align: center;
+  padding: 44px 24px 34px;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  position: relative;
+}
+header h1 {
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+header .subtitle {
+  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+header .meta {
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+header::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  margin: 20px auto 0;
+}
+header .stats {
+  display: flex; justify-content: center; gap: 28px;
+  margin-top: 16px; font-size: 0.9rem; opacity: 0.85;
+  flex-wrap: wrap;
+}
+
+.lang-section { margin-bottom: 56px; }
+.lang-section > .lang-heading {
+  display: flex; align-items: center; gap: 14px;
+  margin: 40px 0 20px;
+  padding: 16px 22px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, #0e7490 0%, #0f766e 100%);
+  color: #fff;
+}
+.lang-section > .lang-heading .code {
+  font-size: 1.3rem; font-weight: 800;
+  background: rgba(255,255,255,.2);
+  padding: 4px 14px; border-radius: 8px;
+}
+.lang-section > .lang-heading .name { font-size: 1.1rem; font-weight: 600; }
+
+.section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+}
+.section-header .icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: white; flex-shrink: 0;
+}
+.section-header h2 {
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.item:last-child { border-bottom: none; }
+.item-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+.item-title a { color: var(--text); text-decoration: none; }
+.item-title a:hover { color: var(--accent); }
+.item-meta {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.82rem; color: var(--text-secondary);
+  margin-bottom: 8px; flex-wrap: wrap;
+}
+.tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 0.75rem; font-weight: 600; color: white;
+}
+.tag-finance { background: var(--tag-finance); }
+.tag-product { background: var(--tag-product); }
+.tag-component { background: var(--tag-component); }
+.tag-data { background: var(--tag-data); }
+.tag-dynamics { background: var(--tag-dynamics); }
+.tag-competitor { background: var(--tag-competitor); }
+.item-summary { font-size: 0.92rem; color: var(--text-secondary); }
+.item-summary strong { color: var(--text); }
+footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  padding: 20px 0 8px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Language switch -->
+<div class="langbar">
+  <a href="#fr" class="active-fr">FR</a>
+  <a href="#en">EN</a>
+</div>
+
+<header>
+  <h1>Newsletter Robotics &amp; Physical AI</h1>
+  <p class="subtitle">Édition bilingue FR/EN</p>
+  <div class="meta">6 août 2026 · Fenêtre d'information 03/08 – 06/08 · 45 articles · 8 levées de fonds · 9 fournisseurs de composants</div>
+  <div class="stats">
+    <span>🦾 Humanoïdes &amp; produits · 6</span>
+    <span>✋ Mains dextres · 5</span>
+    <span>🗄️ Données · 5</span>
+    <span>💰 Levées de fonds · 8</span>
+  </div>
+</header>
+
+<!-- ==================== FRENCH ==================== -->
+<section class="lang-section" id="fr">
+  <div class="lang-heading"><span class="code">FR</span><span class="name">Version française</span></div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#b45309;">★</div>
+      <h2>1 · Faits marquants — jalons des marchés financiers</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3M2QG560512D3VJ.html" target="_blank">Unitree fixe son prix d'introduction en Bourse à 150,80 RMB/action — capitalisation d'environ 60,9 Mds RMB, souscription le 10 août</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Marchés</span><span>Beijing News · 06/08</span></div>
+      <div class="item-summary">Le 6 août, Unitree (688836.SH) a annoncé un prix d'émission de 150,80 RMB/action (PER ≈ 219×) après enquête préliminaire auprès des investisseurs institutionnels. 40,45 M d'actions nouvelles (10 % du capital) ; capitalisation post-émission ≈ 60,9 Mds RMB, bien au-dessus des ~42 Mds estimés. Souscription le 10 août, règlement au 12 août.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://new.qq.com/rain/a/20260806A02YV200" target="_blank">Roadshow en ligne d'Unitree le 7 août ; le fondateur Wang Xingxing contrôle 68,78 % des droits de vote</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Marchés</span><span>Tencent News · 06/08</span></div>
+      <div class="item-summary">Roadshow virtuel le 7 août de 14h00 à 17h00 (heure de Pékin). Émission mixte (placement stratégique 20 % + offres publique et institutionnelle). Structure d'actions à droits de vote différenciés : Wang Xingxing détient 68,78 % des droits de vote. Montant visé : 4,2 Mds RMB.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668316789159379492" target="_blank">AGIBOT a produit 15 000 robots à usage général ; plan « 358 » : 10 Mds RMB de revenus visés en 2027</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Industrie</span><span>Toutiao · 04/08</span></div>
+      <div class="item-summary">AGIBOT a franchi les 10 000 unités cumulées en mars puis 15 000 en juin 2026, un record mondial de volume de production pour un humanoïde. Le fondateur Deng Taihua vise 10 Mds RMB de revenus et des livraisons de plusieurs dizaines de milliers d'unités en 2027. L'introduction à Hong Kong progresse (valorisation évoquée : 40–50 Mds HKD).</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://q.stock.sohu.com/cn/news.html?code=stockPage&date=2026%2F0805&tab=220&textId=1042628705&type=120" target="_blank">S1 2026 : 322 levées de fonds, 93,5 Mds RMB (+137 %), l'industrie entre dans « l'ère de la livraison »</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Marchés</span><span>Shanghai Securities News · 05/08</span></div>
+      <div class="item-summary">Lors du forum « 50 personnes de l'IA incarnée 2026 », les données publiées montrent 322 levées de fonds pour 93,5 Mds RMB au S1 2026 (+137 % sur un an) ; plusieurs fabricants affichent une croissance des livraisons supérieure à 50 %. Le consensus : passage de « l'ère du storytelling » à « l'ère de la livraison », 2026 pourrait être l'an zéro de la production de masse.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#b45309;">💰</div>
+      <h2>2 · Levées de fonds</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EQJHQ10530NLC9.html" target="_blank">Lingbo (Ant Group) lance un premier tour de 1,5 Md RMB — premier spin-off indépendant d'une plateforme d'IA incarnée par un géant Internet</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>China Fund News · 04/08</span></div>
+      <div class="item-summary">La filiale d'IA incarnée d'Ant Group a confirmé un premier tour externe de 1,5 Md RMB, avec un second tour visé fin 2026. Positionnement : « cerveau » de robot à usage général (modèles LingBot, dont LingBot-VLA 2.0 adapté à plus de 20 architectures de robots), déjà en pilote commercial dans les pharmacies et la logistique de vente au détail. Valorisation licorne.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EIC1VD053469RG.html" target="_blank">DISCOVER Robotics lève 100 M USD en extension d'amorçage — plus de 200 M USD cumulés en moins d'un mois</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>Securities Times · 03/08</span></div>
+      <div class="item-summary">Moins de 30 jours après un tour d'amorçage de 100 M USD, DISCOVER Robotics (incubé par l'Institut AIR de Tsinghua) a bouclé une extension de 100 M USD avec Huaying Capital, IDG, Wuyuefeng, Dachen, Joyoung et le fonds industriel du district de Binhu. Fondé par Zhou Guyue, ex-cadre de DJI : robot familial « terminal IA incarné ».</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://view.inews.qq.com/a/20260803A0AH1O00" target="_blank">PokeBot boucle un Pre-A de plus de 100 M USD, co-dirigé par Shunwei Capital et Matrix Partners China</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>Beijing Business Today · 03/08</span></div>
+      <div class="item-summary">Fondée en mars 2026 par Xu Huazhe (co-fondateur et ex-CS de Galaxea), PokeBot cible les foyers : modèle d'action monde (WAM), apprentissage par renforcement sur robot réel et boucle de données réelles. Premier produit attendu fin août – début septembre, à partir de ~10 000 RMB.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3FUCHG10556HT7C.html" target="_blank">PaXini lève 1 Md RMB — 3,5 Mds RMB cumulés, record mondial du secteur de la perception tactile</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>AIZQ Media · 04/08</span></div>
+      <div class="item-summary">Tour stratégique de 1 Md RMB co-dirigé par BOCI Investment et Gui'an Kunpeng Fund, avec un géant mondial de l'électronique grand public. Technologie tactile à réseau de Hall 6D (précision 0,01 N), capteur tactile ramené de ~100 000 RMB à 199 RMB ; près d'un million de puces tactiles consommées en un an. Chaîne complète : capteur – main dextre – robot humanoïde.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3K8GLU505118K7K.html" target="_blank">Jingling Zhikang lève ~100 M RMB en amorçage — spin-off de Linkerbot, main bionique visée sous 20 000 RMB</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>EqualOcean · 05/08</span></div>
+      <div class="item-summary">Dirigé par Longpan Investment, avec Jiangxi Jinkong, Ni Guotao et le fonds d'orientation Guidao de l'Université des sciences et technologies de Chine. Issue de l'incubation stratégique de Linkerbot : prothèses bioniques médicales grand public sous 20 000 RMB, ~90 % de la dextérité d'une main humaine. Capacité : 1 000 unités cette année, 50 000 l'an prochain.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://news.10jqka.com.cn/20260804/c678670646.shtml" target="_blank">Kaiwang Data lève plus de 100 M RMB — Songyan, Luming, X Square Robot et Mifei (AGIBOT) participent</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>China Fund News · 04/08</span></div>
+      <div class="item-summary">Tour stratégique co-dirigé par le fonds de modernisation industrielle de Pékin-Yizhuang, Huafang Capital et Tianji Capital ; de grands acteurs de l'IA incarnée participent (Songyan, Luming, X Square Robot, Mifei d'AGIBOT). Financement dédié à la plateforme d'échange de données, aux talents « world model » et à l'extension de la capacité de collecte en environnement réel.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://m.cnstock.com/commonDetail/755003" target="_blank">LumiBot lève plusieurs dizaines de millions RMB en amorçage — fonds de Changyou en tête, chaîne complète « perception–action–décision–données »</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>Shanghai Securities News · 04/08</span></div>
+      <div class="item-summary">Le fonds Changzhou Zhirong Changyou (groupe Changyou) mène le tour ; les fonds financent l'expansion d'équipe, l'itération produit, la petite série et la collecte de données de manipulation fine. Positionnement : fournisseur de composants de main dextre. Revenus 2026 attendus : 20–30 M RMB, 100–200 unités livrées.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EQJHQ10530NLC9.html" target="_blank">Fangshi Robotics (robotique du bâtiment) lève plusieurs dizaines de millions RMB en Série A</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Financement</span><span>China Fund News · 04/08</span></div>
+      <div class="item-summary">Le 3 août, l'entreprise pékinoise de robotique du bâtiment Fangshi Robotics a annoncé une Série A de plusieurs dizaines de millions RMB menée par Jinan Quehua Sci-Tech Innovation, destinée à la construction d'un nouveau site de production. Plusieurs annonces de financement le même jour à des stades précoces : fait rare dans le secteur.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EIC1VD053469RG.html" target="_blank">Le capital bascule vers le « cerveau » : plus de la moitié des financements S1 2026 vers les « cerveaux », 12,8 % seulement vers les « corps »</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Tendance</span><span>Securities Times · 03/08</span></div>
+      <div class="item-summary">Sur les ~43,8 Mds RMB levés au S1 2026 (autre périmètre : 93,5 Mds RMB), plus de la moitié est allée aux « cerveaux » ; le segment « grand modèle incarné » a capté 40 tours pour 22,3 Mds RMB. Logique : la chaîne d'approvisionnement ayant mûri, la fabrication des corps se banalise ; le marché secondaire « passera au crible » les entreprises sans cas d'usage réel.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#0f766e;">✋</div>
+      <h2>3 · Mains dextres</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Le marché chinois des mains dextres passe en production de masse : 4 leaders, +25 Mds RMB levés au S1 2026, 70 200 unités prévues</a></div>
+      <div class="item-meta"><span class="tag tag-component">Main dextre</span><span>Pandaily / Today in Robotics · 05/08</span></div>
+      <div class="item-summary">Inspire Robots, Linkerbot, AGILINK et BrainCo ont consolidé leur leadership alors que l'industrie passe du prototypage à la fabrication à l'échelle. Financements du S1 2026 supérieurs à 25 Mds RMB ; livraisons attendues : 70 200 unités. La commercialisation du matériel d'IA incarnée s'accélère.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://m.cnstock.com/commonDetail/755003" target="_blank">Lumi-Dex-23 de LumiBot : 23 degrés de liberté actifs + dissipation thermique active, >5 000 h de durée de vie</a></div>
+      <div class="item-meta"><span class="tag tag-component">Main dextre</span><span>Shanghai Securities News · 04/08</span></div>
+      <div class="item-summary">Avance d'un ordre de grandeur sur les indicateurs clés : jeu au bout des doigts &lt; 1,5 mm, refroidissement actif des micro-actionneurs (−50 °C), adaptée au travail continu 24 h/24 en usine. Le modèle 11-DOF est en petite série (100–200 unités) ; la version 23-DOF et le Lumi-Tac 2.0 (perception haute fréquence 120 fps) sortent en octobre.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://en.dh-robotics.com/15259.html" target="_blank">La main dextre UDH-3-7 de DH-Robotics présentée au WAIC 2026 (CCTV) : 900 g, 50 N au bout des doigts, 15 kg de charge</a></div>
+      <div class="item-meta"><span class="tag tag-product">Main dextre</span><span>DH-Robotics · début août</span></div>
+      <div class="item-summary">La main à trois doigts UDH-3-7 (900 g, force au bout des doigts jusqu'à 50 N, charge de levage 15 kg) a été intégrée à 7 robots humanoïdes Geek+ pour des tâches logistiques d'entrepôt : manutention de bacs et tri de bananes, peluches, serviettes, pains emballés. Les mains dextres deviennent l'effecteur clé du déploiement réel.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3FUCHG10556HT7C.html" target="_blank">La main dextre représente ~20 % du coût d'un robot humanoïde — le segment « main dextre industrielle » se réchauffe</a></div>
+      <div class="item-meta"><span class="tag tag-component">Main dextre</span><span>Shanghai Securities News / AIZQ · 04/08</span></div>
+      <div class="item-summary">Contrairement aux licornes d'intégration complète, des acteurs se positionnent comme fournisseurs de composants. La série DexH de PaXini forme une chaîne complète capteur tactile – main dextre – humanoïde ; le capital confirme la perception tactile comme équipement standard des humanoïdes.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668906666888315398" target="_blank">« Peau électronique » de l'Institut Tsinghua Zhejiang : production de masse jusqu'à 1 000 pinces intelligentes/mois</a></div>
+      <div class="item-meta"><span class="tag tag-component">Toucher</span><span>CCTV News · 01/08</span></div>
+      <div class="item-summary">L'effecteur tactile flexible épouse toute surface courbe, perçoit pression, température et texture, et contrôle la force de préhension (y compris objets fragiles). 20 ans de R&D, précision et stabilité de premier plan, capacité de production établie. L'institut développe aussi la collecte « sans robot » : des opérateurs équipés de capteurs souples produisent des données d'entraînement à grande échelle.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#d97706;">🦾</div>
+      <h2>4 · Robots humanoïdes &amp; lancements produits</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://baby.ifeng.com/c/8vLH8zAF450" target="_blank">DOBOT lance LUMO, premier humanoïde « tout-terrain incarné » au monde, pour le marché de la compagnie intelligente</a></div>
+      <div class="item-meta"><span class="tag tag-product">Lancement</span><span>Phoenix News · 05/08</span></div>
+      <div class="item-summary">Présenté le 5 août, LUMO (1,3 m) repose sur le grand modèle incarné « Kongyi » maison : perception émotionnelle multimodale, compréhension spatiale 3D et action autonome, apprentissage continu. Premier au classement LIBERO (taux de réussite moyen). Marche fluide sur pelouse, sable et galets ; apte à l'accompagnement sportif et émotionnel.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668316789159379492" target="_blank">Le premier humanoïde de BYD fait ses débuts à Zhengzhou début août, positionné pour le service en magasin</a></div>
+      <div class="item-meta"><span class="tag tag-product">Humanoïde</span><span>Toutiao · 03/08</span></div>
+      <div class="item-summary">BYD a confirmé la première apparition publique de son humanoïde à « Di Space » (Zhengzhou) début août ; Li Ke (VP) vise une maturité de déploiement en 1 à 2 ans, avec 2 à 3 robots par magasin pour l'accueil et la présentation des véhicules. Aucun calendrier de production de masse n'a été annoncé : validation technique et expérience public d'abord.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668316789159379492" target="_blank">Tesla Optimus : la ligne de Fremont convertie, les premières unités iront à « Optimus Academy » pour collecter des données</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Concurrent</span><span>Toutiao / étude · 03/08</span></div>
+      <div class="item-summary">L'usine de Fremont abandonne Model S/X au profit d'une ligne Optimus (capacité annuelle visée : 1 M d'unités, mise en service fin 2026) ; Austin prépare une seconde ligne (10 M/an à terme, 2027). Musk : « le produit le plus difficile à produire en série de l'histoire de Tesla ». Optimus Gen3 démarre sa production en juillet-août 2026 ; objectif 2026 : ~15 000 unités.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Mitsubishi convertit une usine de moteurs thermiques : 1 000 humanoïdes/mois</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Concurrent</span><span>Today in Robotics · 05/08</span></div>
+      <div class="item-summary">Mitsubishi transforme une usine de moteurs à combustion interne en ligne de production d'humanoïdes, avec un objectif de 1 000 robots par mois — un signal fort de réaffectation des capacités manufacturières japonaises vers l'IA incarnée et d'expansion de l'économie de l'automatisation dans les infrastructures traditionnelles.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.orthopreneurs.com/post/mike-s-newsletter-humanoid-robots-enter-surgery-dexterous-hands-hit-the-market" target="_blank">1X dévoile NEO : 25 DOF par main en système tendineux, 20 000 USD ou 499 USD/mois</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Concurrent</span><span>Mike's Newsletter · début août</span></div>
+      <div class="item-summary">NEO remplace les réducteurs rigides par des tendons polymères tirés par des moteurs à fort couple : dextérité fine (tenir un verre de vin), jusqu'à 8 m/s, 22 dB, ~30 kg pour ~70 kg de charge. Précommandes ouvertes ; accès anticipé fin 2026. Jugé premier humanoïde véritablement dextre et sûr pour la maison.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Location d'humanoïdes en Chine : ~443 USD/jour, déjà des milliers de clients</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Modèle d'affaires</span><span>Today in Robotics · 05/08</span></div>
+      <div class="item-summary">Une entreprise chinoise propose la location d'humanoïdes à environ 443 USD/jour ; des milliers de clients utilisent déjà le service. Le robot-as-a-service abaisse la barrière d'essai pour les entreprises et devient une tendance de l'économie de l'automatisation.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#1d4ed8;">🗄️</div>
+      <h2>5 · Collecte et services de données</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.chinanews.com/gn/2026/08-06/10673137.shtml" target="_blank">Hefei : centre de collecte de données incarnées de 6 000 m², 83 robots « à l'école », jeu de données « saisie universelle » enregistré</a></div>
+      <div class="item-meta"><span class="tag tag-data">Collecte</span><span>China News Service · 06/08</span></div>
+      <div class="item-summary">Le centre reproduit des scènes réelles (foyer, commerce, industrie) : 83 robots de différentes entreprises y apprennent. Chaque préhension enregistre force du poignet, coordonnées visuelles et instruction texte pour former des jeux de données standardisés. Le « jeu de données de saisie universelle » a obtenu l'enregistrement de droits de propriété — premier du genre pour l'IA incarnée dans l'Anhui. ~200 entreprises de la filière déjà concentrées à Hefei.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://news.10jqka.com.cn/20260804/c678670646.shtml" target="_blank">Kaiwang Data : ~100 000 heures de données utiles/mois — mains nues, gants tactiles, pinces UMI, vidéo panoramique</a></div>
+      <div class="item-meta"><span class="tag tag-data">Services de données</span><span>China Fund News · 04/08</span></div>
+      <div class="item-summary">Chaîne complète : définition des données, collecte de scènes, annotation, transaction. Déploiements réels dans supermarchés, restaurants, foyers et lignes automobiles. Production mensuelle stable d'environ 100 000 heures de données utiles, franchissant le seuil d'échelle de 10 000 heures ; contrats d'achat en volume avec plusieurs acteurs majeurs.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3K8GLU505118K7K.html" target="_blank">Modèle « livraison matérielle – collecte en scène – entraînement » de Jingling Zhikang : les mains bioniques collectent des données d'interaction réelle</a></div>
+      <div class="item-meta"><span class="tag tag-data">Collecte</span><span>EqualOcean · 05/08</span></div>
+      <div class="item-summary">Chaque main bionique déployée en famille ou en centre de rééducation collecte des données d'interaction homme-machine (cuisine, habillage…), distinctes des données simulées et utiles à l'entraînement des modèles incarnés. Boucle vertueuse visée : baisse des coûts matériels + accumulation continue de données ; capacité cible de 50 000 unités/an.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://new.qq.com/rain/a/20260804A02ZAY00" target="_blank">Bodeng Intelligence : ~1 Md RMB de commandes en carnet, 500 000 heures de données réelles/an, 500+ robots déployés</a></div>
+      <div class="item-meta"><span class="tag tag-data">Services de données</span><span>Ti Media · 04/08</span></div>
+      <div class="item-summary">Trois centres d'innovation (Ningbo, Huzhou, Ma'anshan) et 500+ robots réels. Le PDG Zhao Jie souligne que « les échecs et les données de reprise humaine sont la clé du progrès de l'IA incarnée ». ~50 % de l'activité en IA incarnée ; ~500 M RMB de commandes à livrer cette année.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://mp.ofweek.com/robot/a856714125657" target="_blank">Le CEO de DISCOVER Robotics, Wang Shibo, est un expert de la collecte « sans robot » ; l'équipe mise sur la boucle de données domestiques</a></div>
+      <div class="item-meta"><span class="tag tag-data">Équipe</span><span>OFweek / Securities Times · 03/08</span></div>
+      <div class="item-summary">Issus de DJI (Mavic Mini) et de l'Institut AIR de Tsinghua, l'équipe estime que le foyer — plus chaotique et plus riche en données que l'industrie — est le meilleur terrain d'entraînement pour les modèles généraux. Boucle : collecte – entraînement de modèle de base – renforcement sur robot réel – reflux de données.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#0f766e;">⚙️</div>
+      <h2>6 · Fournisseurs de composants clés</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://new.qq.com/rain/a/20260806A05MO500" target="_blank">Leaderdrive : n°1 en Chine (27,5 % de part de marché 2025), n°2 mondial — 70 000 réducteurs/mois, commandes jusqu'à 2027</a></div>
+      <div class="item-meta"><span class="tag tag-component">Réducteur harmonique</span><span>KeChuang Daily · 06/08</span></div>
+      <div class="item-summary">La technologie « dent P » a brisé le monopole de Harmonic Drive : prix ~2× inférieur, performances « quasi équivalentes ». 425 000 réducteurs vendus en 2025 (+72 %), taux d'utilisation des capacités à 68 % ; production mensuelle passée de 50 000 à 70 000 unités (objectif fin d'année : 100 000–120 000). T1 2026 : revenus 487 M RMB (+128,65 %), bénéfice net 162 M RMB (+189,32 %).</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://guba.eastmoney.com/news,002896,1753407207.html" target="_blank">Zhongda Leader : contrat-cadre Unitree 2025-2027 d'environ 3,2 Mds RMB (110 000 robots), part de 63-80 % des réducteurs planétaires</a></div>
+      <div class="item-meta"><span class="tag tag-component">Réducteur</span><span>East Money · 03/08</span></div>
+      <div class="item-summary">Premier fournisseur de réducteurs planétaires d'Unitree (gammes G1, H1/H2) ; commandes liées à l'humanoïde en hausse de +540 % au T1 2026. Fournit aussi AGIBOT et Fourier. Le réducteur harmonique compact maison (ZCSD-14/ZSHF-14) a achevé sa validation de production.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">XCC décroche le contrat Tesla : vis à rouleaux planétaires + vis à billes miniatures, capacités 2026 de 980 000 et 2,1 M d'unités</a></div>
+      <div class="item-meta"><span class="tag tag-component">Vis</span><span>Toutiao · début août</span></div>
+      <div class="item-summary">Plus de 30 vis par robot ; ligne mexicaine déjà en production, intégration indirecte à la chaîne de modules articulés Tesla via Sanhua. Plan 2026 : 980 000 vis à rouleaux planétaires + 2,1 M de vis à billes miniatures pour mains dextres, aligné sur la montée en cadence d'Optimus.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">MOONS' : fournisseur exclusif des moteurs à bobine creuse de la main d'Optimus — 12 moteurs/robot, part de 70-80 %</a></div>
+      <div class="item-meta"><span class="tag tag-component">Moteur</span><span>Toutiao · début août</span></div>
+      <div class="item-summary">Chaque humanoïde requiert 12 moteurs à bobine creuse pour la main ; MOONS' devrait capter 70-80 % de l'approvisionnement Tesla, à un coût huit fois inférieur à celui de Maxon (Suisse). Double avantage prix/performance ; passage de la substitution nationale à l'intégration internationale.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">Keli a réalisé les tests d'échantillons du capteur d'effort 6 axes pour Optimus — pas encore de commande de série</a></div>
+      <div class="item-meta"><span class="tag tag-component">Capteur</span><span>Toutiao · début août</span></div>
+      <div class="item-summary">Le capteur d'effort 6 axes est l'un des composants les plus difficiles à produire en masse ; 4 exemplaires par robot pour le contrôle de la force de préhension. Keli a envoyé des échantillons à plusieurs clients chinois et passé les tests Tesla — un seuil franchi par très peu d'acteurs nationaux.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">Tuopu et Sanhua : fournisseurs de premier rang des actionneurs linéaires/rotatifs d'Optimus ; Sanhua a verrouillé 5,4 Mds RMB de commandes</a></div>
+      <div class="item-meta"><span class="tag tag-component">Actionneur</span><span>Toutiao · début août</span></div>
+      <div class="item-summary">Tuopu (actionneurs linéaires, ~12 000 RMB/robot) développe ses vis à rouleaux planétaires et prévoit 500 000 composants/an ; Sanhua (actionneurs rotatifs, ~28 000 RMB/robot) a sécurisé 5,4 Mds RMB de commandes en série, avec une ligne dédiée au Mexique livrant en 2026.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3FIQO5805568W0A.html" target="_blank">Wanxiang Qianchao : la robotique devient son 3ᵉ pilier stratégique, points d'ancrage obtenus auprès de grands clients</a></div>
+      <div class="item-meta"><span class="tag tag-component">Transmission</span><span>Sina Finance · 04/08</span></div>
+      <div class="item-summary">Couvre joints universels d'articulation, axes de précision, vis à rouleaux planétaires, réducteurs de précision et roulements dédiés ; capacité actuelle de 100 000 vis à rouleaux et 10 M de joints ; 1,2 M de roulements robotiques prévus en 2026. Extension internationale en Thaïlande ; équipe dédiée de 150+ ingénieurs.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">Changying Precision : silicone « 0 degré » maison pour gants robotiques, livraison en série engagée</a></div>
+      <div class="item-meta"><span class="tag tag-component">Accessoire</span><span>Toutiao · début août</span></div>
+      <div class="item-summary">Résout les difficultés de production de masse, de toucher et d'usure des accessoires biomimétiques de mains dextres. Le parc industriel de Songgang (Shenzhen) réserve 60 000 m² aux robots, avec 3 000 machines CNC — l'écart entre « savoir faire » et « savoir produire en masse » se comble.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668981101972455980/" target="_blank">Estimation : le marché chinois des composants pour humanoïdes pourrait dépasser 350 Mds RMB d'ici 2030</a></div>
+      <div class="item-meta"><span class="tag tag-component">Estimation</span><span>Toutiao · 01/08</span></div>
+      <div class="item-summary">Avec l'introduction d'Unitree le 10 août, la thèse d'investissement bascule des intégrateurs vers les fournisseurs de composants disposant de capacités de substitution nationale et d'approvisionnement à l'échelle : réducteurs harmoniques, vis à rouleaux planétaires, capteurs d'effort 6 axes, moteurs à bobine creuse… réévalués à la hausse.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#6d28d9;">📡</div>
+      <h2>7 · Tendances du secteur &amp; actualité internationale</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://q.stock.sohu.com/cn/news.html?code=stockPage&date=2026%2F0805&tab=220&textId=1042628705&type=120" target="_blank">Forum : livraisons de robots 2026 estimées à plus de 500 000 unités ; Guangdong délimite 3 pôles IA, Hunan lance un fonds de 10 Mds RMB</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Politique</span><span>Shanghai Securities News · 05/08</span></div>
+      <div class="item-summary">Peng Changjiang (Zhongyi Group) : croissance &gt;50 % pour presque tous les fabricants partenaires, un seul acteur du segment robot-chien a dépassé 30 000 unités ; plus de 500 000 robots attendus en 2026. Guangdong : Guangzhou Pazhou, Dongguan Binhaiwan, Shenzhen Nanshan ; Hunan : fonds « Jinfurong » de 10 Mds RMB + fonds provincial dédié de 10 Mds RMB.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">La FCC inscrit les robots mobiles étrangers sur sa liste de restrictions de sécurité nationale (mise à jour du 28 juillet)</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Géopolitique</span><span>IEEE Spectrum / Today in Robotics · 05/08</span></div>
+      <div class="item-summary">La FCC interdit l'importation de robots mobiles communicants étrangers de plus de 2 kg, au nom de la sécurité nationale, sous l'impulsion du Pentagone. Impact anticipé sur les fournisseurs des pays alliés et restructuration de la chaîne d'approvisionnement de l'industrie de l'automatisation.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3JI5G6O0519DFFQ.html" target="_blank">WAIC 2026 : 200+ entreprises d'IA incarnée, 300+ robots, près de 60 humanoïdes « au travail »</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Salon</span><span>Caijing New Media · 05/08</span></div>
+      <div class="item-summary">Des scénarios réels (dépotage, chargement, inspection) remplacent les démonstrations acrobatiques. Le centre de gravité de la concurrence passe du « corps » au « cerveau » ; la maturation de la chaîne d'approvisionnement nationale fait chuter les coûts (châssis, servomoteurs, capteurs) et abaisse les barrières de production des corps.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Le CTO d'Agility Robotics détaille le déploiement réel de Digit : intégration, gestion du changement, données d'exploitation</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Concurrent</span><span>X / Today in Robotics · 05/08</span></div>
+      <div class="item-summary">Pras Velagapudi souligne que le déploiement en production exige bien plus que des démonstrations soignées : intégration réelle, gestion du changement et collecte de données opérationnelles — illustration de l'écart entre laboratoire et économie réelle de l'automatisation.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">GEM-4D : modèle de monde vidéo à géométrie augmentée pour une manipulation robotique cohérente</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Recherche</span><span>arXiv · 05/08</span></div>
+      <div class="item-summary">En injectant une supervision géométrique 4D, le modèle suit des points physiques cohérents entre les trames générées et convertit les prédictions vidéo en trajectoires robotiques exécutables — une réponse à une limite clé du déploiement des modèles vidéo pour la manipulation réelle.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Light-Loco-Parkour : une seule politique pour la locomotion complète du corps, choix autonome marche/escalade/franchissement</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Recherche</span><span>arXiv · 05/08</span></div>
+      <div class="item-summary">Système de contrôle perceptif de bout en bout : l'humanoïde choisit dynamiquement ses compétences locomotrices (marche, escalade, franchissement, équilibre) à partir de la profondeur embarquée et de consignes de vitesse, sans graphes de mouvement préprogrammés ni étiquettes — progrès pour la navigation en environnement réel complexe.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Manipulation bimanuelle sur GPU Jetson 8 Go d'entrée de gamme : le coût du déploiement embarqué chute</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Recherche</span><span>arXiv · 05/08</span></div>
+      <div class="item-summary">Des chercheurs exécutent des tâches de saisie/dépôt bimanuelles sur un Jetson Orin Nano Super (8 Go) via perception zéro-copie optimisée et politiques d'imitation quantifiées ; latence CPU réduite de 117 ms à 101 ms en temps réel — caractérisation du coût de déploiement des politiques bimanuelles en périphérie.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ENGLISH ==================== -->
+<section class="lang-section" id="en">
+  <div class="lang-heading"><span class="code">EN</span><span class="name">English version</span></div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#b45309;">★</div>
+      <h2>1 · Key Events — Capital-Market Milestones</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3M2QG560512D3VJ.html" target="_blank">Unitree sets IPO price at RMB 150.80/share — market cap of ~RMB 60.9bn, subscription opens August 10</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Markets</span><span>Beijing News · Aug 06</span></div>
+      <div class="item-summary">On August 6, Unitree (688836.SH) set its issue price at RMB 150.80/share (P/E ≈ 219×) following institutional bookbuilding. 40.45M new shares (10% of post-IPO capital); implied market cap ≈ RMB 60.9bn — well above earlier estimates of ~RMB 42bn. Subscription August 10, payment deadline August 12.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://new.qq.com/rain/a/20260806A02YV200" target="_blank">Unitree online roadshow on August 7; founder Wang Xingxing controls 68.78% of voting rights</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Markets</span><span>Tencent News · Aug 06</span></div>
+      <div class="item-summary">Virtual roadshow on August 7, 2:00–5:00 pm (Beijing time). Mixed offering (20% strategic placement + institutional and retail tranches). Dual-class voting structure: Wang Xingxing holds 68.78% of voting rights. Proceeds target: RMB 4.2bn.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668316789159379492" target="_blank">AGIBOT passed 15,000 general-purpose robots produced; "358" plan: RMB 10bn revenue target for 2027</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Industry</span><span>Toutiao · Aug 04</span></div>
+      <div class="item-summary">AGIBOT crossed 10,000 cumulative units in March and 15,000 by June 2026 — a global record for humanoid production volume. Founder Deng Taihua targets RMB 10bn revenue and tens of thousands of units shipped in 2027. Hong Kong listing in progress (reported valuation: HKD 40–50bn).</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://q.stock.sohu.com/cn/news.html?code=stockPage&date=2026%2F0805&tab=220&textId=1042628705&type=120" target="_blank">H1 2026: 322 funding rounds worth RMB 93.5bn (+137%), industry enters the "delivery era"</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Markets</span><span>Shanghai Securities News · Aug 05</span></div>
+      <div class="item-summary">Data unveiled at the 2026 "Embodied AI 50 Forum" show 322 rounds worth RMB 93.5bn in H1 2026 (+137% YoY); many robot makers report shipment growth above 50%. Consensus: the industry is shifting from the "storytelling era" to the "delivery era" — 2026 could be year zero for mass production and commercialization.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#b45309;">💰</div>
+      <h2>2 · Fundraising Landscape</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EQJHQ10530NLC9.html" target="_blank">Lingbo (Ant Group) launches RMB 1.5bn first round — first independent embodied-AI platform spin-off by an internet giant</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>China Fund News · Aug 04</span></div>
+      <div class="item-summary">Ant Group's embodied-AI arm confirmed a first external round of RMB 1.5bn, with a second round targeted by end-2026. Positioning: general-purpose robot "brain" (LingBot model family, incl. LingBot-VLA 2.0 supporting 20+ robot architectures), already piloting in pharmacies and retail logistics. Unicorn valuation.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EIC1VD053469RG.html" target="_blank">DISCOVER Robotics raises $100M seed extension — over $200M in less than a month, consumer embodied unicorn</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>Securities Times · Aug 03</span></div>
+      <div class="item-summary">Less than 30 days after a $100M+ seed round, DISCOVER Robotics (incubated at Tsinghua AIR) closed a $100M extension backed by Huaying Capital, IDG, Wuyuefeng, Dachen, Joyoung and Binhu district fund; all existing investors followed. Founded by Zhou Guyue, ex-DJI core member: home robot as an "embodied AI terminal."</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://view.inews.qq.com/a/20260803A0AH1O00" target="_blank">PokeBot closes $100M+ Pre-A, co-led by Shunwei Capital and Matrix Partners China</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>Beijing Business Today · Aug 03</span></div>
+      <div class="item-summary">Founded March 2026 by Xu Huazhe (co-founder and ex-CS of Galaxea), PokeBot targets households: World Action Model (WAM), full-chain real-robot RL and real-world data loop. First product expected late Aug–early Sep, from ~RMB 10,000.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3FUCHG10556HT7C.html" target="_blank">PaXini raises RMB 1bn — RMB 3.5bn cumulative, a global record for tactile perception</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>AIZQ Media · Aug 04</span></div>
+      <div class="item-summary">Strategic round co-led by BOCI Investment and Gui'an Kunpeng Fund, joined by a global consumer-electronics giant. Proprietary 6D Hall-array tactile tech (0.01N resolution); tactile sensor price cut from ~RMB 100k to RMB 199; ~1M tactile chips consumed in a year. Full chain: sensor – dexterous hand – humanoid robot.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3K8GLU505118K7K.html" target="_blank">Jingling Zhikang raises ~RMB 100M seed — Linkerbot incubation spin-off, bionic hand targeted under RMB 20,000</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>EqualOcean · Aug 05</span></div>
+      <div class="item-summary">Led by Longpan Investment, with Jiangxi Jinkong, Ni Guotao and USTC guidance fund. Born from Linkerbot's strategic incubation: consumer medical bionic prostheses under RMB 20,000, ~90% of human-hand dexterity. Capacity: 1,000 units this year, 50,000 next year.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://news.10jqka.com.cn/20260804/c678670646.shtml" target="_blank">Kaiwang Data raises RMB 100M+ — Songyan, Luming, X Square Robot and Mifei (AGIBOT) join in</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>China Fund News · Aug 04</span></div>
+      <div class="item-summary">Strategic round co-led by Beijing Yizhuang Industrial Upgrade Fund, Huafang Capital and Tianji Capital; leading embodied-AI firms participate (Songyan, Luming, X Square Robot, AGIBOT's Mifei). Funds target the data-exchange platform, world-model talent and scaling real-scene data capacity in commercial, industrial and home domains.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://m.cnstock.com/commonDetail/755003" target="_blank">LumiBot raises tens of millions RMB in seed — Changyou fund leads; full "perception–action–decision–data" stack</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>Shanghai Securities News · Aug 04</span></div>
+      <div class="item-summary">The Changzhou Zhirong Changyou fund (Changyou group) leads; proceeds fund team growth, product iteration, small-batch line and dexterous-manipulation data collection/model R&D. Positioning: dexterous-hand component supplier. 2026 outlook: RMB 20–30M revenue, 100–200 units shipped.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EQJHQ10530NLC9.html" target="_blank">Fangshi Robotics (construction robotics) raises tens of millions RMB in Series A</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Funding</span><span>China Fund News · Aug 04</span></div>
+      <div class="item-summary">On August 3, Beijing-based construction robotics firm Fangshi Robotics announced a Series A of tens of millions RMB led by Jinan Quehua Sci-Tech Innovation, for a new production base and capacity expansion. Multiple same-day early-stage funding announcements: rare in the sector.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3EIC1VD053469RG.html" target="_blank">Capital pivots to the "brain": over half of H1 2026 funding went to "brains," only 12.8% to "bodies"</a></div>
+      <div class="item-meta"><span class="tag tag-finance">Trend</span><span>Securities Times · Aug 03</span></div>
+      <div class="item-summary">Of ~RMB 43.8bn raised in H1 2026 (another tally: RMB 93.5bn), over half flowed to "brain" firms; the "embodied foundation model" segment drew 40 rounds worth RMB 22.3bn. Logic: with a mature supply chain, body manufacturing is commoditizing; the secondary market will "grill" firms with demo-only capabilities.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#0f766e;">✋</div>
+      <h2>3 · Dexterous Hand Sector</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">China's dexterous-hand market enters mass production: top-4 lineup, RMB 25bn+ raised in H1 2026, 70,200 units forecast</a></div>
+      <div class="item-meta"><span class="tag tag-component">Dexterous hand</span><span>Pandaily / Today in Robotics · Aug 05</span></div>
+      <div class="item-summary">Inspire Robots, Linkerbot, AGILINK and BrainCo have cemented leadership as the industry shifts from prototyping to manufacturing scale. H1 2026 sector funding exceeds RMB 25bn; projected shipments of 70,200 units. Commercialization of embodied-AI hardware is accelerating.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://m.cnstock.com/commonDetail/755003" target="_blank">LumiBot's Lumi-Dex-23: 23 active DOF + active cooling, >5,000h lifespan for 24/7 industrial work</a></div>
+      <div class="item-meta"><span class="tag tag-component">Dexterous hand</span><span>Shanghai Securities News · Aug 04</span></div>
+      <div class="item-summary">Order-of-magnitude leads on key specs: fingertip gap < 1.5mm, active-cooled micro joint modules (−50°C), addressing the "not durable enough" pain point in factories. The 11-DOF model is in small-batch sales (100–200 units); the 23-DOF flagship and Lumi-Tac 2.0 (120fps full fingertip sensing) launch in October.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://en.dh-robotics.com/15259.html" target="_blank">DH-Robotics' UDH-3-7 three-finger hand featured on CCTV at WAIC 2026: 900g, 50N fingertip force, 15kg lift</a></div>
+      <div class="item-meta"><span class="tag tag-product">Dexterous hand</span><span>DH-Robotics · early Aug</span></div>
+      <div class="item-summary">The UDH-3-7 (900g, up to 50N fingertip force, 15kg max lift) was integrated with seven Geek+ general-purpose humanoids for warehouse logistics: tote handling plus sorting of bananas, plush toys, towels, packaged bread. Dexterous hands are becoming the key end effector for real-world deployment.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3FUCHG10556HT7C.html" target="_blank">Dexterous hand ≈20% of humanoid BOM cost — the "industrial dexterous hand" segment heats up</a></div>
+      <div class="item-meta"><span class="tag tag-component">Dexterous hand</span><span>Shanghai Securities News / AIZQ · Aug 04</span></div>
+      <div class="item-summary">Unlike full-integration unicorns, players are positioning as component suppliers. PaXini's DexH series forms a full self-developed chain (sensor–hand–humanoid); capital confirms tactile perception as standard equipment for humanoids.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668906666888315398" target="_blank">Zhejiang Tsinghua Flexible Electronics Institute's "e-skin" reaches mass production: up to 1,000 smart grippers/month</a></div>
+      <div class="item-meta"><span class="tag tag-component">Tactile</span><span>CCTV News · Aug 01</span></div>
+      <div class="item-summary">The flexible tactile end effector conforms to any curved surface, senses pressure, temperature and texture, and precisely controls grip force (even on fragile objects). 20 years of R&D, industry-leading accuracy and stability, production capability established. The institute also advances "robot-free data collection": operators wearing soft sensing gear produce training data at scale.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#d97706;">🦾</div>
+      <h2>4 · Humanoids &amp; Product Launches</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://baby.ifeng.com/c/8vLH8zAF450" target="_blank">DOBOT unveils LUMO, world's first "omnipresent embodied" humanoid, betting on the smart-companion market</a></div>
+      <div class="item-meta"><span class="tag tag-product">Launch</span><span>Phoenix News · Aug 05</span></div>
+      <div class="item-summary">Launched August 5, LUMO (1.3m) runs on the in-house "Kongyi" embodied foundation model: multimodal emotion perception, 3D spatial understanding with proactive action, and continuous learning. No.1 on the LIBERO benchmark (avg success rate). Fluid gait across lawn, sand and cobblestone; suited for sports companionship and emotional care.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668316789159379492" target="_blank">BYD's first humanoid debuts in Zhengzhou in early August, positioned for in-store service</a></div>
+      <div class="item-meta"><span class="tag tag-product">Humanoid</span><span>Toutiao · Aug 03</span></div>
+      <div class="item-summary">BYD confirmed its first humanoid's public debut at "Di Space" (Zhengzhou) in early August; VP Li Ke targets deployment maturity in 1–2 years, with 2–3 robots per store for greeting and vehicle presentation. No mass-production timeline announced: technology validation and public experience first.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668316789159379492" target="_blank">Tesla Optimus: Fremont line converted, first production units head to "Optimus Academy" for data collection</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Competitor</span><span>Toutiao / report · Aug 03</span></div>
+      <div class="item-summary">Fremont is repurposing the Model S/X line for Optimus (target 1M units/year, production late 2026); Austin is preparing a second line (10M/year long-term, 2027). Musk: "the hardest product Tesla has ever mass-produced." Optimus Gen3 starts production Jul–Aug 2026; 2026 target ~15,000 units.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Mitsubishi converts engine plant to humanoid production: 1,000 robots/month</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Competitor</span><span>Today in Robotics · Aug 05</span></div>
+      <div class="item-summary">Mitsubishi is converting an idle internal-combustion engine plant into a humanoid production line targeting 1,000 robots/month — a strong signal of Japanese manufacturing capacity shifting to embodied AI and the automation economy expanding into traditional industrial infrastructure.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.orthopreneurs.com/post/mike-s-newsletter-humanoid-robots-enter-surgery-dexterous-hands-hit-the-market" target="_blank">1X unveils NEO: 25 DOF per hand tendon-drive system, $20,000 or $499/month</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Competitor</span><span>Mike's Newsletter · early Aug</span></div>
+      <div class="item-summary">NEO replaces rigid gearboxes with polymer tendons pulled by high-torque motors: fine dexterity (cradling a wine glass), up to 8 m/s, 22 dB, ~66 lbs while lifting 154 lbs. Pre-orders open; Early Access late 2026. Hailed as the first genuinely dexterous, home-safe humanoid shipping.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Humanoid rental service in China: ~$443/day, thousands of customers already</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Business model</span><span>Today in Robotics · Aug 05</span></div>
+      <div class="item-summary">A Chinese company rents humanoids at ~$443/day; thousands of customers already use the service. Robots-as-a-service lowers the trial barrier for businesses and is emerging as a trend in the automation economy.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#1d4ed8;">🗄️</div>
+      <h2>5 · Data Collection &amp; Data Services</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.chinanews.com/gn/2026/08-06/10673137.shtml" target="_blank">Hefei's 6,000 m² embodied-data training center: 83 robots "in school," "universal grasping" dataset registered</a></div>
+      <div class="item-meta"><span class="tag tag-data">Collection</span><span>China News Service · Aug 06</span></div>
+      <div class="item-summary">The center replicates real scenes (home, retail, industry) where 83 robots from different companies learn. Every grasp logs wrist force, visual coordinates and text instructions into standardized datasets. The in-house "universal grasping dataset" completed property-rights registration — Anhui's first multimodal grasping dataset for embodied AI. ~200 industry firms now cluster in Hefei.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://news.10jqka.com.cn/20260804/c678670646.shtml" target="_blank">Kaiwang Data: ~100,000 hours of effective data/month — bare hands, tactile gloves, UMI grippers, panoramic video</a></div>
+      <div class="item-meta"><span class="tag tag-data">Data services</span><span>China Fund News · Aug 04</span></div>
+      <div class="item-summary">Full-chain service: data definition, scene collection, annotation, trading. Real deployments in supermarkets, restaurants, homes and automotive lines. Monthly effective data output stable at ~100,000 hours, breaking the industry's 10,000-hour scale threshold; bulk data-purchase contracts signed with several major firms.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3K8GLU505118K7K.html" target="_blank">Jingling Zhikang's "hardware–scene collection–training" model: bionic hands harvest real human-interaction data</a></div>
+      <div class="item-meta"><span class="tag tag-data">Collection</span><span>EqualOcean · Aug 05</span></div>
+      <div class="item-summary">Each bionic hand deployed in homes or rehab centers collects human-robot interaction data in daily life (cooking, dressing) — distinct from lab simulation and useful for embodied-model training. Intended flywheel: falling hardware costs + accumulating data; target capacity of 50,000 units/year.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://new.qq.com/rain/a/20260804A02ZAY00" target="_blank">Bodeng Intelligence: ~RMB 1bn order book, 500,000 hours of real-robot data/year, 500+ robots deployed</a></div>
+      <div class="item-meta"><span class="tag tag-data">Data services</span><span>Ti Media · Aug 04</span></div>
+      <div class="item-summary">Three innovation centers (Ningbo, Huzhou, Ma'anshan) with 500+ real robots. CEO Zhao Jie stresses that "failure samples and human-takeover data are the key to embodied-AI progress." ~50% of business in embodied AI; ~RMB 500M of orders to deliver this year.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://mp.ofweek.com/robot/a856714125657" target="_blank">DISCOVER Robotics CEO Wang Shibo is a "robot-free collection" expert; team bets on the home-data loop</a></div>
+      <div class="item-meta"><span class="tag tag-data">Team</span><span>OFweek / Securities Times · Aug 03</span></div>
+      <div class="item-summary">Rooted in DJI (Mavic Mini) and Tsinghua AIR, the team argues the home — messier and data-richer than industry — is the best training ground for general models. Loop: collection – foundation-model training – real-robot RL – data reflux.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#0f766e;">⚙️</div>
+      <h2>6 · Key Component Suppliers</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://new.qq.com/rain/a/20260806A05MO500" target="_blank">Leaderdrive: #1 in China (27.5% share 2025), #2 globally — 70,000 harmonic reducers/month, orders through 2027</a></div>
+      <div class="item-meta"><span class="tag tag-component">Harmonic reducer</span><span>KeChuang Daily · Aug 06</span></div>
+      <div class="item-summary">"P-tooth" tech broke Harmonic Drive's monopoly: ~half the price, "near-equal" performance. 425,000 reducers sold in 2025 (+72%), capacity utilization 68%; monthly output from 50,000 to 70,000 units (year-end target: 100,000–120,000). Q1 2026: revenue RMB 487M (+128.65%), net profit RMB 162M (+189.32%).</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://guba.eastmoney.com/news,002896,1753407207.html" target="_blank">Zhongda Leader: Unitree framework contract 2025-2027 worth ~RMB 3.2bn (110,000 robots), 63-80% planetary-gearbox share</a></div>
+      <div class="item-meta"><span class="tag tag-component">Gearbox</span><span>East Money · Aug 03</span></div>
+      <div class="item-summary">Unitree's No.1 planetary-gearbox supplier (G1, H1/H2 lines); humanoid-linked orders up +540% YoY in Q1 2026. Also supplies AGIBOT and Fourier. In-house compact harmonic reducer (ZCSD-14/ZSHF-14) completed production validation.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">XCC wins Tesla nomination: planetary roller screws + miniature ball screws; 2026 capacity of 980k and 2.1M units</a></div>
+      <div class="item-meta"><span class="tag tag-component">Screws</span><span>Toutiao · early Aug</span></div>
+      <div class="item-summary">Over 30 screws per robot; Mexico line already running, indirect entry into Tesla's joint-module chain via Sanhua. 2026 plan: 980,000 planetary roller screws + 2.1M miniature ball screws for dexterous hands, aligned with Optimus ramp-up.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">MOONS': exclusive coreless-motor supplier for Optimus' hand — 12 motors/robot, 70-80% share at 1/8 the cost of Maxon</a></div>
+      <div class="item-meta"><span class="tag tag-component">Motors</span><span>Toutiao · early Aug</span></div>
+      <div class="item-summary">Each humanoid needs 12 coreless (hollow-cup) motors for the hand; MOONS' is expected to take 70-80% of Tesla's supply at one-eighth the cost of Switzerland's Maxon. Price-and-performance positioning; moving from import substitution to first-tier global OEM integration.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">Keli completes six-axis force-sensor sampling tests for Optimus — not yet in series procurement</a></div>
+      <div class="item-meta"><span class="tag tag-component">Sensors</span><span>Toutiao · early Aug</span></div>
+      <div class="item-summary">The six-axis force sensor is among the hardest components to mass-produce; 4 units per robot for grip-force control and precision manipulation. Keli has sampled to multiple Chinese clients and passed Tesla's sampling test — a threshold very few domestic players have crossed.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">Tuopu &amp; Sanhua: Tier-1 suppliers of Optimus linear/rotary actuators; Sanhua locks in RMB 5.4bn in series orders</a></div>
+      <div class="item-meta"><span class="tag tag-component">Actuators</span><span>Toutiao · early Aug</span></div>
+      <div class="item-summary">Tuopu (linear actuators, ~RMB 12k/robot) develops in-house planetary roller screws and plans 500k robot parts/year; Sanhua (rotary actuators, ~RMB 28k/robot) secured RMB 5.4bn in mass-production orders, with a dedicated Mexico line delivering in 2026.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3FIQO5805568W0A.html" target="_blank">Wanxiang Qianchao: robotics becomes 3rd strategic pillar, nominations secured from leading customers</a></div>
+      <div class="item-meta"><span class="tag tag-component">Transmission</span><span>Sina Finance · Aug 04</span></div>
+      <div class="item-summary">Covers joint universal joints, precision shafts, roller screws, planetary roller screws, precision reducers and joint bearings; current capacity of 100k roller screws and 10M universal joints; 1.2M robot bearings planned for 2026. Thailand expansion underway; 150+ dedicated engineers.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/a7669489967885861412" target="_blank">Changying Precision: in-house "0-degree" silicone for robot gloves, batch deliveries started</a></div>
+      <div class="item-meta"><span class="tag tag-component">Accessories</span><span>Toutiao · early Aug</span></div>
+      <div class="item-summary">Solves the pain points of dexterous-hand biomimetic parts: hard to mass-produce, poor touch, fast wear. Songgang park (Shenzhen) dedicates 60,000 m² to robots with 3,000 CNC machines — the gap between "can make" and "can mass-produce" is being bridged.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.toutiao.com/article/7668981101972455980/" target="_blank">Estimate: China's humanoid component market could exceed RMB 350bn by 2030</a></div>
+      <div class="item-meta"><span class="tag tag-component">Estimate</span><span>Toutiao · Aug 01</span></div>
+      <div class="item-summary">With Unitree's subscription opening August 10, the investment thesis shifts from integrators to component suppliers with import-substitution and scale-supply capability: harmonic reducers, planetary roller screws, six-axis force sensors, coreless motors — all being re-rated upward.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="icon" style="background:#6d28d9;">📡</div>
+      <h2>7 · Industry Trends &amp; Global News</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://q.stock.sohu.com/cn/news.html?code=stockPage&date=2026%2F0805&tab=220&textId=1042628705&type=120" target="_blank">Forum: 2026 robot shipments forecast above 500,000; Guangdong maps 3 AI hubs, Hunan launches RMB 10bn fund</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Policy</span><span>Shanghai Securities News · Aug 05</span></div>
+      <div class="item-summary">Peng Changjiang (Zhongyi Group): growth >50% for nearly all partner makers, one robot-dog player alone topped 30,000 units; over 500,000 robots expected in 2026. Guangdong: Guangzhou Pazhou, Dongguan Binhaiwan, Shenzhen Nanshan; Hunan: RMB 10bn "Jinfurong" future-industry fund plus a provincial RMB 10bn embodied fund.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">FCC adds foreign mobile robots to national-security restricted list (Covered List update July 28)</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Geopolitics</span><span>IEEE Spectrum / Today in Robotics · Aug 05</span></div>
+      <div class="item-summary">The FCC has banned imports of foreign-made mobile communicating robots over 2kg on national-security grounds, driven by the DoD. Expected impact on allied suppliers and a reshaping of the automation industry's supply chain.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.163.com/dy/article/L3JI5G6O0519DFFQ.html" target="_blank">WAIC 2026: 200+ embodied-AI firms, 300+ robots, nearly 60 humanoids "on the job"</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Show</span><span>Caijing New Media · Aug 05</span></div>
+      <div class="item-summary">Real-work scenarios (depalletizing, loading, inspection) replace acrobatic demos. Competitive gravity shifts from "body" to "brain"; maturing domestic supply chains drive down chassis/servo/sensor costs, lowering barriers to body production.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Agility Robotics CTO details real Digit deployment: integration, change management, operational data</a></div>
+      <div class="item-meta"><span class="tag tag-competitor">Competitor</span><span>X / Today in Robotics · Aug 05</span></div>
+      <div class="item-summary">Pras Velagapudi stresses that production deployment goes far beyond polished demos: real integration, change management and operational data collection — a reminder of the gap between lab capability and actual automation-economy deployment.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">GEM-4D: geometry-enhanced video world models for consistent robot manipulation</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Research</span><span>arXiv · Aug 05</span></div>
+      <div class="item-summary">By injecting 4D geometric supervision, the model tracks physical points consistently across generated frames and converts video predictions into executable robot trajectories — addressing a key limitation of deploying video models for real manipulation.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Light-Loco-Parkour: single policy for whole-body locomotion, autonomously choosing walk/climb/vault</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Research</span><span>arXiv · Aug 05</span></div>
+      <div class="item-summary">An end-to-end perceptive control system lets the humanoid dynamically select locomotion skills (walking, climbing, vaulting, balancing) from onboard depth sensing and velocity commands, with no pre-programmed motion graphs or labels — advancing navigation in complex real environments.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://machinedawn.ai/today" target="_blank">Bimanual manipulation runs on entry-level 8GB Jetson GPU — edge deployment cost drops sharply</a></div>
+      <div class="item-meta"><span class="tag tag-dynamics">Research</span><span>arXiv · Aug 05</span></div>
+      <div class="item-summary">Researchers run bimanual pick-and-place on a Jetson Orin Nano Super (8GB) with optimized zero-copy sensing and quantized imitation policies; CPU latency cut from 117ms to 101ms in real time — characterizing the deployment cost of bimanual policies on edge hardware.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Sources : China News Service, Shanghai Securities News, China Fund News, Securities Times, Beijing News, CCTV, EqualOcean, Ti Media, East Money, Toutiao, Phoenix News, Sina Finance, IEEE Spectrum, Today in Robotics, arXiv et autres rapports publics · Fenêtre d'information 03/08 – 06/08/2026<br>
+  Compiled by the Robotics China project AI PM · For external distribution
+</footer>
+
+</div>
+<script>
+(function () {
+  var frSec = document.getElementById('fr');
+  var enSec = document.getElementById('en');
+  var frLink = document.querySelector('.langbar a[href="#fr"]');
+  var enLink = document.querySelector('.langbar a[href="#en"]');
+  if (!frSec || !enSec || !frLink || !enLink) return;
+  function setActive(lang) {
+    if (lang === 'fr') {
+      frLink.classList.add('active-fr');
+      enLink.classList.remove('active-en');
+    } else {
+      enLink.classList.add('active-en');
+      frLink.classList.remove('active-fr');
+    }
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && e.intersectionRatio > 0) {
+          setActive(e.target.id === 'fr' ? 'fr' : 'en');
+        }
+      });
+    }, { rootMargin: '-25% 0px -55% 0px' });
+    io.observe(frSec);
+    io.observe(enSec);
+  } else {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          var frTop = frSec.getBoundingClientRect().top;
+          var enTop = enSec.getBoundingClientRect().top;
+          setActive(Math.abs(frTop) <= Math.abs(enTop) ? 'fr' : 'en');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  frLink.addEventListener('click', function () { setActive('fr'); });
+  enLink.addEventListener('click', function () { setActive('en'); });
+})();
+</script>
+</body>
+</html>
