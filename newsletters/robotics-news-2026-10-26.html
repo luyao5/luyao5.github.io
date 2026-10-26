@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter Robotics &amp; Physical AI · 2026-10-26 · FR / EN</title>
+<style>
+:root {
+  --bg: #f6f3ec;
+  --card-bg: #fffdf9;
+  --text: #221d16;
+  --text-secondary: #6f675a;
+  --border: #e5decf;
+  --accent: #0e7490;
+  --accent-light: #e4f0ec;
+  --tag-finance: #b45309;
+  --tag-product: #d97706;
+  --tag-component: #0f766e;
+  --tag-data: #1d4ed8;
+  --tag-dynamics: #6d28d9;
+  --tag-competitor: #be123c;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(60,50,20,0.05), 0 1px 1px rgba(60,50,20,0.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131210;
+    --card-bg: #1c1a17;
+    --text: #ece6da;
+    --text-secondary: #a29a8a;
+    --border: #33302a;
+    --accent-light: #1a2726;
+  }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  padding: 24px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+header {
+  text-align: center;
+  padding: 44px 24px 34px;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  position: relative;
+}
+header h1 {
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+header .subtitle {
+  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+header .wrc-tag {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 999px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+header .meta {
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+header::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  margin: 20px auto 0;
+}
+header .stats {
+  display: flex; justify-content: center; gap: 28px;
+  margin-top: 16px; font-size: 0.9rem; opacity: 0.85;
+  flex-wrap: wrap;
+}
+
+.langbar {
+  position: sticky; top: 8px; z-index: 50;
+  display: flex; gap: 2px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  width: fit-content; max-width: 230px;
+  margin: 0 auto 24px;
+  box-shadow: var(--shadow);
+}
+.langbar a {
+  display: inline-block; padding: 3px 14px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
+  color: var(--text-secondary); text-decoration: none;
+}
+.langbar a.active-fr, .langbar a.active-en { background: var(--accent); color: #fff; }
+
+.lang-section { scroll-margin-top: 64px; }
+.lang-label {
+  text-align: center; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 3px; color: var(--accent); opacity: 0.75;
+  margin: 0 0 18px;
+}
+
+.section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+}
+.section-header .icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: white; flex-shrink: 0;
+}
+.section-header h2 {
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.item:last-child { border-bottom: none; }
+.item-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+.item-title a { color: var(--text); text-decoration: none; }
+.item-title a:hover { color: var(--accent); }
+.item-meta {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.82rem; color: var(--text-secondary);
+  margin-bottom: 8px; flex-wrap: wrap;
+}
+.tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 0.75rem; font-weight: 600; color: white;
+}
+.tag-finance { background: var(--tag-finance); }
+.tag-product { background: var(--tag-product); }
+.tag-component { background: var(--tag-component); }
+.tag-data { background: var(--tag-data); }
+.tag-dynamics { background: var(--tag-dynamics); }
+.tag-competitor { background: var(--tag-competitor); }
+.item-summary { font-size: 0.92rem; color: var(--text-secondary); }
+.item-summary strong { color: var(--text); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.85rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-light); font-weight: 600; white-space: nowrap; }
+td strong { color: var(--accent); }
+footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  padding: 20px 0 8px;
+}
+@media (max-width: 720px) {
+  th { white-space: normal; }
+  header h1 { font-size: 1.55rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Newsletter Robotics &amp; Physical AI</h1>
+  <p class="subtitle">Édition bilingue FR / EN</p>
+  <div class="wrc-tag">📅 Veille bimensuelle · Fenêtre 10/22 – 10/26</div>
+  <div class="meta">26 octobre 2026 · 25 articles couverts · 6 tours de financement · 10 fournisseurs de composants et de capteurs</div>
+  <div class="stats">
+    <span>💰 6 financements</span>
+    <span>✋ 3 mains dextres</span>
+    <span>🦾 4 robots complets</span>
+    <span>🗄️ 3 données</span>
+    <span>⚙️ 3 composants</span>
+  </div>
+</header>
+
+<nav class="langbar" aria-label="Langue">
+  <a href="#fr" class="active-fr">FR</a>
+  <a href="#en">EN</a>
+</nav>
+
+<section class="lang-section" id="fr">
+<p class="lang-label">ÉDITION FRANÇAISE</p>
+
+<!-- FR 1 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#b45309">★</div>
+    <h2>1. Faits marquants — jalons des marchés financiers</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://new.qq.com/rain/a/20261026A062F700">CASBOT boucle un tour A++ de plusieurs centaines de millions de yuans sur la pile complète « corps + cerveau incarné + main dextre »</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <div class="item-summary">Beijing Zhongke Huiling Robotics (marque <strong>CASBOT</strong>) a finalisé un tour <strong>A++ de plusieurs centaines de millions de yuans</strong>, réuni par Zhilai Investment, Yonghua Investment, Maotian Investment, Oriza Evergreen, Guoke Kezhi et Luning Investment — un tournoi d'investisseurs mêlant fonds de capital-investissement, fonds de fonds et plateformes industrielles. En juin 2025, la société avait déjà levé près de 100 millions de yuans en série A, menée par le fabricant de précision Lens Technology. Les fonds serviront à la <strong>montée en cadence industrielle, à l'itération du cerveau incarné sur les scénarios critiques et à l'expansion commerciale</strong>. Fondée en 2023, CASBOT revendique une pile entièrement maison — corps, cerveau incarné, main dextre — et commercialise l'humanoïde pleine taille CASBOT 02, le robot à bras sur roues CASBOT W2, le demi-format CASBOT Mini ainsi qu'un groupe de robots musiciens. Les scénarios visés : manipulation souple en usine, opérations à haut risque en mine et énergie, services commerciaux, spectacles et recherche. Son modèle incarné CAS-brain relie matériel, données d'interaction réelles, entraînement et évolution autonome récursive.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://news.qq.com/rain/a/20261026A0580P00">MoSense lève un tour d'amorçage+ de l'ordre de 100 millions de yuans pour un système tactile multimodal couvrant de la main à la plante du pied</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <div class="item-summary">Shanghai <strong>MoSense</strong> a bouclé un tour d'<strong>amorçage+ de l'ordre de 100 millions de yuans</strong>, mené par CDH Investments et Oasis Capital, avec la participation de <strong>LimX Dynamics, Loongson Capital, CAS Star, WestSummit Capital, Pudong Venture Capital et un grand fabricant national de robots incarnés</strong>. La société développe un système de perception tactile multimodal pour l'ensemble du corps : son produit phare <strong>MoSkin</strong>, fondé sur une technologie d'électromagnétisme architecturé, couvre mains, membres, tronc et plantes de pied et convertit la frontière physique rigide du robot en <strong>champ de forces à six dimensions continu</strong>. Deux lectures possibles : le tactile s'étend du bout du doigt au corps entier, ce qui le distingue des approches centrées sur la seule main ; et l'entrée simultanée d'un fabricant de robots et d'un acteur du calcul signale que le tactile est désormais financé comme une couche intermédiaire entre le corps et la puissance de calcul.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.163.com/dy/article/L9UI16A305569K8R.html">Enact Intelligence sort du mode furtif avec 30 millions de dollars d'amorçage, misés sur la proprioception logée dans l'actionneur</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">La jeune pousse suisse <strong>Enact Intelligence</strong>, basée à Zurich, est sortie de mode furtif en annonçant un tour d'amorçage de <strong>30 millions de dollars (environ 200 millions de yuans)</strong>, mené conjointement par Redalpine et Notion Capital. Le tour réunit des business angels de premier plan : Arthur Mensch, cofondateur de Mistral ; <strong>Yann LeCun</strong>, fondateur d'AMI Labs et ancien chief AI scientist de Meta ; Andrew Lonsberry, fondateur de Path Robotics ; Thomas Wolf, cofondateur de Hugging Face. Créée en mars 2026, la société part d'un constat simple : la vision seule ne permet pas de savoir quelle force le robot applique ni quel état de contrainte subit l'objet. D'où le choix d'<strong>intégrer la perception d'effort directement dans l'actionneur</strong>, à la manière d'un humain qui sent son propre effort par le muscle, puis d'y superposer modèles et système de collecte de données. Son fondateur, Manuel Yves Galliker, a dirigé les équipes contrôle et embarqué chez 1X Technologies sur le programme NEO, avant de rejoindre Physical Intelligence sur les modèles VLA.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://mindpattern.ai/f/30913">Agility verrouille Nvidia IGX Thor comme unique calculateur embarqué du Digit 5, avec plus de 300 millions de dollars de commandes et une cotation AGLT au quatrième trimestre</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 22/10/2026</span></div>
+    <div class="item-summary">Agility Robotics a annoncé le 22 octobre, lors du GTC Berlin de Nvidia, que le <strong>Digit 5 de série n'embarquerait que des modules IGX Thor</strong> comme unique ordinateur de bord, et que les modèles de sûreté Halos de Nvidia seraient intégrés à son système de détection humaine. L'accès anticipé ouvrira au premier semestre 2027, suivi d'un déploiement de six à neuf mois vers les usines et entrepôts. La société déclare parallèlement <strong>plus de 300 millions de dollars de commandes pluriannuelles</strong>, soumises à jalons, et prévoit une cotation au Nasdaq sous le code <strong>AGLT</strong> via une fusion avec Churchill Capital Corp XI, finalisation attendue au quatrième trimestre 2026 pour une valorisation d'environ 2,5 milliards de dollars et un produit brut supérieur à 620 millions. Les données d'exploitation publiées font état de <strong>65 000 heures de fonctionnement</strong> cumulées sur neuf sites clients, avec les centres de distribution Amazon comme point d'ancrage.</div>
+  </div>
+</section>
+
+<!-- FR 2 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#b45309">💰</div>
+    <h2>2. Panorama des levées de fonds</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title">Récapitulatif des opérations de la fenêtre (22/10 – 26/10)</div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <table>
+      <thead>
+        <tr><th>Société</th><th>Tour</th><th>Montant</th><th>Investisseurs principaux</th><th>Segment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CASBOT</strong></td><td>A++</td><td>Plusieurs centaines de M CNY</td><td>Zhilai, Yonghua, Maotian, Oriza Evergreen, Guoke Kezhi, Luning</td><td>Corps humanoïde, cerveau incarné, main dextre</td></tr>
+        <tr><td><strong>MoSense</strong></td><td>Amorçage+</td><td>Ordre de 100 M CNY</td><td>CDH Investments, Oasis Capital (lead) ; LimX Dynamics, Loongson Capital, CAS Star, WestSummit, Pudong VC</td><td>Perception tactile multimodale corps entier</td></tr>
+        <tr><td><strong>Enact Intelligence</strong></td><td>Pre-Seed</td><td>30 M USD</td><td>Redalpine, Notion Capital (lead) ; Y. LeCun, A. Mensch, T. Wolf</td><td>Proprioception dans l'actionneur, modèle de manipulation</td></tr>
+        <tr><td><strong>DareRobot</strong></td><td>Pre-A+</td><td>Près de 100 M CNY</td><td>Fosun RZ Capital, Qingshi AM, Zhengxi Capital, Xigao, Bozhon Precision, Suzhou VC</td><td>Industrie lourde incarnée (découpe, meulage, soudage, peinture)</td></tr>
+        <tr><td><strong>Gewu Tongzhi</strong></td><td>Amorçage</td><td>Près de 100 M CNY</td><td>Plateformes publiques de Hangzhou et capital industriel</td><td>Du laboratoire à la ligne de production</td></tr>
+        <tr><td><strong>Fujian Humanoid Robot Innovation Center</strong></td><td>Pre-A+</td><td>Non divulgué</td><td>—</td><td>Humanoïde à bras sur roues, corps imprimé en 3D</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.ifeng.com/c/8xWUaVaDRTw">Hebdomadaire des financements (19–25/10) : l'incarné et les semi-conducteurs concentrent les capitaux, du calcul à la collecte de données</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 25/10/2026</span></div>
+    <div class="item-summary">La synthèse hebdomadaire montre une nette concentration des capitaux aux deux extrémités de la chaîne : le calcul en amont et l'infrastructure de données. Côté puces, <strong>Mahexin Technology</strong>, filiale semi-conducteurs de Li Auto, a bouclé un premier tour de <strong>1,625 milliard de yuans</strong> (mené par Hangzhou Jingtao, BlueRun Ventures et Huaye Tiancheng, avec MiraclePlus), assorti d'un droit de souscription complémentaire pouvant atteindre 500 millions, ce qui porterait la valorisation post-money à 17,1 milliards. <strong>Jiutian Ruixin</strong> cumule 1 milliard de yuans (Meituan, XPeng Xinghang Capital, fonds industriel de Yangtze Memory) sur le calcul intégré SRAM. Côté données et perception, <strong>Xingyi Intelligence</strong> enchaîne un tour d'amorçage et un amorçage+ pour plusieurs dizaines de millions de yuans (Shunxi Fund et LUSTER en tête), sur la <strong>collecte de données physiques multimodales pour l'incarné</strong> ; <strong>Lingyan Technology</strong> totalise plusieurs dizaines de millions sur des visages synthétiques synchronisés lèvres-yeux-voix ; <strong>Guoke Brain-Computer</strong> lève plusieurs dizaines de millions en amorçage sur les interfaces cerveau-machine non invasives.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.sina.cn/fund/jjgdxw/2026-10-24/detail-iniwicvn8067464.d.html">Capital-risque chinois au troisième trimestre : près de 700 milliards de yuans d'origine publique, l'incarné et le spatial en tête</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation de sources publiques · 24/10/2026</span></div>
+    <div class="item-summary">La rétrospective du troisième trimestre indique environ <strong>700 milliards de yuans</strong> injectés par le secteur public, les plateformes internet devenant les principaux pourvoyeurs des tours de grande taille : Alibaba (avec Alibaba Cloud), Tencent, Meituan, JD.com et Baidu apparaissent dans cinq opérations majeures, couvrant Kling AI, <strong>Sharpa</strong>, XPeng Robotics, Shengshu Technology et VAST. <strong>Sharpa a levé plus de 4,5 milliards de yuans</strong>, menés conjointement par Alibaba, Meituan, Tencent et JD.com, avec HongShan China et Qiming Venture Partners en suivi ; <strong>XPeng Robotics a obtenu plus de 900 millions de dollars</strong> en premier tour, avec IDG Capital, Gaorong Ventures, Tencent et Alibaba. Sur le seul segment robotique, <strong>les deux opérations totalisent plus de 10 milliards de yuans</strong>, à comparer aux 7 milliards de Yuanxin Satellite (série B) et aux près de 5 milliards de Chang Guang Satellite. À noter : les grandes plateformes investissent simultanément dans la couche modèle et dans le corps physique, ce qui revient à prendre position en amont sur l'intégration modèle-corps.</div>
+  </div>
+</section>
+
+<!-- FR 3 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#6d28d9">✋</div>
+    <h2>3. Dynamique des mains dextres</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.aiddithome.com/p/c6cb880180a8e.html">Unitree dévoile la DEX5-S : cinq doigts à commande indépendante, capteurs de force multidimensionnels et architecture « moteur + réducteur de précision »</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">DYNAMIQUE</span><span>Compilation de sources publiques · 22/10/2026</span></div>
+    <div class="item-summary">Lors de la World Physical AI Conference 2026, Unitree Robotics a présenté la <strong>DEX5-S</strong>, sa première main dextre destinée à la manipulation fine sur humanoïde : <strong>chaque doigt est entraîné indépendamment</strong>, avec moteur et réducteur dédiés, ce qui autorise prises opposées, prises latérales et pincements ; des <strong>capteurs de force multidimensionnels</strong> restituent en temps réel l'intensité et la direction du contact au bout du doigt. Sur le plan technique, la DEX5-S n'emprunte ni la voie pneumatique ou à tendons (type Shadow Hand), ni la commande directe pure, mais l'<strong>association moteur et réducteur de précision</strong>, qui amplifie le couple dans un encombrement contraint. Prix et disponibilité ne sont pas communiqués ; les démonstrations montrent la prise d'un œuf, la tenue d'un outil et l'appui sur des touches. Son avantage structurel : <strong>main et corps développés par la même entreprise</strong>, donc compatibilité directe avec les G1 et H2 sans adaptation supplémentaire et latence de communication réduite — une pression structurelle pour les fabricants indépendants de mains dextres.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://app.myzaker.com/news/article.php?f=normal&amp;pk=6adae289b15ec04fdc0e9efa">Linkerbot présente les L6 et O6 au sommet écosystème d'Unitree : 200 N de poussée pour l'une, 50 kg de charge pour 360 g</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">DYNAMIQUE</span><span>Compilation de sources publiques · 22/10/2026</span></div>
+    <div class="item-summary">Le 22 octobre, la World Physical AI Conference 2026 et le sommet des partenaires d'Unitree se sont tenus à Hangzhou. <strong>Linkerbot</strong> y a exposé quatre pièces maîtresses, dont deux démonstrations de contrôle coordonné : un <strong>Unitree G1 équipé d'une Linker Hand L6</strong> et un <strong>Unitree R1 équipé d'une Linker Hand O6</strong>, les deux robots réalisant des interactions en direct, avec un couplage profond entre la main et les algorithmes de commande du corps et une réponse à faible latence. Les deux mains partagent une structure à tringlerie et <strong>11 degrés de liberté au total (6 actifs, 5 passifs)</strong>. La L6 embarque un « vérin électrique renforcé » maison (moteur sans balais et vis à billes) affichant 90 % de rendement, une poussée en bout de vis de <strong>200 N</strong> et une durée de vie mesurée supérieure au million de cycles, pour les tâches industrielles à effort continu. L'O6 joue la carte de la miniaturisation : <strong>360 g seulement pour une charge allant jusqu'à 50 kg</strong>. Ce duo illustre un déplacement : les fabricants tiers de mains dextres passent de la vente à l'intégrateur à l'<strong>entrée dans l'écosystème de l'intégrateur, avec alignement sur son système de commande</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.sina.com.cn/jjxw/2026-10-23/doc-iniwfmnk5021729.shtml">Fulai New Material a livré plus de 30 000 capteurs tactiles à Linkerbot : la « peau électronique » devient un composant standard de la main dextre</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPOSANT</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">Fulai New Material (605488.SH) indique avoir <strong>livré cumulativement plus de 30 000 capteurs tactiles</strong> au fabricant de mains dextres <strong>Linkerbot</strong>. La technologie repose sur une voie piézorésistive avec intégration « puce-capteur » : <strong>la puce au bout du doigt traite le signal en millisecondes en périphérie</strong> et transmet une conclusion de décision au cerveau du robot, au lieu de renvoyer seulement une pression brute. Au-delà de la peau électronique, la société commercialise un <strong>gant de collecte de données tactiles</strong>, développé avec Haocun Technology : la version standard vise le déploiement massif en data factory, la version professionnelle atteint une <strong>isomorphie de captation 1:1 avec une main dextre à 20 degrés de liberté</strong>, afin de réduire les pertes lors du transfert des données de la main humaine vers la machine. Une filiale américaine, APEX Sensing, sert directement les clients nord-américains. En bourse, le titre a enchaîné trois séances de hausse sur cinq jours au 23 octobre puis une nouvelle limite haute le 26 octobre, portant la capitalisation à environ 12,6 milliards de yuans pour un PER dynamique d'environ 121 fois ; la société a publié le 23 octobre un avis d'irrégularité de cours mentionnant le risque de spéculation conceptuelle.</div>
+  </div>
+</section>
+<!-- FR 4 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#d97706">🦾</div>
+    <h2>4. Robots complets et lancements de produits</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.nfnews.com/content/xovKvZajyJ.html">PrimeBot sort son 5 000e robot personnel : un toutes les 2,5 minutes, cadence journalière passée de dix à plus de 200 unités</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUIT</span><span>Compilation de sources publiques · 25/10/2026</span></div>
+    <div class="item-summary">Le 25 octobre, <strong>PrimeBot</strong>, marque de robots personnels de Swancor, a fait sortir d'usine son <strong>5 000e robot</strong>. Depuis la commercialisation des Q1 et T1 le 20 septembre, la société a donc réalisé en un mois environ une montée en cadence stable de zéro à 5 000 unités, avec un rythme de <strong>un robot toutes les 2,5 minutes</strong> et une capacité journalière portée de dix à plus de <strong>200 unités</strong>. Le co-président et directeur de la R&D centrale, Gao Quanzhong, décrit deux socles : d'une part un système de fabrication (stabilisation des procédés, convergence qualité, assemblage automatisé et calibration pour une homogénéité à l'échelle de dizaines de milliers d'unités ; entrepôt de matières premières avec les fournisseurs, ligne d'assemblage semi-automatique inédite, système d'information de bout en bout pour la traçabilité) ; d'autre part des <strong>standards de série</strong> — essais de pliage de faisceaux à l'échelle du million de cycles, essais d'endurance d'articulations à l'échelle de 100 000 cycles, essais de résistance aux chocs des modules. Le fabricant partenaire Huguang souligne que l'apport clé consiste à transférer vers le robot la précision de fabrication, les procédés matures et la traçabilité qualité du secteur automobile, pour dépasser le paradoxe « prototype facile, série instable ». Côté usage, certains clients dépassent une heure d'utilisation quotidienne, les plus intensifs plus de trois heures et 150 interactions effectives par jour ; une mise à jour OTA est prévue fin octobre.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.163.com/dy/article/LA6CLO1F0514R9P4.html">AGIBOT lance le G2 Max, robot incarné lourd certifié aux normes de sécurité, déjà déployé en cosmétique, e-commerce et agroalimentaire</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUIT</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <div class="item-summary">Le 26 octobre, AGIBOT a présenté le <strong>G2 Max</strong>, robot incarné lourd conforme aux normes de sécurité. La machine est déjà en validation et en exploitation chez des leaders de la cosmétique grand public, du e-commerce et de l'agroalimentaire, sur le <strong>dépaquetage et palettisation, le chargement de cartons, le recyclage de cagettes vides et l'entrée en stock</strong>. Un cas emblématique : sur la ligne T1 de l'usine de robots de Huguang, le G2 Max doit tenir la cadence d'<strong>un robot toutes les 2,5 minutes</strong>, formant une boucle où des robots fabriquent des robots. Face aux produits grand public ou de démonstration, le positionnement « certifié, lourd, synchronisé au tact de la ligne » est le plus proche d'une livraison industrielle réelle parmi les lancements de la fenêtre. La société rappelle par ailleurs que le G2 standard a été intégré sur quatre postes de la ligne 3C de Longcheer à Nanchang : 2 283 cycles de chargement-déchargement précis en huit heures continues, 100 % de réussite, et un temps de cycle ramené de plus de 100 secondes à 18–20 secondes.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.toutiao.com/article/7700604828238250539/">110 robots de série dansent sans faute : l'AGIBOT A3 décroche à Jinan le record Guinness du plus grand nombre d'humanoïdes dansant simultanément</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUIT</span><span>Compilation de sources publiques · 24/10/2026</span></div>
+    <div class="item-summary">Le 24 octobre, l'AGIBOT A3 a tenté et réussi à Jinan, au palais des congrès de la rivière Jaune, le record Guinness du <strong>plus grand nombre d'humanoïdes dansant simultanément</strong> : <strong>110 robots pleine taille</strong> ont exécuté une chorégraphie coordonnée — déplacements, sauts, rotations, changements de formation — pilotés par une seule personne depuis un ordinateur. Le point mis en avant par la société : <strong>ces 110 unités sont toutes des machines de série, aucune n'est un prototype spécialement réglé</strong>. Pour le partenaire Wang Chuang, « cette assurance vient de la ligne de production ». Sur le plan technique, la synchronisation temporelle multi-agents, l'ordonnancement de flotte et la vérification d'homogénéité de lot comptent davantage que la chorégraphie elle-même : c'est le seul événement de la fenêtre dont l'argument central est la <strong>cohérence à l'échelle d'un lot</strong>, par opposition aux démonstrations de capacité unitaire.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://wearethefrontier.org/world/us/ca/hayward/2026/10/22/1x-technologies-begins-shipping-neo-home-robots">1X commence les livraisons du NEO : 20 000 dollars, 10 000 premières unités, mais les tâches ménagères complexes restent téléopérées</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUIT</span><span>Compilation de sources publiques · 22/10/2026</span></div>
+    <div class="item-summary">1X Technologies a commencé en octobre 2026 la livraison de son <strong>robot domestique NEO</strong>, honorant les <strong>10 000 premières unités</strong> écoulées en cinq jours lors de l'ouverture des précommandes en octobre 2025, au prix de <strong>20 000 dollars</strong>. Caractéristiques : environ 1,68 m, 30 kg, 22 décibels, quatre heures d'autonomie, et surtout une <strong>transmission à tendons</strong> — câbles et moteurs imitant la souplesse musculaire plutôt que des actionneurs rigides ; charge utile de 25 kg, levage jusqu'à 70 kg. La limite essentielle : pour les tâches ménagères complexes, la version actuelle <strong>dépend d'opérateurs distants Turing</strong> qui prennent la main via les caméras embarquées. Côté industriel, l'usine de Hayward (Californie) est passée en production pleine en avril 2026 avec plus de 200 salariés ; la société a levé 250 millions de dollars en série C en août 2026 pour une valorisation de 1,8 milliard, et visait fin 2027 une capacité annuelle de 100 000 unités. La livraison du NEO fait passer l'humanoïde domestique du préachat à l'exécution physique, mais <strong>l'autonomie reste portée par des humains</strong> — un point décisif pour évaluer la structure de coûts réelle du segment.</div>
+  </div>
+</section>
+
+<!-- FR 5 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#1d4ed8">🗄️</div>
+    <h2>5. Collecte de données et services de données</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.163.com/dy/article/LA69K0MB0514R9P4.html">Rapport 2026 sur les données incarnées : 500 à 1 000 CNY/heure en téléopération réelle, 100 à 200 CNY/heure sans corps — l'offre et la demande ne sont pas encore synchronisées</a></div>
+    <div class="item-meta"><span class="tag tag-data">DONNÉES</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <div class="item-summary">Le <strong>Rapport 2026 sur le développement des données incarnées</strong>, publié conjointement par le comité données et annotation de l'Association chinoise de l'information, le cinquième institut de recherche électronique du ministère de l'Industrie et des Technologies de l'information, et Data Elements Society, fournit les repères de coûts les plus précis à ce jour. La <strong>collecte par téléopération sur robot réel</strong> se négocie entre <strong>500 et 1 000 CNY l'heure</strong> : les données restent dans l'espace d'action natif, mais le procédé relève de l'industrie lourde — plus de 200 000 CNY pour un poste de téléopération, 600 000 à 700 000 pour le robot, et seulement deux à trois heures de production utile par opérateur et par jour, sans possibilité de fonctionnement continu 24/7. La <strong>collecte sans corps</strong>, à <strong>100–200 CNY l'heure</strong>, est la voie au plus fort potentiel de passage à l'échelle et au seuil de déploiement le plus bas, mais sa difficulté réside dans le post-traitement : reconstruire la trajectoire, estimer la pose de la main, projeter le geste humain dans l'espace d'action du robot. Le rapport conclut que <strong>la croissance de capacité des centres de collecte ne suit pas encore le rythme de la demande payante, et que le modèle économique reste en phase d'exploration</strong> : certains acteurs atteignent une petite production de série, mais la livraison reste ponctuelle, avec un défaut de revente après le premier projet. Il pointe aussi l'absence fréquente des trajectoires d'échec et d'intervention humaine — précisément l'entrée la plus utile pour le post-entraînement.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.gzastv.cn/ac/b/content_202568.shtml">Guizhou Science City met en service son terrain d'entraînement pour l'incarné : 5 000 m², première infrastructure de collecte réelle du sud-ouest</a></div>
+    <div class="item-meta"><span class="tag tag-data">DONNÉES</span><span>Compilation de sources publiques · 22/10/2026</span></div>
+    <div class="item-summary">Le 22 octobre, le terrain d'entraînement de données incarnées de Guizhou Science City a été officiellement lancé et mis en exploitation, en marge de la semaine d'échanges scientifiques et technologiques de Guizhou Science City. Le site est <strong>planifié sur 5 000 m², dont 1 500 m² en première phase</strong>, construit et opéré par Guizhou Science City Management, et constitue une montée en gamme de l'écosystème local d'annotation de données vers les données incarnées haut de gamme. À la différence de l'annotation d'images ou de textes, le terrain capture des <strong>couples de couple articulaire, de pose terminale et de retour tactile à l'échelle de la milliseconde</strong>. Il déploiera des scènes physiques réelles — habitat, commerce de détail — avec système de capture de mouvement, réseaux de capteurs multidimensionnels et plateforme d'annotation intelligente, selon une voie combinant <strong>téléopération réelle et collecte sans corps</strong>, puis nettoyage, annotation 3D et contrôle qualité. Données de contexte : fin juin 2026, la Chine comptait <strong>plus de 70 terrains d'entraînement</strong> en service, 46 autres en construction ou planifiés, sur 18 provinces, mais concentrés dans l'est du pays, avec un <strong>déficit de données incarnées de qualité supérieure à 90 %</strong>. La province vise 60 jeux de données sectoriels de haut niveau d'ici 2027 et 100 d'ici 2028.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="http://njrb.njdaily.cn/html/2026-10/23/content_54_286851.htm">Le Jiangsu International Data Port ouvre un centre d'innovation incarnée à Xuanwu (Nankin) : 5 000 m² de scènes réelles reproduites à l'identique</a></div>
+    <div class="item-meta"><span class="tag tag-data">DONNÉES</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">Le 21 octobre, lors de la conférence des développeurs de données « Physical AI et modèles du monde », le projet de plateforme d'intelligence artificielle du district de Xuanwu a été signé, actant l'implantation du <strong>centre d'innovation pour l'incarné du Jiangsu International Data Port</strong>. Le centre réunit sur un même site la R&D de corps robotiques, la collecte de données multivariées, l'entraînement de modèles, la validation en scénario et le <strong>commerce de données conforme</strong>, avec environ <strong>5 000 m² de scènes réelles</strong> reproduisant à l'identique restaurant, espace domestique, dressing et supérette automatique : chaque collecte en situation réelle devient une matière d'entraînement, permettant aux entreprises d'obtenir à bas coût et en volume des données de haute valeur. Le directeur général de Jiangsu Cross-border Data Technology, Li Xiangzhou, précise que le port abrite aussi une <strong>plateforme de circulation de données conforme, une base sécurisée de flux transfrontaliers et une plateforme de calcul</strong>, pour un service sur tout le cycle de vie. En marge, Yuanfang (Nankin) Intelligent Technology et l'université de Nankin ont présenté le cadre Rehearsal de physique intelligente, fruit de près de dix ans de travaux sur les modèles du monde. L'écart avec un simple terrain d'entraînement tient à ce couple <strong>commerce de données conforme et flux transfrontalier</strong> — l'élément le plus utile à suivre pour des clients hors de Chine.</div>
+  </div>
+</section>
+<!-- FR 6 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#0f766e">⚙️</div>
+    <h2>6. Fournisseurs clés de composants robotiques</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://robot.ofweek.com/2026-10/ART-8321201-8120-30707402.html">Joy Motion décroche 100 000 modules d'articulation planétaires auprès d'un client public, plus de 100 M CNY, et planifie 2 millions d'unités en 2027</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPOSANT</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">Suzhou Joy-Motion Electric Technology (<strong>Joy Motion</strong>) annonce une commande de <strong>100 000 modules d'articulation planétaires</strong> passée par un client public national, pour un <strong>montant d'exécution supérieur à 100 millions de yuans</strong>, assortie d'une extension de capacité : <strong>2 millions de modules par an visés en 2027</strong>. Trois indicateurs techniques structurent le dossier : l'entreprise figure parmi les premières à intégrer une <strong>architecture de sécurité fonctionnelle ASIL-B</strong> dans ses produits d'articulation, a obtenu la certification <strong>IATF 16949</strong>, affiche une température d'équilibre minimale mesurée de 61,42 °C en régime nominal, une <strong>densité de couple de 117 N·m/kg</strong> et un rendement de livraison supérieur à 95 %. Son angle différenciant est l'<strong>antidéflagrant</strong> : la gamme couvre module simple et ensembles à trois articulations (genou, tangage, roulis) conformes aux régimes Ex d IIB T4 et Ex d IIC T6, avec une certification obtenue en septembre 2026, un couple de pointe jusqu'à 500 N·m et une option IP67. La pile est entièrement maison — moteur, variateur, codeur, réducteur — jusqu'à un micro-module d'articulation de doigt de 23 g pour les mains à degrés de liberté tous actifs. Le point décisif : <strong>le seuil d'acceptation à l'échelle de 100 000 unités n'est plus « savoir fabriquer » mais « fabriquer de façon homogène en série »</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://new.qq.com/rain/a/20261023A055MV00">Hesai lance Kosmo, moteur de données 3D, et révèle plus de 10 000 modules de puissance livrés, un objectif à six chiffres en 2027</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPOSANT</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">Hesai Technology a présenté <strong>Kosmo</strong>, moteur de données tridimensionnelles du monde, ainsi qu'un moteur de mouvement pour robots, positionnés comme second relais de croissance après le lidar : le récit passe de « faire voir le monde à la machine » à « faire comprendre et transformer le monde au robot ». Côté matériel, l'information clé concerne la <strong>main dextre Sharpa</strong> : avec 22 degrés de liberté actifs et une isomorphie 1:1 avec la main humaine, elle figure dans la plateforme de référence humanoïde Isaac GR00T de Nvidia et est utilisée par Berkeley, Stanford et Nanyang Technological University ; sa première main tactile phare <strong>Wave (W01)</strong> — première main dextre à degrés de liberté élevés réversible et produite en série du secteur — <strong>repose précisément sur les modules de puissance de Hesai</strong>. Ces modules affichent un <strong>volume réduit de 37 % et une densité de puissance triplée</strong> par rapport aux équivalents ; <strong>plus de 10 000 ensembles ont été livrés</strong> à fin du deuxième trimestre 2026, la gamme s'étendant des modules de main aux modules d'articulation pour tout le corps, avec un objectif de six chiffres en 2027. L'information rend explicite la hiérarchie entre marque de main dextre et fournisseur d'actionneurs : sous la différenciation des mains, les micro-actionneurs restent le terrain d'un petit nombre de fournisseurs.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://static.cninfo.com.cn/finalpage/2026-10-26/1225623201.PDF">Longhorn Auto obtient deux désignations exclusives en perception visuelle et radar à ultrasons pour robots, son calculateur de domaine basé sur Jetson Thor entre en test d'intégration</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPOSANT</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <div class="item-summary">Dans son compte rendu d'échange avec les investisseurs du 26 octobre, <strong>Longhorn Auto</strong> (301488.SZ) indique un chiffre d'affaires de 1,915 milliard de yuans sur les neuf premiers mois de 2026, en hausse de <strong>51,64 %</strong>, pour un résultat net attribuable de 38,77 millions. Sur le segment robotique, l'entreprise est entrée en 2024 en s'appuyant sur vingt ans de socle technique automobile pour transférer perception visuelle, radar à ultrasons et calculateur de domaine vers les robots : elle <strong>collabore déjà avec AGIBOT, le Zhejiang Humanoid Robot Innovation Center, Shanghai Huazhijian et Ant Lingbo</strong>, et a obtenu <strong>cette année deux désignations exclusives, en perception visuelle et en radar à ultrasons, avec des livraisons attendues fin d'année</strong>. Elle développe en parallèle, à partir de son expérience en perception visuelle, des <strong>équipements de collecte de données côté robot</strong>. Côté calculateur, la gamme couvre les puces haut, milieu et bas de gamme : la version fondée sur <strong>Jetson Thor de Nvidia est développée et entre en test conjoint sur robot complet</strong>, les versions milieu et bas de gamme ayant passé l'évaluation de faisabilité. C'est la divulgation la plus concrète de la fenêtre sur la migration des équipementiers automobiles vers la robotique : désignation actée, échéance de livraison claire, et une nouvelle catégorie de produit — la collecte de données.</div>
+  </div>
+</section>
+
+<!-- FR 7 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#be123c">🌐</div>
+    <h2>7. Tendances sectorielles et actualités internationales</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.toutiao.com/article/7699394008593842688">Données des neuf premiers mois : production de robots industriels en hausse de 29,1 %, réducteurs pour robots de 44,4 %</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TENDANCE</span><span>Compilation de sources publiques · 22/10/2026</span></div>
+    <div class="item-summary">Le Bureau national de la statistique a publié le 19 octobre ses données des neuf premiers mois : PIB de 107,11 billions de yuans, en hausse de 4,6 %. Le directeur de la statistique industrielle, Wang Xin, indique que <strong>les nouveaux moteurs de croissance — intelligence incarnée, collaboration homme-machine — soutiennent le développement du secteur robotique, avec des productions de réducteurs et de robots industriels en hausse de 44,4 % et 29,1 %</strong>, nettement au-dessus de l'industrie manufacturière. La valeur ajoutée de la fabrication de produits numériques contribue à plus d'un tiers de la croissance industrielle ; circuits intégrés et fibre optique progressent de 23,3 % et 18,6 %, les instruments de régulation automatique et calculateurs industriels de 30,6 % et 25,8 %. Le niveau local confirme : sur les neuf premiers mois, Pékin affiche <strong>+170 % pour les robots de service et +47,6 % pour les robots industriels</strong>. Le signal structurel à retenir : <strong>la croissance des réducteurs (44,4 %) dépasse nettement celle des robots complets (29,1 %)</strong> — l'amont étend sa capacité et constitue des stocks plus vite que les robots ne sortent, ce qui situe la chaîne en phase de préparation à la montée en volume.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.tmtpost.com/nictation/8178985.html">Shanghai publie son plan pour l'industrie de services : 20 millions de CNY maximum par projet pour le Physical AI, les modèles du monde et la perception physique multimodale</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TENDANCE</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">Le 23 octobre, la Commission municipale de l'économie et de l'informatisation de Shanghai a publié son <strong>plan d'action 2027-2028 pour l'IA au service de l'industrie</strong>. Le texte <strong>encourage les entreprises à se positionner en amont sur le Physical AI, avec des percées ciblées sur la construction de modèles du monde, la perception physique multimodale, l'interaction virtuel-réel et la décision autonome</strong>. Il soutient aussi les agents industriels sur la planification de tâches, l'usage d'outils, la mémoire longue, l'interopérabilité et la coordination de flotte, ainsi que le développement des composants de perception, décision et exécution. <strong>Les projets correspondants peuvent recevoir jusqu'à 20 millions de yuans</strong>. C'est la première fois que le « Physical AI » entre, par un document officiel, dans la liste des priorités soutenues par une politique industrielle locale — en cohérence avec le plan quinquennal d'avril 2026 classant l'incarné parmi six industries futures. Portée pratique : les modèles du monde et la perception physique multimodale passent du statut de « choix d'entreprise » à celui de <strong>direction technologique éligible à subvention</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.ifnews.com/news.html?aid=879379">Ouverture à Shanghai du Global Developer Pioneer 2026 : 50 milliards de yuans visés en 2027 pour le cœur de l'incarné, déploiement d'un nouveau scénario en 7 jours selon la plateforme Flywheel</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TENDANCE</span><span>Compilation de sources publiques · 24/10/2026</span></div>
+    <div class="item-summary">La conférence Global Developer Pioneer 2026 s'est ouverte à Shanghai autour d'un mot d'ordre : « faire vraiment travailler les robots ». Côté plateformes, un ensemble réunissant <strong>Flywheel</strong> (itération de modèles incarnés), <strong>Agent</strong> (orchestration modulaire des tâches) et <strong>Monitor</strong> (exploitation de flottes) couvre tout le cycle collecte-entraînement-test-déploiement-programmation-exploitation, avec un délai annoncé de <strong>sept jours</strong> pour valider un scénario nouveau de bout en bout. Côté évaluation, Mifei Technology, avec Hugging Face, Nvidia et l'université Tsinghua et près de vingt institutions, développe l'arène <strong>RoboColiseum</strong> : Claude Opus 5.5 y arrive premier, GPT-6 Astra deuxième. Côté déploiement, Keenon Robotics intègre un modèle du monde dans son VLA pour réaliser des tâches longues sans téléopération, et Daxiao Robotics pilote directement ses robots par son modèle World Model 3.1 : la première supérette de station-service ouverte avec PetroChina Shanghai Marketing est en essai depuis septembre, avec préparation de commandes dans des couloirs de 75 cm, le modèle prédisant l'état futur toutes les 100 millisecondes environ. Selon la mairie, Shanghai compte plus de 200 grands modèles enregistrés, plus de 200 000 P de calcul intelligent et 330 000 spécialistes d'IA, avec un objectif de <strong>50 milliards de yuans de cœur de filière incarnée d'ici 2027</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.tmtpost.com/8180836.html">Unitree publiera ses premiers résultats trimestriels post-cotation le 29 octobre ; la question de l'inflation sémantique du secteur est posée</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TENDANCE</span><span>Compilation de sources publiques · 26/10/2026</span></div>
+    <div class="item-summary">Unitree Robotics (688836) publiera le <strong>29 octobre</strong> ses premiers résultats trimestriels après cotation (non audités), un point d'observation clé du chiffre d'affaires et de la marge brute. Référence du premier semestre 2026 : <strong>1,152 milliard de yuans de chiffre d'affaires (+48,54 %)</strong>, 274 millions de résultat net attribuable, 244 millions en résultat récurrent, et 82 millions d'augmentation des dépenses de R&D. Le prospectus indiquait que sur les neuf premiers mois de 2025, <strong>plus de 70 % du chiffre d'affaires humanoïde provenait de l'enseignement et de la recherche, l'industrie et le commerce représentant moins de 10 %</strong>. Deux faits à consigner : le 24 octobre, une vidéo montrant un H2-X chuter latéralement en démonstration, avec détachement du tibia mécanique, a circulé, sans explication officielle à ce jour ; le 20 octobre, la société avait publié un avis d'irrégularité de cours rappelant le caractère précoce de la commercialisation. En bourse, le titre a clôturé le 26 octobre à 672 yuans pour 271,8 milliards de capitalisation, soit +60 % en huit séances et un PER glissant supérieur à 360 fois. La question méthodologique soulevée mérite d'être retenue : <strong>« série », « autonomie » et « réussite » ont chacun plus de trois définitions dans le secteur</strong>, et sans convention commune, paramètres et vidéos n'apportent presque aucune information.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.sina.com.cn/jjxw/2026-10-23/doc-iniwfmnk5021729.shtml">Le Jiangsu lance un plan sur les jeux de données Physical AI et modèles du monde ; un groupe de travail national sur l'incarné est créé et la norme « IA — modèles du monde » entre en pré-étude</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TENDANCE</span><span>Compilation de sources publiques · 23/10/2026</span></div>
+    <div class="item-summary">Normalisation et infrastructure de données progressent simultanément sur la fenêtre : le Jiangsu publie son <strong>plan d'action 2026-2028 pour la construction de jeux de données de haute qualité en Physical AI et modèles du monde</strong> ; une <strong>alliance interurbaine Jiangsu-Anhui pour l'annotation de données</strong> est créée ; un <strong>groupe de travail national de normalisation sur l'intelligence incarnée</strong> voit le jour ; et la <strong>pré-étude de la norme nationale « Intelligence artificielle — modèles du monde » est lancée</strong>. Données de contexte : plus de 40 000 humanoïdes livrés en Chine au premier semestre 2026 ; plus de <strong>70 terrains d'entraînement</strong> en service selon la CAICT. Le goulot fréquemment cité : début 2026, le volume mondial de données d'interaction physique réelles de haute qualité atteignait environ <strong>500 000 heures, avec un déficit supérieur à 95 %</strong> par rapport aux objectifs, les grands acteurs visant le million d'heures pour 2026. Le ministère de l'Industrie indique parallèlement préparer de nouvelles mesures pour l'industrie intelligente. Ces éléments recoupent la section 5 : <strong>normes, alliances et pré-études arrivant ensemble, la donnée passe du « collecté pour soi » à un régime mesurable, échangeable et auditable</strong> — un point décisif pour les services de données transfrontaliers.</div>
+  </div>
+</section>
+
+</section>
+<!-- /FR -->
+<section class="lang-section" id="en">
+<p class="lang-label">ENGLISH EDITION</p>
+
+<!-- EN 1 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#b45309">★</div>
+    <h2>1. Headline events — capital-market milestones</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://new.qq.com/rain/a/20261026A062F700">CASBOT closes an A++ round in the hundreds of millions of yuan on a full stack of body, embodied brain and dexterous hand</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <div class="item-summary">Beijing Zhongke Huiling Robotics (brand <strong>CASBOT</strong>) has completed an <strong>A++ round in the several hundreds of millions of yuan</strong>, subscribed by Zhilai Investment, Yonghua Investment, Maotian Investment, Oriza Evergreen, Guoke Kezhi and Luning Investment — a mix of private equity funds, fund-of-funds and industrial platforms. In June 2025 the company had already raised close to 100 million yuan in a Series A led by precision manufacturer Lens Technology. Proceeds will go to <strong>volume delivery, iteration of the embodied brain on critical scenarios and commercial expansion</strong>. Founded in 2023, CASBOT claims a fully in-house stack — body, embodied brain, dexterous hand — and ships the full-size CASBOT 02, the wheeled dual-arm CASBOT W2, the half-scale CASBOT Mini and a robot band. Target scenarios are flexible manipulation in manufacturing, high-risk work in mining and energy, commercial service, entertainment and research. Its CAS-brain model links hardware, real interaction data, training and recursive self-improvement.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://news.qq.com/rain/a/20261026A0580P00">MoSense raises a pre-A+ seed round around 100 million yuan for full-body multimodal tactile sensing, from hand to sole</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <div class="item-summary">Shanghai-based <strong>MoSense</strong> has closed an <strong>angel-plus round in the region of 100 million yuan</strong>, led by CDH Investments and Oasis Capital, with <strong>LimX Dynamics, Loongson Capital, CAS Star, WestSummit Capital, Pudong Venture Capital and a leading domestic embodied-robotics maker</strong> participating. The company builds full-body multimodal tactile perception: its flagship <strong>MoSkin</strong>, based on electromagnetic architected mechanics, covers hands, limbs, torso and soles and turns the robot's rigid physical boundary into a <strong>continuous six-dimensional force field</strong>. Two readings stand out: touch is expanding from fingertip to whole body, which differentiates it from hand-only approaches; and a robot maker plus a compute player joining the same round suggests tactile sensing is being financed as an intermediate layer between body and compute.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.163.com/dy/article/L9UI16A305569K8R.html">Enact Intelligence exits stealth with a $30M pre-seed, betting on force sensing inside the actuator</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">Swiss embodied-AI startup <strong>Enact Intelligence</strong>, based in Zurich, has exited stealth with a <strong>$30 million pre-seed round</strong> co-led by Redalpine and Notion Capital. The angel list includes Arthur Mensch, co-founder of Mistral; <strong>Yann LeCun</strong>, founder of AMI Labs and former chief AI scientist at Meta; Andrew Lonsberry, founder of Path Robotics; and Thomas Wolf, co-founder of Hugging Face. Founded in March 2026, the company starts from a blunt premise: vision alone cannot tell a robot how much force it is applying or what stress state the object is in. Hence the decision to <strong>integrate force sensing inside the actuator</strong>, much as a human senses effort through muscle, and to layer models and a data-collection system on top. Founder Manuel Yves Galliker previously led the control and embedded teams on NEO at 1X Technologies before moving to Physical Intelligence to work on VLA models.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://mindpattern.ai/f/30913">Agility locks Nvidia IGX Thor as the sole onboard computer for Digit 5, disclosing over $300M in orders and an AGLT listing in Q4</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 22/10/2026</span></div>
+    <div class="item-summary">At Nvidia GTC Berlin on 22 October, Agility Robotics said the general-availability <strong>Digit 5 will run only on IGX Thor modules</strong> as its single onboard computer, and will fold Nvidia's Halos safety models into its human-detection system. Early access opens in the first half of 2027, followed by a six-to-nine-month rollout into factories and warehouses. The company reports <strong>more than $300 million in multi-year orders</strong> subject to milestones, and plans a Nasdaq listing under the ticker <strong>AGLT</strong> through a merger with Churchill Capital Corp XI, expected to close in Q4 2026 at roughly a $2.5 billion valuation and more than $620 million in gross proceeds. Disclosed operating data: <strong>65,000 hours</strong> logged across nine customer sites, anchored by Amazon fulfilment centres.</div>
+  </div>
+</section>
+
+<!-- EN 2 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#b45309">💰</div>
+    <h2>2. Funding landscape</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title">Deals recorded in the window (22/10 – 26/10)</div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <table>
+      <thead>
+        <tr><th>Company</th><th>Round</th><th>Amount</th><th>Lead investors</th><th>Segment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CASBOT</strong></td><td>A++</td><td>Hundreds of M CNY</td><td>Zhilai, Yonghua, Maotian, Oriza Evergreen, Guoke Kezhi, Luning</td><td>Humanoid body, embodied brain, dexterous hand</td></tr>
+        <tr><td><strong>MoSense</strong></td><td>Angel+</td><td>~100 M CNY</td><td>CDH Investments, Oasis Capital (lead); LimX Dynamics, Loongson Capital, CAS Star, WestSummit, Pudong VC</td><td>Full-body multimodal tactile sensing</td></tr>
+        <tr><td><strong>Enact Intelligence</strong></td><td>Pre-Seed</td><td>$30 M</td><td>Redalpine, Notion Capital (co-lead); Y. LeCun, A. Mensch, T. Wolf</td><td>In-actuator force sensing, manipulation models</td></tr>
+        <tr><td><strong>DareRobot</strong></td><td>Pre-A+</td><td>~100 M CNY</td><td>Fosun RZ Capital, Qingshi AM, Zhengxi Capital, Xigao, Bozhon Precision, Suzhou VC</td><td>Heavy-industry embodied AI (cutting, grinding, welding, coating)</td></tr>
+        <tr><td><strong>Gewu Tongzhi</strong></td><td>Angel</td><td>~100 M CNY</td><td>Hangzhou state platforms plus industrial capital</td><td>From lab to production line</td></tr>
+        <tr><td><strong>Fujian Humanoid Robot Innovation Center</strong></td><td>Pre-A+</td><td>Undisclosed</td><td>—</td><td>Wheeled dual-arm humanoid, fully 3D-printed body</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.ifeng.com/c/8xWUaVaDRTw">Weekly funding brief (19–25/10): embodied AI and semiconductors absorb the capital, from compute to data collection</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 25/10/2026</span></div>
+    <div class="item-summary">The weekly roundup shows money concentrating at both ends of the chain: compute upstream and data infrastructure. On chips, <strong>Mahexin Technology</strong>, Li Auto's semiconductor subsidiary, closed a first round of <strong>1.625 billion yuan</strong> (led by Hangzhou Jingtao, BlueRun Ventures and Huaye Tiancheng, with MiraclePlus), plus a subscription right of up to 500 million that would lift the post-money valuation to 17.1 billion. <strong>Jiutian Ruixin</strong> has raised 1 billion yuan in total (Meituan, XPeng Xinghang Capital, a Yangtze Memory industry fund) on SRAM compute-in-memory. On data and perception, <strong>Xingyi Intelligence</strong> closed back-to-back angel and angel-plus rounds totalling tens of millions of yuan (Shunxi Fund and LUSTER leading) on <strong>multimodal physical data collection for embodied AI</strong>; <strong>Lingyan Technology</strong> has raised tens of millions on lip-eye-voice-synchronised synthetic faces; <strong>Guoke Brain-Computer</strong> raised tens of millions in seed funding on non-invasive brain-computer interfaces.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.sina.cn/fund/jjgdxw/2026-10-24/detail-iniwicvn8067464.d.html">China VC/PE in Q3: roughly 700 billion yuan of state-linked capital, with embodied AI and space tied as the two hot themes</a></div>
+    <div class="item-meta"><span class="tag tag-finance">FINANCE</span><span>Compilation of public reports · 24/10/2026</span></div>
+    <div class="item-summary">The Q3 review puts state-linked deployment at roughly <strong>700 billion yuan</strong>, with internet platforms becoming the main source of large rounds: Alibaba (including Alibaba Cloud), Tencent, Meituan, JD.com and Baidu appear in five flagship deals spanning Kling AI, <strong>Sharpa</strong>, XPeng Robotics, Shengshu Technology and VAST. <strong>Sharpa raised more than 4.5 billion yuan</strong>, co-led by Alibaba, Meituan, Tencent and JD.com with HongShan China and Qiming Venture Partners following; <strong>XPeng Robotics took over $900 million</strong> in its first round, backed by IDG Capital, Gaorong Ventures, Tencent and Alibaba. Within robotics alone, <strong>the two deals total more than 10 billion yuan</strong>, alongside Yuanxin Satellite's roughly 7 billion Series B and Chang Guang Satellite's nearly 5 billion. The notable pattern: the platforms are investing in both the model layer and the physical body, effectively pre-positioning for model-body integration.</div>
+  </div>
+</section>
+
+<!-- EN 3 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#6d28d9">✋</div>
+    <h2>3. Dexterous hand dynamics</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.aiddithome.com/p/c6cb880180a8e.html">Unitree unveils the DEX5-S: five independently driven fingers, multi-axis force sensing and a motor-plus-precision-gearbox architecture</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">DYNAMICS</span><span>Compilation of public reports · 22/10/2026</span></div>
+    <div class="item-summary">At the 2026 World Physical AI Conference, Unitree Robotics introduced the <strong>DEX5-S</strong>, its first dexterous hand aimed at fine manipulation on humanoids: <strong>each finger is driven independently</strong> with its own motor and reduction stage, enabling power, lateral and pinch grasps, while <strong>multi-axis force sensors</strong> report contact magnitude and direction at the fingertip in real time. Technically it avoids both pneumatic or tendon-driven designs (such as Shadow Hand) and pure direct drive, choosing instead a <strong>motor plus precision gearbox</strong> arrangement that amplifies torque within a compact envelope. Price and availability are undisclosed; demos show egg grasping, tool holding and button pressing. Its structural advantage: <strong>hand and body developed by the same company</strong>, so the G1 and H2 accept it without adapters and with lower communication latency — structural pressure on independent dexterous-hand vendors.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://app.myzaker.com/news/article.php?f=normal&amp;pk=6adae289b15ec04fdc0e9efa">Linkerbot shows the L6 and O6 at Unitree's ecosystem summit: 200 N of thrust on one, 50 kg of payload on 360 grams</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">DYNAMICS</span><span>Compilation of public reports · 22/10/2026</span></div>
+    <div class="item-summary">On 22 October, the 2026 World Physical AI Conference and Unitree's partner ecosystem summit took place in Hangzhou. <strong>Linkerbot</strong> showed four exhibits, including two coordinated-control demos: a <strong>Unitree G1 fitted with a Linker Hand L6</strong> and a <strong>Unitree R1 fitted with a Linker Hand O6</strong>, both performing live interactions with tight coupling between hand and body motion control and low-latency response. Both hands use a linkage structure with <strong>11 total degrees of freedom (six active, five passive)</strong>. The L6 carries an in-house high-force electric cylinder (brushless motor plus ball screw) with 90 % drive efficiency, <strong>200 N</strong> thrust at the screw end and a measured life beyond one million cycles, aimed at continuous-effort industrial work. The O6 goes small and light: <strong>360 grams for up to 50 kg of payload</strong>. The pairing illustrates a shift — third-party hand makers are moving from selling to robot OEMs to <strong>joining the OEM ecosystem and aligning with its control stack</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.sina.com.cn/jjxw/2026-10-23/doc-iniwfmnk5021729.shtml">Fulai New Material has shipped over 30,000 tactile sensors to Linkerbot, making electronic skin a standard dexterous-hand component</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPONENT</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">Fulai New Material (605488.SH) says it has <strong>cumulatively delivered more than 30,000 tactile sensors</strong> to dexterous-hand maker <strong>Linkerbot</strong>. The technology is piezoresistive with chip-sensor integration: <strong>the fingertip chip processes signals on-device in milliseconds</strong> and hands a decision to the robot's brain rather than streaming raw pressure. Beyond electronic skin, the company sells a <strong>tactile data-collection glove</strong> co-developed with Haocun Technology: the standard version targets large-scale deployment in data factories, while the professional version achieves <strong>1:1 sensing isomorphism with a 20-DoF dexterous hand</strong> to reduce transfer loss from human hand to machine. A US subsidiary, APEX Sensing, serves North American clients directly. On the market, the stock rose to its limit three times in five sessions by 23 October and again on 26 October, lifting market capitalisation to about 12.6 billion yuan at a trailing P/E of roughly 121x; the company issued a price-irregularity notice on 23 October flagging concept-speculation risk.</div>
+  </div>
+</section>
+<!-- EN 4 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#d97706">🦾</div>
+    <h2>4. Humanoids &amp; product launches</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.nfnews.com/content/xovKvZajyJ.html">PrimeBot rolls out its 5,000th personal robot: one every 2.5 minutes, daily output up from ten-odd to over 200</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUCT</span><span>Compilation of public reports · 25/10/2026</span></div>
+    <div class="item-summary">On 25 October, <strong>PrimeBot</strong>, the personal-robot brand of Swancor, rolled out its <strong>5,000th unit</strong>. Since the Q1 and T1 went on sale on 20 September, the company has gone from zero to 5,000 units in about a month, reaching a takt of <strong>one robot every 2.5 minutes</strong> and lifting daily capacity from ten-odd units to more than <strong>200</strong>. Co-president and central R&amp;D head Gao Quanzhong describes two foundations: a manufacturing system (process freeze, quality convergence, automated assembly and calibration for ten-thousand-unit consistency; a raw-material warehouse built with suppliers, a novel semi-automated assembly line, and an end-to-end manufacturing IT system for full traceability); and <strong>volume standards</strong> — million-cycle wire-harness flex tests, 100,000-cycle joint endurance tests and module impact tests. Partner Huguang says the core value is transferring automotive-grade precision manufacturing, mature processes and full quality traceability into robot assembly, breaking the "easy prototype, unstable volume" paradox. On usage, some owners exceed an hour a day, heavy users over three hours and 150 effective interactions daily; an OTA update adding English practice and video calling is planned for late October.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.163.com/dy/article/LA6CLO1F0514R9P4.html">AGIBOT launches the G2 Max, a safety-certified heavy-payload embodied robot already deployed in FMCG, e-commerce and food lines</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUCT</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <div class="item-summary">On 26 October AGIBOT unveiled the <strong>G2 Max</strong>, a safety-certified, heavy-payload embodied robot. It is already in validation and deployment at leading household-goods, e-commerce and food manufacturers, covering <strong>depalletising and palletising, carton loading, empty-tote recovery and warehouse inbound</strong>. One emblematic case: on the T1 line at Huguang's robot factory, the G2 Max must hold the cadence of <strong>one robot every 2.5 minutes</strong>, forming a loop where robots build robots. Against consumer or demo-oriented products, the "certified, heavy, locked to line takt" positioning is the closest to real industrial delivery among this window's launches. The company also notes that the standard G2 was integrated on four stations of Longcheer's 3C line in Nanchang: 2,283 precision load/unload cycles in eight continuous hours at 100 % success, with cycle time cut from over 100 seconds to 18–20 seconds.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.toutiao.com/article/7700604828238250539/">110 production robots dance flawlessly: AGIBOT's A3 sets a Guinness record in Jinan for the most humanoids dancing simultaneously</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUCT</span><span>Compilation of public reports · 24/10/2026</span></div>
+    <div class="item-summary">On 24 October the AGIBOT A3 set a Guinness World Record in Jinan for the <strong>most humanoid robots dancing simultaneously</strong>: <strong>110 full-size humanoids</strong> performed a coordinated routine — movement, jumps, flips, formation changes — driven by one person from a single laptop. The point the company stresses: <strong>all 110 are production units, none specially tuned</strong>. Partner Wang Chuang's line: "that confidence comes from the line." Technically, multi-agent time synchronisation, fleet scheduling and lot-consistency verification matter more than the choreography; it is the window's only event whose central claim is <strong>lot-level consistency</strong> rather than single-unit capability.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://wearethefrontier.org/world/us/ca/hayward/2026/10/22/1x-technologies-begins-shipping-neo-home-robots">1X begins delivering NEO: $20,000, first 10,000 units, with complex chores still teleoperated</a></div>
+    <div class="item-meta"><span class="tag tag-product">PRODUCT</span><span>Compilation of public reports · 22/10/2026</span></div>
+    <div class="item-summary">1X Technologies began delivering its <strong>NEO home robot</strong> in October 2026, fulfilling the <strong>first 10,000 units</strong> that sold out within five days when pre-orders opened in October 2025, at <strong>$20,000</strong> each. The specification: about 1.68 m tall, 30 kg, 22 decibels, four hours of battery, and a <strong>tendon-drive</strong> system using cables and motors to mimic muscle-like compliance instead of rigid actuators; 25 kg carry, up to 70 kg lift. The essential limitation: for complex household chores the current build <strong>relies on remote Turing operators</strong> taking over through the onboard cameras. On the industrial side, the Hayward, California plant went to full production in April 2026 with over 200 staff; the company raised $250 million in Series C in August 2026 at a $1.8 billion valuation and targets 100,000 units of annual capacity by end-2027. NEO's delivery moves the home humanoid from pre-order to physical fulfilment, but <strong>autonomy is still carried by humans</strong> — decisive when assessing the segment's real cost structure.</div>
+  </div>
+</section>
+
+<!-- EN 5 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#1d4ed8">🗄️</div>
+    <h2>5. Data collection &amp; data services</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.163.com/dy/article/LA69K0MB0514R9P4.html">Embodied Data Report 2026: 500–1,000 CNY per hour for real-robot teleoperation, 100–200 without a body, with capacity and paid demand not yet in step</a></div>
+    <div class="item-meta"><span class="tag tag-data">DATA</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <div class="item-summary">The <strong>2026 Embodied Data Development Report</strong>, published jointly by the data-set and annotation committee of the China Information Association, the Fifth Electronics Research Institute of the Ministry of Industry and Information Technology, and Data Elements Society, supplies the most concrete cost benchmarks yet. <strong>Real-robot teleoperation collection</strong> is quoted at <strong>500–1,000 CNY per hour</strong>: the data lands natively in the action space, but the process is heavy industry — over 200,000 CNY for a teleoperation rig, 600,000–700,000 for the robot itself, and only two to three hours of useful output per operator per day, ruling out continuous 24/7 production. <strong>Body-less, portable collection</strong> runs at <strong>100–200 CNY per hour</strong> and is the route with the highest scaling potential and lowest deployment barrier, but its difficulty lies downstream: recovering trajectories, estimating hand pose and mapping human motion into the robot's action space. The report concludes that <strong>capacity growth at collection sites has not yet matched the rhythm of paid demand and the business model remains at an early exploratory stage</strong>: some firms reach small-series output, yet delivery stays one-off, with little resale after the first project. It also flags the frequent absence of failure and human-intervention trajectories — precisely the most valuable input for post-training.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.gzastv.cn/ac/b/content_202568.shtml">Guizhou Science City opens an embodied-data training ground: 5,000 sqm, the southwest's first real-robot collection site</a></div>
+    <div class="item-meta"><span class="tag tag-data">DATA</span><span>Compilation of public reports · 22/10/2026</span></div>
+    <div class="item-summary">On 22 October the Guizhou Science City embodied-data training ground was launched and put into operation during the city's autumn science and technology exchange week. The site is <strong>planned at 5,000 sqm with 1,500 sqm in phase one</strong>, built and operated by Guizhou Science City Management, and represents an upgrade of the local data-annotation base into higher-value embodied data. Unlike image or text annotation, it captures <strong>millisecond-level joint torque, end-effector pose and tactile feedback</strong>. It will build full physical scenes such as home and retail, with motion capture, multi-dimensional sensor arrays and an intelligent annotation platform, combining <strong>real-robot teleoperation with body-less collection</strong>, then cleaning, 3D annotation and quality control. Context: by end-June 2026 China had <strong>more than 70 training grounds</strong> in service and 46 more under construction or planned across 18 provinces, concentrated in the east, with a <strong>high-quality embodied-data shortfall above 90 %</strong>. The province targets 60 sectoral high-quality datasets by 2027 and 100 by 2028.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="http://njrb.njdaily.cn/html/2026-10/23/content_54_286851.htm">Jiangsu International Data Port opens an embodied-AI innovation centre in Xuanwu, Nanjing: 5,000 sqm of one-to-one replicated real scenes</a></div>
+    <div class="item-meta"><span class="tag tag-data">DATA</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">On 21 October, at the "Physical AI and World Models" data developer conference, the Xuanwu district AI platform project was signed, anchoring the <strong>Jiangsu International Data Port embodied-AI innovation centre</strong>. The centre bundles robot-body R&amp;D, multi-source data collection, model training, scenario validation and <strong>compliant data trading</strong> on one site, with about <strong>5,000 sqm of physical collection space</strong> replicating restaurant, domestic, wardrobe and unmanned-store scenes one-to-one: every real-world capture becomes training material, letting firms obtain high-value real-scene data cheaply and at volume. Li Xiangzhou, general manager of Jiangsu Cross-border Data Technology, notes the port also hosts a <strong>compliant data-circulation platform, a secure cross-border transfer base and a compute platform</strong>, providing full-lifecycle services. Alongside, Yuanfang (Nanjing) Intelligent Technology and Nanjing University presented the Rehearsal physical-intelligence framework, built on nearly a decade of world-model work. What sets this apart from a plain training ground is the pairing of <strong>compliant data trading with cross-border flow</strong> — the element most worth tracking for clients outside China.</div>
+  </div>
+</section>
+
+<!-- EN 6 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#0f766e">⚙️</div>
+    <h2>6. Key component suppliers</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://robot.ofweek.com/2026-10/ART-8321201-8120-30707402.html">Joy Motion wins 100,000 planetary joint modules from a state client, over 100M CNY, and plans two million units for 2027</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPONENT</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">Suzhou Joy-Motion Electric Technology (<strong>Joy Motion</strong>) has won an order for <strong>100,000 planetary joint modules</strong> from a national-level client, with a <strong>contract value above 100 million yuan</strong>, alongside a capacity expansion targeting <strong>two million joint modules a year in 2027</strong>. Three technical markers frame the case: the company was among the earliest to put an <strong>ASIL-B functional-safety architecture</strong> into joint products, holds <strong>IATF 16949</strong> certification, and reports a measured minimum equilibrium temperature of 61.42 °C at rated load, a <strong>torque density of 117 N·m/kg</strong> and delivery yield above 95 %. Its differentiating wedge is <strong>explosion-proofing</strong>: the range covers single modules and three-joint assemblies (knee, pitch, roll) meeting Ex d IIB T4 and Ex d IIC T6, with certification obtained in September 2026, peak torque up to 500 N·m and optional IP67. The stack is fully in-house — motor, drive, encoder, reducer — down to a 23-gram micro finger-joint module for fully active dexterous hands. The decisive point: <strong>at 100,000 units the acceptance bar is no longer "can you build it" but "can you build it consistently at volume"</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://new.qq.com/rain/a/20261023A055MV00">Hesai launches Kosmo, a 3D world data engine, and discloses over 10,000 power modules shipped with a six-figure target for 2027</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPONENT</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">Hesai Technology has launched <strong>Kosmo</strong>, a 3D world data engine, plus a robot motion engine, positioning both as a second growth engine after lidar: the narrative shifts from "letting machines see the world" to "letting robots understand and change it". On the hardware side the key disclosure concerns the <strong>Sharpa dexterous hand</strong>: at 22 active degrees of freedom it is one-to-one isomorphic with the human hand, features in Nvidia's Isaac GR00T humanoid reference platform and is used by Berkeley, Stanford and Nanyang Technological University — and its first flagship tactile hand <strong>Wave (W01)</strong>, the industry's first mass-produced high-DoF back-drivable dexterous hand, <strong>is built on Hesai power modules</strong>. Those modules are <strong>37 % smaller and three times more power-dense</strong> than comparable products; <strong>more than 10,000 sets</strong> had shipped by the end of Q2 2026, the range is expanding from hand modules to full-body joint modules, and 2027 output is expected to reach six figures. The news makes the hierarchy explicit: beneath hand-level differentiation, micro-actuators remain the terrain of a few suppliers.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://static.cninfo.com.cn/finalpage/2026-10-26/1225623201.PDF">Longhorn Auto wins two exclusive robot designations in vision and ultrasonic radar, with its Jetson Thor domain controller entering joint testing</a></div>
+    <div class="item-meta"><span class="tag tag-component">COMPONENT</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <div class="item-summary">In its 26 October investor-relations record, <strong>Longhorn Auto</strong> (301488.SZ) reported revenue of 1.915 billion yuan for the first nine months of 2026, up <strong>51.64 %</strong>, with net profit attributable to shareholders of 38.77 million. On robotics, the company entered in 2024 by transferring two decades of automotive-grade capability in vision perception, ultrasonic radar and domain control into robot scenarios: it <strong>already works with AGIBOT, the Zhejiang Humanoid Robot Innovation Center, Shanghai Huazhijian and Ant Lingbo</strong>, and <strong>this year added two exclusive designations, one in vision perception and one in ultrasonic radar, with deliveries expected from year-end</strong>. It is also developing <strong>robot-side data-collection equipment</strong> based on its vision work. On domain control, the roadmap spans high-, mid- and low-end chips: the <strong>Nvidia Jetson Thor-based controller is developed and in joint testing on complete robots</strong>, while mid- and low-end options have passed feasibility assessment. This is the window's most concrete disclosure of an automotive tier-one migrating into robotics: designation already awarded, delivery timing stated, and a new product category in data collection.</div>
+  </div>
+</section>
+<!-- EN 7 -->
+<section class="section">
+  <div class="section-header">
+    <div class="icon" style="background:#be123c">🌐</div>
+    <h2>7. Industry trends &amp; global news</h2>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.toutiao.com/article/7699394008593842688">Nine-month data: industrial robot output up 29.1 %, robot reducers up 44.4 %</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TREND</span><span>Compilation of public reports · 22/10/2026</span></div>
+    <div class="item-summary">The National Bureau of Statistics published nine-month figures on 19 October: GDP of 107.11 trillion yuan, up 4.6 %. Wang Xin, head of industrial statistics, said <strong>new growth drivers such as embodied AI and human-robot collaboration are powering robotics, with reducer and industrial robot output up 44.4 % and 29.1 %</strong> — far above manufacturing overall. Digital product manufacturing contributed over a third of industrial growth; integrated circuits and optical fibre rose 23.3 % and 18.6 %, while automatic regulating instruments and industrial control computers rose 30.6 % and 25.8 %. Local data corroborates: over the same period Beijing posted <strong>+170 % for service robots and +47.6 % for industrial robots</strong>. The structural signal worth keeping: <strong>reducer growth (44.4 %) runs well ahead of complete robots (29.1 %)</strong>, meaning upstream capacity and stocking are outpacing robot shipments — the chain is still preparing for volume rather than shipping it.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.tmtpost.com/nictation/8178985.html">Shanghai issues its industrial-services plan: up to 20M CNY per project for Physical AI, world models and multimodal physical perception</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TREND</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">On 23 October the Shanghai Municipal Commission of Economy and Informatization issued its <strong>2027–2028 action plan for AI-enabled industrial services</strong>. It <strong>encourages firms to move early on Physical AI, targeting breakthroughs in world-model construction, multimodal physical perception, virtual-real interaction and autonomous decision-making</strong>. It also backs industrial agents in task planning, tool use, long-term memory, interoperability and swarm coordination, and supports industrial software firms in geometry kernels and solvers. <strong>Qualifying projects can receive up to 20 million yuan each</strong>. It is the first time Physical AI has entered a local industrial policy support list through a formal document, consistent with the April 2026 five-year plan that listed embodied AI among six future industries. Practically, world models and multimodal physical perception move from "company strategy" to <strong>a fundable technology direction</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.ifnews.com/news.html?aid=879379">Global Developer Pioneer 2026 opens in Shanghai: 50 billion yuan core embodied-AI target for 2027, and a 7-day new-scenario deployment claim from Flywheel</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TREND</span><span>Compilation of public reports · 24/10/2026</span></div>
+    <div class="item-summary">Global Developer Pioneer 2026 opened in Shanghai under the motto "make robots actually take the job". On platforms, a stack combining <strong>Flywheel</strong> (embodied-model iteration), <strong>Agent</strong> (modular task orchestration) and <strong>Monitor</strong> (multi-robot fleet operations) covers collect-train-test-deploy-programme-operate end to end, with an announced <strong>seven-day</strong> path from zero to a validated new scenario. On evaluation, Mifei Technology with Hugging Face, Nvidia, Tsinghua and nearly 20 institutions is building the <strong>RoboColiseum</strong> arena, where Claude Opus 5.5 ranks first overall and GPT-6 Astra second. On deployment, Keenon Robotics embeds a world model into its VLA so humanoids can complete long coffee-making workflows without teleoperation, while Daxiao Robotics drives its robots directly with World Model 3.1: its first convenience store at a PetroChina Shanghai Marketing service station has been in trial since September, picking and packing online orders in 75 cm aisles, with the model predicting future state roughly every 100 milliseconds. According to the municipal government, Shanghai has over 200 registered large models, more than 200,000 P of intelligent compute and 330,000 AI specialists, targeting <strong>50 billion yuan of core embodied-AI industry by 2027</strong>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.tmtpost.com/8180836.html">Unitree to report its first post-IPO quarterly results on 29 October, as the industry's semantic inflation problem comes under scrutiny</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TREND</span><span>Compilation of public reports · 26/10/2026</span></div>
+    <div class="item-summary">Unitree Robotics (688836) will publish its first post-IPO quarterly report on <strong>29 October</strong> (unaudited), a key window on revenue and gross margin. First-half 2026 reference: <strong>1.152 billion yuan of revenue (+48.54 %)</strong>, 274 million net profit attributable, 244 million recurring, and an 82 million increase in R&amp;D spending. The prospectus showed that over the first nine months of 2025, <strong>more than 70 % of humanoid revenue came from education and research, with industrial and commercial use under 10 %</strong>. Two facts to record: on 24 October a video circulated of an H2-X falling sideways during a demo with its mechanical shin detaching, with no official explanation as of publication; and on 20 October the company issued a price-irregularity notice reminding investors that humanoids remain at an early commercial stage. The stock closed on 26 October at 672 yuan for a 271.8 billion market cap, up 60 % in eight sessions, with a trailing P/E above 360x. The methodological point is worth keeping: <strong>"volume production", "autonomous" and "success" each carry more than three definitions in this industry</strong>, and without a shared convention, specs and videos convey almost nothing.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://finance.sina.com.cn/jjxw/2026-10-23/doc-iniwfmnk5021729.shtml">Jiangsu issues a Physical AI and world-model dataset plan, a national embodied-AI standardisation group forms and the world-model national standard enters pre-study</a></div>
+    <div class="item-meta"><span class="tag tag-dynamics">TREND</span><span>Compilation of public reports · 23/10/2026</span></div>
+    <div class="item-summary">Standards and data infrastructure advanced together over the window: Jiangsu published its <strong>2026–2028 action plan for high-quality Physical AI and world-model datasets</strong>; a <strong>Jiangsu-Anhui city alliance for data annotation</strong> was formed; a <strong>national technical working group on embodied intelligence standardisation</strong> was established; and <strong>pre-study began on the national standard "Artificial Intelligence — World Models"</strong>. Context data: more than 40,000 humanoids shipped in China in the first half of 2026, and more than <strong>70 training grounds</strong> in operation according to CAICT. The bottleneck repeatedly cited: by early 2026 global high-quality real physical interaction data totalled roughly <strong>500,000 hours, a shortfall above 95 %</strong> against industry targets, with leading players aiming at millions of hours for 2026. The industry ministry says it is drafting new measures for intelligent manufacturing. This dovetails with section 5: <strong>standards, alliances and pre-studies arriving together move data from self-collected to measurable, tradable and auditable</strong> — decisive for cross-border data services.</div>
+  </div>
+</section>
+
+</section>
+<!-- /EN -->
+
+<footer>
+  <p>Window 22–26 October 2026 · 25 news items across the first seven sections · bilingual edition without the strategic-reading section</p>
+  <p>Sources: compilation of public reports from Nanfang+, The Paper, Tencent News, Shanghai Securities News, Phoenix Finance, Sina Finance, Nanjing Daily, Anshun Radio and Television, OFweek Robotics, CNINFO, TMTPost, International Finance News, Yangtse Evening Post and international outlets.</p>
+  <p>Industry information only; not investment advice.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var frSec = document.getElementById('fr');
+  var enSec = document.getElementById('en');
+  var frLink = document.querySelector('.langbar a[href="#fr"]');
+  var enLink = document.querySelector('.langbar a[href="#en"]');
+  if (!frSec || !enSec || !frLink || !enLink) return;
+  function setActive(lang) {
+    if (lang === 'fr') {
+      frLink.classList.add('active-fr');
+      enLink.classList.remove('active-en');
+    } else {
+      enLink.classList.add('active-en');
+      frLink.classList.remove('active-fr');
+    }
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && e.intersectionRatio > 0) {
+          setActive(e.target.id === 'fr' ? 'fr' : 'en');
+        }
+      });
+    }, { rootMargin: '-25% 0px -55% 0px' });
+    io.observe(frSec);
+    io.observe(enSec);
+  } else {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          var frTop = frSec.getBoundingClientRect().top;
+          var enTop = enSec.getBoundingClientRect().top;
+          setActive(Math.abs(frTop) <= Math.abs(enTop) ? 'fr' : 'en');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  frLink.addEventListener('click', function () { setActive('fr'); });
+  enLink.addEventListener('click', function () { setActive('en'); });
+})();
+</script>
+
+</body>
+</html>
